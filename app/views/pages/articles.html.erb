@@ -1,6 +1,10 @@
-  <% for entry in FeedEntry.all(:order => "published_at desc") %>
-    <h3><%= link_to h(entry.name), entry.url %></h3>
-    <p><%= I18n.localize(entry.published_at) %></p>
-    <%= entry.summary.html_safe %>
-    <p><%= link_to "Read at original source", entry.url %></p>
-  <% end %>
+<%= will_paginate @articles, page_links: false, previous_label: '«', next_label: '»' %>
+
+<% for entry in @articles %>
+  <h3><%= link_to h(entry.name), entry.url %></h3>
+  <p><%= entry.published_at.strftime("%A, %B #{entry.published_at.day.ordinalize}, %Y, %I:%M:%S %p %Z") %></p>
+  <p><%= entry.summary.split("\n").first.html_safe %>
+  <%= link_to "Read more", entry.url %></p><br />
+<% end %>
+
+<%= will_paginate @articles, page_links: false, previous_label: '«', next_label: '»' %>

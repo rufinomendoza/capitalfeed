@@ -16,7 +16,6 @@ h3{
   a{
     color: $musingsGold;
     text-shadow: 1px 1px 0px #000;
-    text-style: small-caps;
   }
   a:hover{
     color: white;
@@ -35,6 +34,18 @@ h3{
     margin-top: 50px;
 }
 
-.alpha {
+.alpha{
   color: $musingsBurgundy;
+}
+
+/* My pagination */
+
+.my-pagination ul {
+  margin: 20px 0;
+    a{
+    color: $musingsGold;
+    &:hover{
+    color: white;
+    }
+  }
 }

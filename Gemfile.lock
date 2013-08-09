@@ -31,6 +31,8 @@ GEM
     arel (3.0.2)
     bootstrap-sass (2.2.2.0)
       sass (~> 3.2)
+    bootstrap-will_paginate (0.0.6)
+      will_paginate
     builder (3.0.4)
     chronic (0.9.1)
     coffee-rails (3.2.2)
@@ -111,6 +113,7 @@ GEM
     whenever (0.8.4)
       activesupport (>= 2.3.4)
       chronic (>= 0.6.3)
+    will_paginate (3.0.3)
 
 PLATFORMS
   ruby
@@ -118,6 +121,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 2.2.2.0)
+  bootstrap-will_paginate (= 0.0.6)
   coffee-rails (~> 3.2.1)
   crack
   jquery-rails
@@ -128,3 +132,4 @@ DEPENDENCIES
   sqlite3
   uglifier (>= 1.0.3)
   whenever
+  will_paginate (= 3.0.3)
