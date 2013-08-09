@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130808155202) do
+ActiveRecord::Schema.define(:version => 20130809051555) do
 
   create_table "feed_entries", :force => true do |t|
     t.string   "name"
@@ -22,5 +22,8 @@ ActiveRecord::Schema.define(:version => 20130808155202) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
+
+  add_index "feed_entries", ["guid"], :name => "index_feed_entries_on_guid"
+  add_index "feed_entries", ["published_at"], :name => "index_feed_entries_on_published_at"
 
 end
