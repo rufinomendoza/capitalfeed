@@ -1,0 +1,40 @@
+$navbarBackgroundHighlight: white;
+$navbarBackground: white;
+$musingsGold: #dcc08e;
+$musingsBurgundy: #9a1d0d;
+$musingsGrey: #222222;
+
+@import 'bootstrap';
+body{
+    padding-top: 60px;
+    font-family: "Segoe UI", "Segoe UI Light", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: $musingsGrey;
+    color: white;
+}
+
+h3{
+  a{
+    color: $musingsGold;
+    text-shadow: 1px 1px 0px #000;
+    text-style: small-caps;
+  }
+  a:hover{
+    color: white;
+    text-decoration: none;
+  }
+}
+
+@import 'bootstrap-responsive';
+
+.navbar-inner{
+    @include box-shadow(none !important);
+    border: 0;
+}
+
+.footer{
+    margin-top: 50px;
+}
+
+.alpha {
+  color: $musingsBurgundy;
+}

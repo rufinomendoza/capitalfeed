@@ -1,6 +1,3 @@
-<h1>Pages#articles</h1>
-<p>Find me in app/views/pages/articles.html.erb</p>
-
   <% for entry in FeedEntry.all(:order => "published_at desc") %>
     <h3><%= link_to h(entry.name), entry.url %></h3>
     <p><%= I18n.localize(entry.published_at) %><p>
