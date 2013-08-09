@@ -8,14 +8,11 @@
   <%= tag :meta, name: "viewport", content: "width=device-width, initial-scale=1.0" %>
 </head>
 <body>
-
-
-
-<div class="container">
-  <%= render "layouts/header" %>
-  <%= yield %>
-  <%= render "layouts/footer" %>
-</div>
-
+  <div class="container">
+    <%= render "layouts/header" %>
+    <%= yield %>
+    <%= render "layouts/footer" %>
+    <%= render "layouts/analytics" %>
+  </div>
 </body>
 </html>

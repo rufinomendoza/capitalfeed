@@ -3,54 +3,62 @@ $navbarBackground: white;
 $musingsGold: #dcc08e;
 $musingsBurgundy: #9a1d0d;
 $musingsGrey: #222222;
+$musingsSkyBlue: #aacbe0;
 
 @import 'bootstrap';
 body{
-    padding-top: 60px;
-    font-family: "Segoe UI", "Segoe UI Light", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background: $musingsGrey;
-    color: white;
-}
-
-h3{
+  padding-top: 130px;
+  font-family: "Segoe UI", "Segoe UI Light", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: $musingsGrey;
+  color: white;
   a{
     color: $musingsGold;
-    text-shadow: 1px 1px 0px #000;
+    &:hover{
+      color: $musingsGold;
+      text-decoration: underline;
+    }
   }
-  a:hover{
-    color: white;
-    text-decoration: none;
-  }
+}
+
+h4{
+  color:whitesmoke;
 }
 
 @import 'bootstrap-responsive';
 
+.navbar-inverse .navbar-inner {
+  padding-top: 10px;
+  background: $musingsGrey;
+  font-size:18px;
+  text-transform:uppercase;
+  font-weight:bold;
+}
+
+.navbar-inverse .nav > li > a {
+  color: white;
+  text-shadow: rgba(0, 0, 0, 0.8) 2px 2px 2px;
+  text-transform:uppercase;
+}
+
 .navbar-inner{
-    @include box-shadow(none !important);
-    border: 0;
+  @include box-shadow(none !important);
+  border: 0;
+}
+
+.navbar-inverse .nav > li > a:focus,
+.navbar-inverse .nav > li > a:hover, {
+  color: $musingsGold;
 }
 
 .footer{
     margin-top: 50px;
 }
 
-.alpha{
-  color: $musingsBurgundy;
-}
+
 
 /* My pagination */
 
-.my-pagination ul {
-  margin: 20px 0;
-    a{
-    color: $musingsGold;
-    &:hover{
-    color: white;
-    }
-  }
-}
-
-.apple_pagination {
+.musings_pagination {
   background: $musingsGrey;
   border: none;
   text-align: center;
@@ -59,14 +67,14 @@ h3{
   -moz-border-radius: 1em;
   -webkit-border-radius: 1em;
   border-radius: 1em; }
-  .apple_pagination a, .apple_pagination span {
+  .musings_pagination a, .musings_pagination span {
     padding: 0.2em 0.3em; }
-  .apple_pagination .disabled {
+  .musings_pagination .disabled {
     color: #aaaaaa; }
-  .apple_pagination .current {
+  .musings_pagination .current {
     font-style: normal;
     font-weight: bold;
-    background-color: #bebebe;
+    color: $musingsGold;
     display: inline-block;
     width: 1.4em;
     height: 1.4em;
@@ -74,9 +82,9 @@ h3{
     -moz-border-radius: 1em;
     -webkit-border-radius: 1em;
     border-radius: 1em;
-    text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px; }
-  .apple_pagination a {
+    text-shadow: rgba(0, 0, 0, 0.8) 2px 2px 2px; }
+  .musings_pagination a {
     text-decoration: none;
     color: white; }
-    .apple_pagination a:hover, .apple_pagination a:focus {
-      text-decoration: underline; }
+    .musings_pagination a:hover, .musings_pagination a:focus {
+      color: $musingsGold; }
