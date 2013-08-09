@@ -1,10 +1,10 @@
-<%= will_paginate @articles, page_links: false, previous_label: '«', next_label: '»' %>
+<%= will_paginate @articles, class: 'apple_pagination' %>
 
 <% for entry in @articles %>
   <h3><%= link_to h(entry.name), entry.url %></h3>
   <p><%= entry.published_at.strftime("%A, %B #{entry.published_at.day.ordinalize}, %Y, %I:%M:%S %p %Z") %></p>
-  <p><%= entry.summary.split("\n").first.html_safe %>
-  <%= link_to "Read more", entry.url %></p><br />
+  <p><%= entry.summary.split("\n").first.html_safe %>…</p>
+  <p><%= link_to "Read more", entry.url %></p><br />
 <% end %>
 
-<%= will_paginate @articles, page_links: false, previous_label: '«', next_label: '»' %>
+<%= will_paginate @articles, class: 'apple_pagination' %>
