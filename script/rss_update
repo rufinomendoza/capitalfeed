@@ -1,3 +1,0 @@
-rails c
-FeedEntry.update_from_feed('http://feeds.reuters.com/reuters/businessNews?format=xml')
-exit
