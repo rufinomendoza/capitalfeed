@@ -1,19 +1,21 @@
 class FeedEntry < ActiveRecord::Base
   attr_accessible :guid, :name, :published_at, :summary, :url
 
+  require 'open-uri'
+
   def self.update_from_feed(feed_url)
     xml_content = feed_url.to_s
-    doc = Nokogiri::XML(open(xml_content))
-    feed = SimpleRSS.parse(doc)
+    
+    doc = Crack::XML.parse(open(xml_content))['rss']['channel']['item']
 
-    feed.items.each do |item|
-      unless exists? :guid => item.guid
+    doc.each do |item|
+      unless exists? :guid => item['guid']
         create!(
-          :guid => item.guid,
-          :name => item.title,
-          :summary => item.description,
-          :url => item.link,
-          :published_at => item.pubDate
+          :guid => item['guid'],
+          :name => item['title'],
+          :summary => item['description'],
+          :url => item['link'],
+          :published_at => item['pubDate']
         )
       end
     end

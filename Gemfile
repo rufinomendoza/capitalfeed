@@ -17,7 +17,7 @@ group :production do
   gem 'pg'
 end
 
-gem 'nokogiri'
+gem 'crack'
 gem 'simple-rss'
 gem 'whenever', require: false
 
