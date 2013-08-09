@@ -9,7 +9,10 @@ class PagesController < ApplicationController
     feeds = [
       'http://www.economist.com/feeds/print-sections/69/leaders.xml',
       'http://edge.org/feed',
-      'http://feeds.reuters.com/reuters/businessNews'
+      'http://capitalmusings.com/feed',
+      'http://bhorowitz.com/feed/',
+      'http://feeds.businesswire.com/BW/Automotive_News-rss',
+      'http://www.foreignpolicy.com/node/feed'
     ]
     feeds.each do |feed|
       FeedEntry.update_from_feed(feed)
