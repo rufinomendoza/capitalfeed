@@ -1,6 +1,14 @@
 desc "This task is called by the Heroku scheduler add-on"
   task :update_feed => :environment do
 
+    puts "Cleaning garbage and old stories"
+    @articles = FeedEntry.all
+    @articles.each do |article|
+      if article.category.nil? || article.published_at > 30.days.ago && article.category != "cm"
+        article.destroy
+      end
+    end
+
     top_feeds = [
       'http://www.economist.com/feeds/print-sections/69/leaders.xml',
       'http://edge.org/feed',
@@ -36,5 +44,4 @@ desc "This task is called by the Heroku scheduler add-on"
     end
 
     puts "Done."
-
 end
