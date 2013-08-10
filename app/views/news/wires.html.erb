@@ -1,2 +1,22 @@
-<h1>Wires</h1>
-<%= render "news/stories" %>
+<h1>Daily Wires</h1>
+<%= will_paginate @articles, class: 'musings_pagination' %>
+
+<table class='table table-hover'>
+  <thead>
+    <th colspan=2>Release Time</th>
+    <th>News</th>
+  </thead>
+  <tbody>
+  <% for entry in @articles %>
+    <tr>
+      <td><%= entry.published_at.strftime("%D") %></td>
+      <td><%= entry.published_at.strftime("%H%MZ") %></td>
+      <td><%= link_to entry.name, entry.url, :target => '_blank' %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+
+<%= will_paginate @articles, class: 'musings_pagination' %>

@@ -4,7 +4,7 @@ desc "This task is called by the Heroku scheduler add-on"
     puts "Cleaning garbage and old stories"
     @articles = FeedEntry.all
     @articles.each do |article|
-      if article.category.nil? || article.published_at > 30.days.ago && article.category != "cm"
+      if article.category.nil? || article.published_at > 7.days.ago && article.category != "cm"
         article.destroy
       end
     end
