@@ -20,8 +20,7 @@ desc "This task is called by the Heroku scheduler add-on"
       'http://bhorowitz.com/feed/',
       'http://www.foreignpolicy.com/node/feed',
       'http://www.ft.com/rss/lex',
-      'http://www.kforcegov.com/NightWatch/rss.ashx',
-      'http://feeds.feedburner.com/TheAtlantic?format=xml'
+      'http://www.kforcegov.com/NightWatch/rss.ashx'
     ]
 
     wire_feeds = [
@@ -36,7 +35,9 @@ desc "This task is called by the Heroku scheduler add-on"
       'http://feeds.businesswire.com/BW/Investment_Opinion_News-rss',
       'http://www.prnewswire.com/rss/news-for-investors-from-PR-Newswire-news.rss',
       'http://www.prnewswire.com/rss/auto-transportation/automotive-news.rss',
+      'http://feeds.feedburner.com/TheAtlantic?format=xml',
       'http://feeds.feedburner.com/TheAtlanticWire?format=xml',
+      'http://feeds.feedburner.com/TheAtlanticCities?format=xml',
       'http://www.economist.com/rss/britain_rss.xml',
       'http://www.economist.com/rss/europe_rss.xml',
       'http://www.economist.com/rss/united_states_rss.xml',
@@ -75,6 +76,18 @@ desc "This task is called by the Heroku scheduler add-on"
     cm_feeds.each do |feed|
       puts feed
       FeedEntry.update_from_feed(feed, 'cm')
+    end
+    puts "\n\n"
+
+    puts "Done."
+end
+
+desc "This is for cleaning the article DB"
+  task :clean_database => :environment do
+    puts "Completely cleaning database"
+    @articles = FeedEntry.all
+    @articles.each do |article|
+      article.destroy
     end
     puts "\n\n"
 
