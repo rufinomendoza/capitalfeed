@@ -1,9 +1,16 @@
 Capitalfeed::Application.routes.draw do
 
-  root :to => 'pages#articles'
+  get "news/home"
+
+  get "news/top"
+
+  get "news/wires"
+
+  root :to => 'news#home'
   get 'about' => 'pages#about'
   get 'home' => 'pages#home'
-  get 'articles' => 'pages#articles'
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,30 +1,32 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a>
-             <center><%= link_to image_tag("http://capitalmusings.com/wp-content/uploads/2011/11/logo1.png"), "http://experimental.capitalmusings.com" %></center>
-
-                <div class="nav-collapse">
-                    <ul class="nav">
-                        <li>
-                            <%= link_to 'Home',  root_path %>
-                        </li>
-                        <li>    
-                            <%= link_to 'Wire',  articles_path %>
-                        </li>
-                    </ul>
-                    <ul class="nav pull-right">
-                                <li>    
-                                  <%= link_to 'Experimental',  root_path %>
-                                </li>
-                                <li><%= link_to 'Return to main site',  'http://capitalmusings.com' %></li>
-                    </ul>
-                </div>
-        </div>
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <center><%= link_to image_tag("http://capitalmusings.com/wp-content/uploads/2011/11/logo1.png"), "http://experimental.capitalmusings.com" %></center>
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li>
+            <%= link_to 'Home',  root_path %>
+          </li>
+          <li>    
+            <%= link_to 'Top News',  news_top_path %>
+          </li>
+          <li>    
+            <%= link_to 'Wires',  news_wires_path %>
+          </li>
+        </ul>
+        <ul class="nav pull-right">
+          <li>    
+            <%= link_to 'Experimental',  about_path %>
+          </li>
+          <li><%= link_to 'Return to main site',  'http://capitalmusings.com' %></li>
+        </ul>
+      </div>
     </div>
+  </div>
 </div>
 <%= render "layouts/ad" %>
