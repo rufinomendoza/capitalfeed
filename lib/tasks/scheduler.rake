@@ -19,7 +19,15 @@ desc "This task is called by the Heroku scheduler add-on"
     ]
 
     wire_feeds = [
-      'http://feeds.businesswire.com/BW/Automotive_News-rss'
+      'http://feeds.businesswire.com/BW/Automotive_News-rss',
+      'http://feeds.businesswire.com/BW/Bankruptcy_News-rss',
+      'http://feeds.businesswire.com/BW/Bond_Issue_News-rss',
+      'http://feeds.businesswire.com/BW/Conference_Calls-rss',
+      'http://feeds.businesswire.com/BW/Earnings_News-rss',
+      'http://feeds.businesswire.com/BW/Filing_News-rss',
+      'http://feeds.businesswire.com/BW/Hedge_Fund_News-rss',
+      'http://feeds.businesswire.com/BW/IPO_News-rss',
+      'http://feeds.businesswire.com/BW/Investment_Opinion_News-rss'
     ]
 
     cm_feeds = [
