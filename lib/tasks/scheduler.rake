@@ -26,8 +26,10 @@ desc "This task is called by the Heroku scheduler add-on"
       'http://feeds.businesswire.com/BW/Earnings_News-rss',
       'http://feeds.businesswire.com/BW/Filing_News-rss',
       'http://feeds.businesswire.com/BW/Hedge_Fund_News-rss',
-      'http://feeds.businesswire.com/BW/IPO_News-rss',
-      'http://feeds.businesswire.com/BW/Investment_Opinion_News-rss'
+      # 'http://feeds.businesswire.com/BW/IPO_News-rss',
+      'http://feeds.businesswire.com/BW/Investment_Opinion_News-rss',
+      'http://www.prnewswire.com/rss/news-for-investors-from-PR-Newswire-news.rss',
+      'http://www.prnewswire.com/rss/auto-transportation/automotive-news.rss'
     ]
 
     cm_feeds = [
@@ -36,20 +38,26 @@ desc "This task is called by the Heroku scheduler add-on"
 
     puts "Updating feeds for top stories"
     top_feeds.each do |feed|
+      puts feed
       FeedEntry.update_from_feed(feed, 'top')
     end
+    puts ''
 
     puts "Updating feeds from wires"
     wire_feeds.each do |feed|
+      puts feed
       FeedEntry.update_from_feed(feed, 'wire')
     end
+    puts ''
 
     puts "Updating feeds from Capital Musings"
     @cm_articles = FeedEntry.where("category = ?", "cm")
     @cm_articles.each { |article| article.destroy }
     cm_feeds.each do |feed|
+      puts feed
       FeedEntry.update_from_feed(feed, 'cm')
     end
+    puts ''
 
     puts "Done."
 end

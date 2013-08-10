@@ -4,23 +4,33 @@ class FeedEntry < ActiveRecord::Base
   require 'open-uri'
 
   def self.update_from_feed(feed_url, category = 'uncategorized')
-    xml_content = feed_url.to_s
-    
-    doc = Crack::XML.parse(open(xml_content))['rss']['channel']['item']
-
-    doc.each do |item|
-      unless exists? :guid => item['guid']
-        create!(
-          :guid => item['guid'],
-          :name => item['title'],
-          :summary => item['description'],
-          :url => item['link'],
-          :published_at => item['pubDate'],
-          :content => item['content:encoded'],
-          :category => category.downcase
-        )
+    doc = retrieve(feed_url)
+    if doc
+      doc.each do |item|
+        if item
+          unless exists? :guid => item['guid']
+            if
+              create!(
+                :guid => item['guid'],
+                :name => item['title'],
+                :summary => item['description'],
+                :url => item['link'],
+                :published_at => item['pubDate'],
+                :content => item['content:encoded'],
+                :category => category.downcase
+              )
+            end
+          end
+        end
       end
     end
+  end
+
+  private
+
+  def self.retrieve(feed_url)
+    xml_content = feed_url.to_s
+    doc = Crack::XML.parse(open(xml_content))['rss']['channel']['item']
   end
 
 end
