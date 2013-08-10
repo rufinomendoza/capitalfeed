@@ -12,11 +12,16 @@ desc "This task is called by the Heroku scheduler add-on"
 
     top_feeds = [
       'http://www.economist.com/feeds/print-sections/69/leaders.xml',
+      'http://www.economist.com/rss/special_reports_rss.xml',
+      'http://www.economist.com/rss/briefings_rss.xml',
+      'http://www.economist.com/rss/science_and_technology_rss.xml',
+      'http://www.economist.com/rss/books_and_arts_rss.xml',
       'http://edge.org/feed',
       'http://bhorowitz.com/feed/',
       'http://www.foreignpolicy.com/node/feed',
       'http://www.ft.com/rss/lex',
-      'http://www.kforcegov.com/NightWatch/rss.ashx'
+      'http://www.kforcegov.com/NightWatch/rss.ashx',
+      'http://feeds.feedburner.com/TheAtlantic?format=xml'
     ]
 
     wire_feeds = [
@@ -30,7 +35,20 @@ desc "This task is called by the Heroku scheduler add-on"
       'http://feeds.businesswire.com/BW/IPO_News-rss',
       'http://feeds.businesswire.com/BW/Investment_Opinion_News-rss',
       'http://www.prnewswire.com/rss/news-for-investors-from-PR-Newswire-news.rss',
-      'http://www.prnewswire.com/rss/auto-transportation/automotive-news.rss'
+      'http://www.prnewswire.com/rss/auto-transportation/automotive-news.rss',
+      'http://feeds.feedburner.com/TheAtlanticWire?format=xml',
+      'http://www.economist.com/rss/britain_rss.xml',
+      'http://www.economist.com/rss/europe_rss.xml',
+      'http://www.economist.com/rss/united_states_rss.xml',
+      'http://www.economist.com/rss/the_americas_rss.xml',
+      'http://www.economist.com/rss/middle_east_and_africa_rss.xml',
+      'http://www.economist.com/rss/asia_rss.xml',
+      'http://www.economist.com/rss/china_rss.xml',
+      'http://www.economist.com/rss/international_rss.xml',
+      'http://www.economist.com/rss/business_rss.xml',
+      'http://www.economist.com/rss/finance_and_economics_rss.xml',
+      'http://www.economist.com/rss/obituary_rss.xml',
+      'http://www.economist.com/rss/indicators_rss.xml'
     ]
 
     cm_feeds = [
@@ -48,7 +66,6 @@ desc "This task is called by the Heroku scheduler add-on"
     wire_feeds.each do |feed|
       puts feed
       FeedEntry.update_from_feed(feed, 'wire')
-      puts ''
     end
     puts "\n\n"
 
