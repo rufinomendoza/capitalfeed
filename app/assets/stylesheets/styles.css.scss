@@ -4,32 +4,55 @@ $musingsGold: #dcc08e;
 $musingsBurgundy: #9a1d0d;
 $musingsGrey: #222222;
 $musingsSkyBlue: #aacbe0;
+$serif: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
+$sansSerif: "Segoe UI", "Segoe UI Light", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 @import 'bootstrap';
+@import 'bootstrap-responsive';
+
+/* General */
+
 body{
-  padding-top: 150px;
-  font-family: "Segoe UI", "Segoe UI Light", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background: $musingsGrey;
+  padding-top: 200px;
+  font-family: $sansSerif;
+  font-size: 18px;
   color: white;
+  background: $musingsGrey;
+  line-height:145%;
   a{
     color: $musingsGold;
     &:hover{
       color: $musingsGold;
-      text-decoration: underline;
+      text-decoration:underline;
     }
   }
+}
+
+h3{
+  font-size:25px;
 }
 
 h4{
   color:whitesmoke;
 }
 
-@import 'bootstrap-responsive';
+h6{
+  font-size:20px;
+}
+
+.table td {
+  border: none;
+}
+
+
+/* Navigation */
 
 .navbar-inverse .navbar-inner {
-  padding-top: 10px;
+  padding-top: 15px;
+  padding-bottom: 10px;
   background: $musingsGrey;
-  font-size:18px;
+  font-family: $sansSerif;
+  font-size:24px;
   text-transform:uppercase;
   font-weight:bold;
 }
@@ -40,32 +63,18 @@ h4{
   text-transform:uppercase;
 }
 
-.navbar-inner{
-  @include box-shadow(none !important);
-  border: 0;
-}
 
 .navbar-inverse .nav > li > a:focus,
 .navbar-inverse .nav > li > a:hover, {
   color: $musingsGold;
 }
 
-
-.table td {
-  border: none;
-}
-
-.footer{
-    margin-top: 50px;
-}
-
-
-
 /* My pagination */
 
 .musings_pagination {
   background: $musingsGrey;
   border: none;
+  font-family: $sansSerif;
   text-align: center;
   padding: 1em;
   cursor: default;
@@ -93,3 +102,22 @@ h4{
     color: white; }
     .musings_pagination a:hover, .musings_pagination a:focus {
       color: $musingsGold; }
+
+
+
+/* Footer */
+
+.footer{
+  margin-top: 50px;
+}
+
+
+.footer { background: #2c2c2c url(images/footer-leftbg.png) repeat-y; }
+  .footer-wrapper { background: url(images/footer-rightbg.png) repeat-y top right; padding: 20px 7% 0px; }
+  #footer .widget { width: 285px; margin: 0px 0px 45px; float: left; color: #d1d1d1; text-shadow: 1px 1px 1px #000; }
+    #footer h3.title {color:#dcc08e; font-size: 30px; text-transform: uppercase; margin: 30px 0px 5px 0px; }
+  #footer .widget ul li { margin-bottom: 11px; }
+    #footer .widget ul a { color:#d1d1d1; text-decoration: none; background: url(images/footer-bullet.png) no-repeat 0 2px; padding-left:20px; }
+    #footer .widget ul a:hover { background: url(images/footer-bullet.png) no-repeat bottom left; color:#fff; }
+  p#copyright { text-align: right; padding-bottom: 40px; color:#686868; text-shadow: 1px 1px 1px #000; font-size: 12px; }
+    p#copyright a { color:#8c8c8c; font-weight: bold; }
