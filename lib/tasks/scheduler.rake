@@ -4,8 +4,15 @@ desc "This task is called by the Heroku scheduler add-on"
     puts "Cleaning garbage and old stories"
     @articles = FeedEntry.all
     @articles.each do |article|
-      if article.category.nil? || article.published_at > 7.days.ago && article.category != "cm"
-        article.destroy
+      puts article.published_at
+      puts "\n"
+      if article.category.nil?
+          article.destroy
+      end
+      unless article.nil?
+        if article.category != "cm" && article.published_at > 7.days.ago
+          article.destroy
+        end
       end
     end
     puts "\n\n"
@@ -33,7 +40,7 @@ desc "This task is called by the Heroku scheduler add-on"
       'http://feeds.businesswire.com/BW/Hedge_Fund_News-rss',
       'http://feeds.businesswire.com/BW/IPO_News-rss',
       'http://feeds.businesswire.com/BW/Investment_Opinion_News-rss',
-      'http://www.prnewswire.com/rss/news-for-investors-from-PR-Newswire-news.rss',
+      # 'http://www.prnewswire.com/rss/news-for-investors-from-PR-Newswire-news.rss',
       'http://www.prnewswire.com/rss/auto-transportation/automotive-news.rss',
       'http://feeds.feedburner.com/TheAtlantic?format=xml',
       'http://feeds.feedburner.com/TheAtlanticWire?format=xml',
