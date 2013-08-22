@@ -9,7 +9,7 @@ desc "This task is called by the Heroku scheduler add-on"
       if article.category.nil?
           article.destroy
       end
-      unless article.nil?
+      unless article.published_at.nil?
         if article.category != "cm" && article.published_at > 7.days.ago
           article.destroy
         end
