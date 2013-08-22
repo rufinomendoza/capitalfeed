@@ -1,2 +1,44 @@
-<%= render "layouts/top-nav" %>
-<%= render "layouts/ad" %>
+<div class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <center>
+        <%= link_to image_tag("http://capitalmusings.com/wp-content/uploads/2011/11/logo1.png"), "http://experimental.capitalmusings.com" %>
+      </center><!-- Put brand here for now -->
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <div class="nav-collapse collapse navbar-inverse-collapse">
+        <ul class="nav">
+          <li><%= link_to 'Musings',  root_path %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">News <b class="caret"></b></a>
+            <ul class="dropdown-menu">  
+              <li><%= link_to 'Top',  news_top_path %></li>
+              <li><%= link_to 'Wires',  news_wires_path %></li>
+            </ul>
+          </li>
+        </ul>
+        <!-- <form class="navbar-search pull-left" action="">
+          <input type="text" class="search-query span2" placeholder="Search">
+        </form> -->
+        <ul class="nav pull-right">
+          <li>    
+            <%= link_to 'About',  about_path %>
+          </li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sites <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li>    
+                <%= link_to 'Experimental',  root_path %>
+              </li>
+              <li><%= link_to 'Main Site',  'http://capitalmusings.com' %></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.nav-collapse -->
+    </div>
+  </div><!-- /navbar-inner -->
+</div><!-- /navbar -->
