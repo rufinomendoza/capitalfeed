@@ -78,8 +78,8 @@ desc "This task is called by the Heroku scheduler add-on"
     puts "\n\n"
 
     puts "Updating feeds from Capital Musings"
-    @cm_articles = FeedEntry.where("category = ?", "cm")
-    @cm_articles.each { |article| article.destroy }
+    # @cm_articles = FeedEntry.where("category = ?", "cm")
+    # @cm_articles.each { |article| article.destroy }
     cm_feeds.each do |feed|
       puts feed
       FeedEntry.update_from_feed(feed, 'cm')
