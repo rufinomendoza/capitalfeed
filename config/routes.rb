@@ -1,6 +1,6 @@
 Capitalfeed::Application.routes.draw do
 
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   get "news/home"
 
@@ -11,8 +11,6 @@ Capitalfeed::Application.routes.draw do
   root :to => 'news#home'
   get 'about' => 'pages#about'
   get 'home' => 'pages#home'
-
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
