@@ -1,5 +1,7 @@
 Capitalfeed::Application.routes.draw do
 
+  devise_for :users
+
   get "news/home"
 
   get "news/top"

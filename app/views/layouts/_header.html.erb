@@ -37,6 +37,14 @@
               <li><%= link_to 'Main Site',  'http://capitalmusings.com' %></li>
             </ul>
           </li>
+          <li class="divider-vertical"></li>
+          <!-- Login and Logout -->
+            <% if user_signed_in? %>
+              <li><%= link_to "Profile", edit_user_registration_path %></li>
+              <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+            <% else %>
+            <li><%= link_to "Login", new_user_session_path %></li>
+            <% end %><!-- /Login and Logout -->
         </ul>
       </div><!-- /.nav-collapse -->
     </div>
