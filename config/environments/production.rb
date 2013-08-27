@@ -72,7 +72,7 @@ Capitalfeed::Application.configure do
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
-    :domain               => 'experimental.capitalmusings.com',
+    :domain               => 'capitalmusings.com',
     :user_name            => ENV['MAIL_ADDRESS'],
     :password             => ENV['MAIL_KEY'],
     :authentication       => 'plain',

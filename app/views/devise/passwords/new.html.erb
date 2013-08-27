@@ -1,0 +1,16 @@
+<h2>Forgot your password?</h2>
+
+<%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), html: { class: 'form-horizontal'}) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :email %>
+
+  <div class="form-actions">
+    <%= f.submit "Send me reset password instructions", class: "btn" %>
+  </div>
+  <div class="form-actions">
+    <%= link_to "Sign in", new_user_session_path, class: "btn" %>
+    <%= link_to "Sign up", new_user_registration_path, class: "btn" %>
+    <%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2), class: "btn" %>
+  </div>
+<% end %>
