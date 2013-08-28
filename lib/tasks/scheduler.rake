@@ -100,3 +100,11 @@ desc "This is for cleaning the article DB"
 
     puts "Done."
 end
+
+desc "Mail article briefing"
+  task :mail_news => :environment do
+    @users = User.all
+    @users.each do |user|
+      UserMailer.mail_news(user).deliver
+    end
+end

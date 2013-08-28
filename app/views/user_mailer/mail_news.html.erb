@@ -1,0 +1,84 @@
+<p>This message is for <%= @user.email %>. Forwarded by a friend? You can <a href="http://experimental.capitalmusings.com/users/sign_up" target="_blank">sign up here</a>.</p>
+
+<hr>
+
+<!-- Top News -->
+<h1>Top News</h1>
+<!-- There are articles -->
+<% if @top_articles %>
+  <!-- One Article -->
+  <% if @top_articles.class == FeedEntry %>
+      <% unless @top_articles.published_at.nil? %>
+        <h3><%= @top_articles.name %></h3>
+        <p><%= @top_articles.published_at.strftime("%A, %B #{@top_articles.published_at.day.ordinalize}, %Y, %I:%M:%S %p %Z") %></p>
+          <p><%= sanitize @top_articles.summary %></p>
+          <p><%= link_to "Read more »", @top_articles.url, :target => '_blank' %></p>
+        <br />
+      <% end %><!-- /One Article -->
+  <!-- Multiple Articles -->
+  <% else %>
+    <% for top_entry in @top_articles %>
+      <% unless top_entry.published_at.nil? %>
+        <h3><%= top_entry.name %></h3>
+        <p><%= top_entry.published_at.strftime("%A, %B #{top_entry.published_at.day.ordinalize}, %Y, %I:%M:%S %p %Z") %></p>
+          <p><%= sanitize top_entry.summary %></p>
+          <p><%= link_to "Read more »", top_entry.url, :target => '_blank' %></p>
+        <br />
+      <% end %>
+    <% end %><!-- /Multiple Articles -->
+  <% end %><!-- /There are articles -->
+<!-- No Articles -->
+<% else %>
+  <p>There is no top news today. Enjoy!</p><!-- /No Articles -->
+<% end %>
+<!-- /Top News -->
+
+<hr>
+
+<!-- Wire News -->
+<h1>Wires</h1>
+<!-- There are articles -->
+<% if @wire_articles %>
+  <!-- One Article -->
+  <% if @wire_articles.class == FeedEntry %>
+    <table class='table'>
+      <thead>
+        <th colspan=2>Release Time</th>
+        <th>News</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= @wire_articles.published_at.strftime("%D") %></td>
+          <td><%= @wire_articles.published_at.strftime("%H%MZ") %></td>
+          <td><%= link_to @wire_articles.name, @wire_articles.url, :target => '_blank' %></td>
+        </tr>
+      </tbody>
+    </table><!-- /One Article -->
+  <!-- Multiple Articles -->
+  <% else %>
+    <table class='table'>
+      <thead>
+        <th colspan=2>Release Time</th>
+        <th>News</th>
+      </thead>
+      <tbody>
+      <% for wire_entry in @wire_articles %>
+        <tr>
+          <td><%= wire_entry.published_at.strftime("%D") %></td>
+          <td><%= wire_entry.published_at.strftime("%H%MZ") %></td>
+          <td><%= link_to wire_entry.name, wire_entry.url, :target => '_blank' %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table><!-- /Multiple Articles -->
+  <% end %><!-- /There are articles -->
+<!-- No Articles -->
+<% else %>
+  <p>There is no wire news today. Enjoy!</p><!-- /No Articles -->
+<% end %>
+
+<!-- /Wire News -->
+
+<hr>
+
+<p>Automagically generated at <%= Time.current %>. If you wish to unsubscribe, click <a href="http://experimental.capitalmusings.com/users/edit" target="_blank">here</a>.</p>
