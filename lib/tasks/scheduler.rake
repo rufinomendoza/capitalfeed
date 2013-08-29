@@ -2,10 +2,8 @@ desc "This task is called by the Heroku scheduler add-on"
   task :update_feed => :environment do
 
     puts "Cleaning garbage and old stories"
-    @articles = FeedEntry.all
+    @articles = Article.all
     @articles.each do |article|
-      puts article.published_at
-      puts "\n"
       if article.category.nil?
           article.destroy
       end
@@ -66,23 +64,23 @@ desc "This task is called by the Heroku scheduler add-on"
     puts "Updating feeds for top stories"
     top_feeds.each do |feed|
       puts feed
-      FeedEntry.update_from_feed(feed, 'top')
+      Article.update_from_feed(feed, 'top')
     end
     puts "\n\n"
 
     puts "Updating feeds from wires"
     wire_feeds.each do |feed|
       puts feed
-      FeedEntry.update_from_feed(feed, 'wire')
+      Article.update_from_feed(feed, 'wire')
     end
     puts "\n\n"
 
     puts "Updating feeds from Capital Musings"
-    # @cm_articles = FeedEntry.where("category = ?", "cm")
+    # @cm_articles = Article.where("category = ?", "cm")
     # @cm_articles.each { |article| article.destroy }
     cm_feeds.each do |feed|
       puts feed
-      FeedEntry.update_from_feed(feed, 'cm')
+      Article.update_from_feed(feed, 'cm')
     end
     puts "\n\n"
 
@@ -92,7 +90,7 @@ end
 desc "This is for cleaning the article DB"
   task :clean_database => :environment do
     puts "Completely cleaning database"
-    @articles = FeedEntry.all
+    @articles = Article.all
     @articles.each do |article|
       article.destroy
     end

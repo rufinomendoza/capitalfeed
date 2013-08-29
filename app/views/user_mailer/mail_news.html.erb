@@ -7,7 +7,7 @@
 <!-- There are articles -->
 <% if @top_articles %>
   <!-- One Article -->
-  <% if @top_articles.class == FeedEntry %>
+  <% if @top_articles.class == Article %>
       <% unless @top_articles.published_at.nil? %>
         <h3><%= @top_articles.name %></h3>
         <p><%= @top_articles.published_at.strftime("%A, %B #{@top_articles.published_at.day.ordinalize}, %Y, %I:%M:%S %p %Z") %></p>
@@ -40,7 +40,7 @@
 <!-- There are articles -->
 <% if @wire_articles %>
   <!-- One Article -->
-  <% if @wire_articles.class == FeedEntry %>
+  <% if @wire_articles.class == Article %>
     <table class='table'>
       <thead>
         <th colspan=2>Release Time</th>

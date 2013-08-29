@@ -1,4 +1,4 @@
-class FeedEntry < ActiveRecord::Base
+class Article < ActiveRecord::Base
   attr_accessible :guid, :name, :published_at, :summary, :url, :category, :content
 
   require 'open-uri'

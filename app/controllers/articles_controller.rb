@@ -1,9 +1,9 @@
-class NewsController < ApplicationController
+class ArticlesController < ApplicationController
 
   # Categories are stored in downcase in the database
 
   def home
-    @articles = FeedEntry.where("category = ?", "cm").order("published_at desc").page(params[:page]).per_page(10)
+    @articles = Article.where("category = ?", "cm").order("published_at desc").page(params[:page]).per_page(10)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +13,7 @@ class NewsController < ApplicationController
   end
 
   def top
-    @articles = FeedEntry.where(:category => ["top", "cm"]).order("published_at desc").page(params[:page]).per_page(10)
+    @articles = Article.where(:category => ["top", "cm"]).order("published_at desc").page(params[:page]).per_page(10)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -23,7 +23,7 @@ class NewsController < ApplicationController
   end
 
   def wires
-    @articles = FeedEntry.where("category = ?", "wire").order("published_at desc").page(params[:page]).per_page(25)
+    @articles = Article.where("category = ?", "wire").order("published_at desc").page(params[:page]).per_page(25)
 
     respond_to do |format|
       format.html # index.html.erb

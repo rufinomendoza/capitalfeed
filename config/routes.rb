@@ -2,13 +2,14 @@ Capitalfeed::Application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-  get "news/home"
 
-  get "news/top"
 
-  get "news/wires"
+  get "articles/home"
 
-  root :to => 'news#home'
+  get 'top_news' => 'articles#top'
+  get 'wires' => 'articles#wires'
+
+  root :to => 'articles#home'
   get 'about' => 'pages#about'
   get 'home' => 'pages#home'
 

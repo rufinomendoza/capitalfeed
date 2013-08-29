@@ -11,9 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130827214228) do
+ActiveRecord::Schema.define(:version => 20130829021521) do
 
-  create_table "feed_entries", :force => true do |t|
+  create_table "articles", :force => true do |t|
     t.string   "name"
     t.text     "summary"
     t.string   "url"
@@ -25,8 +25,24 @@ ActiveRecord::Schema.define(:version => 20130827214228) do
     t.text     "content"
   end
 
-  add_index "feed_entries", ["guid"], :name => "index_feed_entries_on_guid"
-  add_index "feed_entries", ["published_at"], :name => "index_feed_entries_on_published_at"
+  add_index "articles", ["guid"], :name => "index_feed_entries_on_guid"
+  add_index "articles", ["published_at"], :name => "index_feed_entries_on_published_at"
+
+  create_table "taggings", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "feed_entry_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "taggings", ["feed_entry_id"], :name => "index_taggings_on_feed_entry_id"
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
