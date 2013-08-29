@@ -3,7 +3,11 @@
 <hr>
 
 <!-- Top News -->
-<h1>Top News</h1>
+<h1>
+  <a href="http://experimental.capitalmusings.com/top_news" target="_blank">
+    Top News
+  </a>
+  </h1>
 <!-- There are articles -->
 <% if @top_articles %>
   <!-- One Article -->
@@ -31,25 +35,26 @@
 <% else %>
   <p>There is no top news today. Enjoy!</p><!-- /No Articles -->
 <% end %>
+<p><b>For the latest top news coming from the wires, go to <a href="http://experimental.capitalmusings.com/top_news" target="_blank">our site</a>.</b></p>
 <!-- /Top News -->
 
 <hr>
 
 <!-- Wire News -->
-<h1>Wires</h1>
+<h1>
+  <a href="http://experimental.capitalmusings.com/wires" target="_blank">
+    Wires
+  </a>
+</h1>
 <!-- There are articles -->
 <% if @wire_articles %>
+<h3>Recent News</h3>
   <!-- One Article -->
   <% if @wire_articles.class == Article %>
     <table class='table'>
-      <thead>
-        <th colspan=2>Release Time</th>
-        <th>News</th>
-      </thead>
       <tbody>
         <tr>
-          <td><%= @wire_articles.published_at.strftime("%D") %></td>
-          <td><%= @wire_articles.published_at.strftime("%H%MZ") %></td>
+          <td><%= @wire_articles.published_at.strftime("%D %H%MZ") %></td>
           <td><%= link_to @wire_articles.name, @wire_articles.url, :target => '_blank' %></td>
         </tr>
       </tbody>
@@ -57,15 +62,10 @@
   <!-- Multiple Articles -->
   <% else %>
     <table class='table'>
-      <thead>
-        <th colspan=2>Release Time</th>
-        <th>News</th>
-      </thead>
       <tbody>
       <% for wire_entry in @wire_articles %>
         <tr>
-          <td><%= wire_entry.published_at.strftime("%D") %></td>
-          <td><%= wire_entry.published_at.strftime("%H%MZ") %></td>
+          <td><%= wire_entry.published_at.strftime("%d-%m %H%MZ") %></td>
           <td><%= link_to wire_entry.name, wire_entry.url, :target => '_blank' %></td>
         </tr>
       <% end %>
@@ -76,7 +76,7 @@
 <% else %>
   <p>There is no wire news today. Enjoy!</p><!-- /No Articles -->
 <% end %>
-
+<p><b>For the latest news coming from the wires, go to <a href="http://experimental.capitalmusings.com/wires" target="_blank">our site</a>.</b></p>
 <!-- /Wire News -->
 
 <hr>
