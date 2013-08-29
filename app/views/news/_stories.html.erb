@@ -5,7 +5,7 @@
     <h3><%= entry.name %></h3>
     <p><%= entry.published_at.strftime("%A, %B #{entry.published_at.day.ordinalize}, %Y, %I:%M:%S %p %Z") %></p>
     <% if current_page?(root_path) || current_page?(controller: 'news', action: 'home') && entry.content && entry.category = "cm" %>
-      <p><%= entry.content.html_safe %></p>
+      <p><%= sanitize entry.content %></p>
     <% else %>
       <p><%= sanitize entry.summary %></p>
       <p><%= link_to "Read more »", entry.url, :target => '_blank' %></p>
