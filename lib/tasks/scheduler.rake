@@ -47,7 +47,7 @@ desc "This task is called by the Heroku scheduler add-on"
       'http://www.prnewswire.com/rss/auto-transportation/automotive-news.rss',
       'http://feeds.feedburner.com/TheAtlantic?format=xml',
       'http://feeds.feedburner.com/TheAtlanticWire?format=xml',
-      'http://feeds.feedburner.com/TheAtlanticCities?format=xml'
+      'http://feeds.feedburner.com/TheAtlanticCities?format=xml',
       'http://www.economist.com/rss/britain_rss.xml',
       'http://www.economist.com/rss/europe_rss.xml',
       'http://www.economist.com/rss/united_states_rss.xml',
