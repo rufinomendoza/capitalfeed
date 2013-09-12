@@ -1,3 +1,4 @@
+<%= render "layouts/ad" %>
 
 <% for entry in @articles %>
   <% unless entry.published_at.nil? %>
@@ -10,3 +11,5 @@
     <br />
   <% end %>
 <% end %>
+
+<%= render "layouts/ad" %>
