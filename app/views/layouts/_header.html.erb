@@ -15,9 +15,16 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">News <b class="caret"></b></a>
             <ul class="dropdown-menu">  
+              <li class="nav-header">By Urgency</li>
+              <li><% link_to "All", articles_path %></li><!-- Commented Out -->
               <li><%= link_to 'Top',  top_news_path %></li>
               <li><%= link_to 'Wires',  wires_path %></li>
-            </ul>
+              <li class="divider"></li>
+              <li class="nav-header">By Vertical</li>
+              <% tag_cloud Article.tag_counts do |tag| %>
+                <li><%= link_to tag.name, tag_path(tag.name) %></li>
+              <% end %>
+            </ul><!-- /Dropdown Menu -->
           </li>
         </ul>
         <!-- <form class="navbar-search pull-left" action="">

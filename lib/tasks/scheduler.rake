@@ -19,13 +19,7 @@ desc "This task is called by the Heroku scheduler add-on"
       'http://www.economist.com/feeds/print-sections/69/leaders.xml',
       'http://www.economist.com/rss/special_reports_rss.xml',
       'http://www.economist.com/rss/briefings_rss.xml',
-      'http://www.economist.com/rss/science_and_technology_rss.xml',
-      'http://www.economist.com/rss/books_and_arts_rss.xml',
-      'http://edge.org/feed',
-      'http://bhorowitz.com/feed/',
-      'http://www.foreignpolicy.com/node/feed',
-      'http://www.ft.com/rss/lex',
-      'http://www.kforcegov.com/NightWatch/rss.ashx'
+      'http://www.economist.com/rss/books_and_arts_rss.xml',      
     ]
 
     wire_feeds = [
@@ -50,16 +44,12 @@ desc "This task is called by the Heroku scheduler add-on"
       'http://www.economist.com/rss/middle_east_and_africa_rss.xml',
       'http://www.economist.com/rss/asia_rss.xml',
       'http://www.economist.com/rss/china_rss.xml',
-      'http://www.economist.com/rss/international_rss.xml',
       'http://www.economist.com/rss/business_rss.xml',
-      'http://www.economist.com/rss/finance_and_economics_rss.xml',
       'http://www.economist.com/rss/obituary_rss.xml',
       'http://www.economist.com/rss/indicators_rss.xml'
     ]
 
-    cm_feeds = [
-      'http://capitalmusings.com/feed'
-    ]
+
 
     puts "Updating feeds for top stories"
     top_feeds.each do |feed|
@@ -75,6 +65,11 @@ desc "This task is called by the Heroku scheduler add-on"
     end
     puts "\n\n"
 
+
+    cm_feeds = [
+      'http://capitalmusings.com/feed'
+    ]
+
     puts "Updating feeds from Capital Musings"
     # @cm_articles = Article.where("category = ?", "cm")
     # @cm_articles.each { |article| article.destroy }
@@ -84,18 +79,51 @@ desc "This task is called by the Heroku scheduler add-on"
     end
     puts "\n\n"
 
+    # TOP NEWS
+    # Foreign Policy Tag Test
+    puts "Top FP"
+    top_foreign_policy = [
+      'http://www.kforcegov.com/NightWatch/rss.ashx',
+      'http://www.foreignpolicy.com/node/feed',
+      'http://www.economist.com/rss/international_rss.xml'
+    ]
+    top_foreign_policy.each do |feed|
+      Article.update_from_feed(feed, 'top', 'Politics')
+    end
+
+    # Tech
+    puts "Top Tech"
+    top_tech = [
+      'http://bhorowitz.com/feed/',
+      'http://www.economist.com/rss/science_and_technology_rss.xml',
+      'http://edge.org/feed'
+    ]
+    top_tech.each do |feed|
+      Article.update_from_feed(feed, 'top', 'Technology')
+    end
+
+    # Business
+    puts "Top Business"
+    top_business = [
+      'http://www.economist.com/rss/finance_and_economics_rss.xml',
+      'http://www.ft.com/rss/lex'
+    ]
+    top_business.each do |feed|
+      Article.update_from_feed(feed, 'top', 'Business')
+    end
+
     puts "Done."
+
+
 end
 
 desc "This is for cleaning the article DB"
   task :clean_database => :environment do
     puts "Completely cleaning database"
-    @articles = Article.all
-    @articles.each do |article|
-      article.destroy
-    end
+    @articles = Article.all { |article| article.destroy }
+    @tags = Tag.all { |tag| tag.destroy }
+    @taggings = Tagging.all { |tagging| tagging.destroy  }
     puts "\n\n"
-
     puts "Done."
 end
 
