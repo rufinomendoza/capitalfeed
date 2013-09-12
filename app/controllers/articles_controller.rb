@@ -33,9 +33,9 @@ class ArticlesController < ApplicationController
 
   def index
     if params[:tag]
-      @articles = Article.tagged_with(params[:tag]).order("published_at desc").page(params[:page]).per_page(10)
+      @articles = Article.tagged_with(params[:tag])
     else
-      @articles = Article.all.order("published_at desc").page(params[:page]).per_page(10)
+      @articles = Article.all
     end
     respond_to do |format|
       format.html # index.html.erb

@@ -37,16 +37,16 @@ desc "This task is called by the Heroku scheduler add-on"
       'http://feeds.feedburner.com/TheAtlantic?format=xml',
       'http://feeds.feedburner.com/TheAtlanticWire?format=xml',
       'http://feeds.feedburner.com/TheAtlanticCities?format=xml'
-      # 'http://www.economist.com/rss/britain_rss.xml',
-      # 'http://www.economist.com/rss/europe_rss.xml',
-      # 'http://www.economist.com/rss/united_states_rss.xml',
-      # 'http://www.economist.com/rss/the_americas_rss.xml',
-      # 'http://www.economist.com/rss/middle_east_and_africa_rss.xml',
-      # 'http://www.economist.com/rss/asia_rss.xml',
-      # 'http://www.economist.com/rss/china_rss.xml',
-      # 'http://www.economist.com/rss/business_rss.xml',
-      # 'http://www.economist.com/rss/obituary_rss.xml',
-      # 'http://www.economist.com/rss/indicators_rss.xml'
+      'http://www.economist.com/rss/britain_rss.xml',
+      'http://www.economist.com/rss/europe_rss.xml',
+      'http://www.economist.com/rss/united_states_rss.xml',
+      'http://www.economist.com/rss/the_americas_rss.xml',
+      'http://www.economist.com/rss/middle_east_and_africa_rss.xml',
+      'http://www.economist.com/rss/asia_rss.xml',
+      'http://www.economist.com/rss/china_rss.xml',
+      'http://www.economist.com/rss/business_rss.xml',
+      'http://www.economist.com/rss/obituary_rss.xml',
+      'http://www.economist.com/rss/indicators_rss.xml'
     ]
 
 
@@ -84,10 +84,12 @@ desc "This task is called by the Heroku scheduler add-on"
     puts "Top FP"
     top_foreign_policy = [
       'http://www.kforcegov.com/NightWatch/rss.ashx',
-      'http://www.foreignpolicy.com/node/feed'
-      # 'http://www.economist.com/rss/international_rss.xml'
+      'http://www.foreignpolicy.com/node/feed',
+      'http://www.economist.com/rss/international_rss.xml', 
+      'http://www.foreignaffairs.com/rss.xml'
     ]
     top_foreign_policy.each do |feed|
+      puts feed
       Article.update_from_feed(feed, 'top', 'Politics')
     end
 
@@ -95,26 +97,31 @@ desc "This task is called by the Heroku scheduler add-on"
     puts "Top Tech"
     top_tech = [
       'http://bhorowitz.com/feed/',
-      # 'http://www.economist.com/rss/science_and_technology_rss.xml',
-      'http://edge.org/feed'
+      'http://www.economist.com/rss/science_and_technology_rss.xml',
+      'http://edge.org/feed',
+      'http://feeds.wired.com/wiredinsights',
+      # 'http://feeds.nature.com/nature/rss/current'
     ]
     top_tech.each do |feed|
+      puts feed
       Article.update_from_feed(feed, 'top', 'Technology')
     end
 
     # Business
     puts "Top Business"
     top_business = [
-      # 'http://www.economist.com/rss/finance_and_economics_rss.xml',
-      'http://www.ft.com/rss/lex'
+      'http://www.economist.com/rss/finance_and_economics_rss.xml',
+      'http://www.ft.com/rss/lex',
+      'http://knowledge.wharton.upenn.edu/knowledgefeed.xml',
+      'http://www.mckinsey.com/Insights/rss.aspx',
+      'http://www.businessweek.com/feeds/homepage.rss'
     ]
     top_business.each do |feed|
+      puts feed
       Article.update_from_feed(feed, 'top', 'Business')
     end
 
     puts "Done."
-
-
 end
 
 desc "This is for cleaning the article DB"

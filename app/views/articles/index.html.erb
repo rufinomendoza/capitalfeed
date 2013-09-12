@@ -1,4 +1,4 @@
-<%= will_paginate @articles, class: 'musings_pagination' %>
+
 <% for entry in @articles %>
   <% unless entry.published_at.nil? %>
     <h3><%= entry.name %></h3>
@@ -10,4 +10,3 @@
     <br />
   <% end %>
 <% end %>
-<%= will_paginate @articles, class: 'musings_pagination' %>
