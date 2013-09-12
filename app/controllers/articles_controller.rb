@@ -33,9 +33,9 @@ class ArticlesController < ApplicationController
 
   def index
     if params[:tag]
-      @articles = Article.tagged_with(params[:tag])
+      @articles = Article.tagged_with(params[:tag]).sort_by!{|article| article.published_at}.reverse!
     else
-      @articles = Article.all
+      @articles = Article.all.sort_by!{|article| article.published_at}.reverse!
     end
     respond_to do |format|
       format.html # index.html.erb
