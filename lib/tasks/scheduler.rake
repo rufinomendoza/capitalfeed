@@ -62,12 +62,12 @@ desc "This task is called by the Heroku scheduler add-on"
 
 
 
-    # puts "Updating feeds for top stories"
-    # top_feeds.each do |feed|
-    #   puts feed
-    #   Article.update_from_feed(feed, 'top')
-    # end
-    # puts "\n\n"
+    puts "Updating feeds for top stories"
+    top_feeds.each do |feed|
+      puts feed
+      Article.update_from_feed(feed, 'top')
+    end
+    puts "\n\n"
 
     puts "Updating feeds from wires"
     wire_feeds.each do |feed|

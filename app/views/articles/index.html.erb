@@ -5,9 +5,12 @@
     <h3><%= entry.name %></h3>
     <p><%= entry.published_at.strftime("%A, %B #{entry.published_at.day.ordinalize}, %Y, %I:%M:%S %p %Z") %></p>
     <p><%= sanitize entry.summary %></p>
-    <p><% raw entry.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></p><!-- Commented out! -->
     <p><%= link_to "Read more »", entry.url, :target => '_blank' %></p>
-    <p><% link_to "Edit", edit_article_path(entry), class: 'btn btn-small' %></p><!-- Commented out! -->
+    <% if Rails.env.development? %><!-- Only show in development -->
+      <p><%= raw entry.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></p>
+      <p><%= link_to "Edit", edit_article_path(entry), class: 'btn btn-small' %></p>
+      <hr /><!-- /Only show in development -->
+    <% end %>
     <br />
   <% end %>
 <% end %>

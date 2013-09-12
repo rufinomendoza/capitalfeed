@@ -44,6 +44,10 @@ class Article < ActiveRecord::Base
           :content => item['content:encoded'],
           :category => category.downcase
         )
+        Tagging.create!(
+          :tag_id => Tag.where(name: tag.strip.titleize).first_or_create!.id.to_i,
+          :article_id => Article.last.id.to_i
+        )
         end
       end
     elsif doc.class == Hash
@@ -57,14 +61,15 @@ class Article < ActiveRecord::Base
         :content => doc['content:encoded'],
         :category => category.downcase
       )
+      Tagging.create!(
+        :tag_id => Tag.where(name: tag.strip.titleize).first_or_create!.id.to_i,
+        :article_id => Article.last.id.to_i
+      )
       end
     else
     end
 
-    Tagging.create!(
-      :tag_id => Tag.where(name: tag.strip.titleize).first_or_create!.id.to_i,
-      :article_id => Article.last.id.to_i
-      )
+
   end
 
   private
