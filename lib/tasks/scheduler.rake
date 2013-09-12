@@ -1,4 +1,15 @@
 desc "This task is called by the Heroku scheduler add-on"
+
+  desc "This is for cleaning the article DB"
+    task :clean_database => :environment do
+      puts "Completely cleaning database"
+      @articles = Article.all { |article| article.destroy }
+      @tags = Tag.all { |tag| tag.destroy }
+      @taggings = Tagging.all { |tagging| tagging.destroy  }
+      puts "\n\n"
+      puts "Done."
+  end
+
   task :update_feed => :environment do
 
     puts "Cleaning garbage and old stories"
@@ -19,7 +30,7 @@ desc "This task is called by the Heroku scheduler add-on"
       'http://www.economist.com/feeds/print-sections/69/leaders.xml',
       'http://www.economist.com/rss/special_reports_rss.xml',
       'http://www.economist.com/rss/briefings_rss.xml',
-      'http://www.economist.com/rss/books_and_arts_rss.xml',      
+      'http://www.economist.com/rss/books_and_arts_rss.xml'
     ]
 
     wire_feeds = [
@@ -99,7 +110,7 @@ desc "This task is called by the Heroku scheduler add-on"
       'http://bhorowitz.com/feed/',
       'http://www.economist.com/rss/science_and_technology_rss.xml',
       'http://edge.org/feed',
-      'http://feeds.wired.com/wiredinsights',
+      'http://feeds.wired.com/wiredinsights'
       # 'http://feeds.nature.com/nature/rss/current'
     ]
     top_tech.each do |feed|
@@ -121,16 +132,6 @@ desc "This task is called by the Heroku scheduler add-on"
       Article.update_from_feed(feed, 'top', 'Business')
     end
 
-    puts "Done."
-end
-
-desc "This is for cleaning the article DB"
-  task :clean_database => :environment do
-    puts "Completely cleaning database"
-    @articles = Article.all { |article| article.destroy }
-    @tags = Tag.all { |tag| tag.destroy }
-    @taggings = Tagging.all { |tagging| tagging.destroy  }
-    puts "\n\n"
     puts "Done."
 end
 
