@@ -5,7 +5,9 @@ $musingsBurgundy: #9a1d0d;
 $musingsGrey: #222222;
 $musingsSkyBlue: #aacbe0;
 $serif: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
-$sansSerif: "Segoe UI", "Segoe UI Light", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$sansSerif: "HelveticaNeue-Light", "Helvetica Neue Light", "Segoe UI Light", "Segoe UI", "Helvetica Neue", Frutiger, "Frutiger Linotype", "Dejavu Sans", Helvetica, Arial, "Lucida Grande", sans-serif;
+$sansSerifWithoutLight: "Segoe UI", "Helvetica Neue", Frutiger, "Frutiger Linotype", "Dejavu Sans", Helvetica, Arial, "Lucida Grande", sans-serif;
+
 
 @import 'bootstrap';
 @import 'bootstrap-responsive';
@@ -67,6 +69,17 @@ h6{
 .navbar-inverse .nav > li > a:focus,
 .navbar-inverse .nav > li > a:hover, {
   color: $musingsGold;
+}
+
+.dropdown-menu li > a {
+  font-size:17px;
+  padding: 2px 10px;
+  font-family: $sansSerifWithoutLight;
+}
+
+.dropdown .dropdown-menu .nav-header {
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 /* Simple form */
