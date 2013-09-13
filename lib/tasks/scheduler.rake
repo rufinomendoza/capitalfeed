@@ -15,7 +15,7 @@ desc "This task is called by the Heroku scheduler add-on"
     puts "Cleaning garbage and old stories"
     @articles = Article.all
     @articles.each do |article|
-      if article.category.nil?
+      if article.category.nil? || article.published_at.nil?
           article.destroy
       end
       unless article.published_at.nil?
