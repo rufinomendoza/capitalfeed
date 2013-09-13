@@ -1,5 +1,5 @@
 <%= render "layouts/ad" %>
-
+<%= will_paginate @articles, class: 'musings_pagination' %>
 <% if @articles %>
 
   <% for entry in @articles %>
@@ -22,5 +22,5 @@
   <p>There are currently no articles in this section.</p> 
 
 <% end %>
-
+<%= will_paginate @articles, class: 'musings_pagination' %>
 <%= render "layouts/ad" %>

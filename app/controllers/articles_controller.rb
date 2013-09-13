@@ -33,17 +33,11 @@ class ArticlesController < ApplicationController
 
   def index
     if params[:tag]
-      if Article.tagged_with(params[:tag])#.where(:published_at).exists?
-        @articles = Article.tagged_with(params[:tag])#.sort_by!{|article| article.published_at}.reverse!
-      else
-        @articles = Article.tagged_with(params[:tag])
-      end
+      @articles = Article.tagged_with(params[:tag]).where("published_at <= :time_now", {time_now: Time.now}).order("published_at desc").page(params[:page]).per_page(10)
+      @articles = @articles.sort_by!{|article| article.published_at}.reverse!
     else
-      if Article.all#.where(:published_at).exists?
-        @articles = Article.all#.sort_by!{|article| article.published_at}.reverse!
-      else
-        @articles = Article.all
-      end
+      @articles = Article.where("published_at <= :time_now", {time_now: Time.now}).order("published_at desc").page(params[:page]).per_page(10)
+      @articles = @articles.sort_by!{|article| article.published_at}.reverse!
     end
     respond_to do |format|
       format.html # index.html.erb
