@@ -39,7 +39,7 @@ class ArticlesController < ApplicationController
         @articles = Article.tagged_with(params[:tag])
       end
     else
-      if Article.all.where(:published_at).exists?
+      if Article.where(:published_at).exists?
         @articles = Article.all.sort_by!{|article| article.published_at}.reverse!
       else
         @articles = Article.all
