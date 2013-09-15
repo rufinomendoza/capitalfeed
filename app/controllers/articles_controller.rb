@@ -2,7 +2,9 @@ class ArticlesController < ApplicationController
   # Categories are stored in downcase in the database
 
   def home
-    @articles = Article.where("category = ?", "cm").order("published_at desc").page(params[:page]).per_page(10)
+    @articles = Article.where("category = ?", "cm") # Filter Category
+    @articles = @articles.where("published_at <= :time_now", {time_now: Time.now}) # Remove invalid published_at dates
+    @articles = @articles.order("published_at desc").page(params[:page]).per_page(10) # For will_paginate
 
     respond_to do |format|
       format.html # index.html.erb
@@ -12,7 +14,9 @@ class ArticlesController < ApplicationController
   end
 
   def top
-    @articles = Article.where(:category => ["top", "cm"]).order("published_at desc").page(params[:page]).per_page(10)
+    @articles = Article.where(:category => ["top", "cm"]) # Filter Category
+    @articles = @articles.where("published_at <= :time_now", {time_now: Time.now}) # Remove invalid published_at dates
+    @articles = @articles.order("published_at desc").page(params[:page]).per_page(10) # For will_paginate
 
     respond_to do |format|
       format.html # index.html.erb
@@ -22,7 +26,9 @@ class ArticlesController < ApplicationController
   end
 
   def wires
-    @articles = Article.where("category = ?", "wire").order("published_at desc").page(params[:page]).per_page(25)
+    @articles = Article.where("category = ?", "wire")
+    @articles = @articles.where("published_at <= :time_now", {time_now: Time.now}) # Remove invalid published_at dates
+    @articles = @articles.order("published_at desc").page(params[:page]).per_page(25) # For will_paginate
 
     respond_to do |format|
       format.html # index.html.erb
@@ -33,11 +39,12 @@ class ArticlesController < ApplicationController
 
   def index
     if params[:tag]
-      @articles = Article.tagged_with(params[:tag]).where("published_at <= :time_now", {time_now: Time.now}).order("published_at desc").page(params[:page]).per_page(10)
-      @articles = @articles.sort_by!{|article| article.published_at}.reverse!
+      @articles = Article.tagged_with(params[:tag]) # Select Articles that are tagged
+      @articles = @articles.where("published_at <= :time_now", {time_now: Time.now}) # Remove invalid published_at dates
+      @articles = @articles.order("published_at desc").page(params[:page]).per_page(10) # For will_paginate
     else
-      @articles = Article.where("published_at <= :time_now", {time_now: Time.now}).order("published_at desc").page(params[:page]).per_page(10)
-      @articles = @articles.sort_by!{|article| article.published_at}.reverse!
+      @articles = Article.where("published_at <= :time_now", {time_now: Time.now}) # Remove invalid published_at dates
+      @articles = @articles.order("published_at desc").page(params[:page]).per_page(10) # For will_paginate
     end
     respond_to do |format|
       format.html # index.html.erb
