@@ -13,23 +13,17 @@ desc "This task is called by the Heroku scheduler add-on"
       puts "Done."
   end
 
-  task :clean_tagging => :environment do
+  task :clean_taggings => :environment do
     @taggings = Tagging.all
     @taggings = @taggings.each do |tagging|
       article_id = tagging.article_id
-      if Article.where(:id => article_id).exists?
+      tag_id = tagging.tag_id
+      if Tag.where(:id => tag_id).exists? || Article.where(:id => article_id).exists? # Test for the Tag first
       else
         tagging.destroy
       end
     end
   end
-
-  task :clean_taggings_nil => :environment do
-    @taggings = Tagging.all
-    @taggings.each do |tagging|
-      tagging.destroy? if taggings.article_id.nil? || tagging.tag_id.nil?
-    end
-  end  
 
   task :update_feed => :environment do
 
