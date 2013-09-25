@@ -2,7 +2,7 @@ class Article < ActiveRecord::Base
   attr_accessible :guid, :name, :published_at, :summary, :url, :category, :content, :tag_list
   # validates_presence_of :published_at
 
-  has_many :taggings
+  has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
 
 
