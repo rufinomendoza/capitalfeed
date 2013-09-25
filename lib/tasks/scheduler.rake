@@ -13,6 +13,17 @@ desc "This task is called by the Heroku scheduler add-on"
       puts "Done."
   end
 
+  task :clean_tagging => :environment do
+    @taggings = Tagging.all
+    @taggings = @taggings.each do |tagging|
+      article_id = tagging.article_id
+      if Article.where(:id => article_id).exists?
+      else
+        tagging.destroy
+      end
+    end
+  end
+
   task :update_feed => :environment do
 
     puts "Cleaning garbage and old stories"
