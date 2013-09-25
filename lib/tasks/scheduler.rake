@@ -3,9 +3,12 @@ desc "This task is called by the Heroku scheduler add-on"
   desc "This is for cleaning the article DB"
     task :clean_database => :environment do
       puts "Completely cleaning database"
-      @articles = Article.all { |article| article.destroy }
-      @tags = Tag.all { |tag| tag.destroy }
-      @taggings = Tagging.all { |tagging| tagging.destroy  }
+      @articles = Article.all
+      @articles.each { |article| article.destroy }
+      @tags = Tag.all
+      @tags.each { |tag| tag.destroy }
+      @taggings = Tagging.all
+      @taggings.each { |tagging| tagging.destroy  }
       puts "\n\n"
       puts "Done."
   end
