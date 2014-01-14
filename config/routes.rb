@@ -5,12 +5,12 @@ Capitalfeed::Application.routes.draw do
   get 'tags/:tag', to: 'articles#index', as: :tag
   resources :articles
 
-  get "articles/home"
+  get 'musings' => 'articles#musings'
 
   get 'top_news' => 'articles#top'
   get 'wires' => 'articles#wires'
 
-  root :to => 'articles#home'
+  root :to => 'articles#musings'
   get 'about' => 'pages#about'
   get 'home' => 'pages#home'
 

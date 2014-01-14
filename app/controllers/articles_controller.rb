@@ -1,8 +1,8 @@
 class ArticlesController < ApplicationController
   # Categories are stored in downcase in the database
 
-  def home
-    @articles = Article.where("category = ?", "cm") # Filter Category
+  def musings
+    @articles = Article.where(:category => ["cm"]) # Filter Category
     @articles = @articles.where("published_at <= :time_now", {time_now: Time.now}) # Remove invalid published_at dates
     @articles = @articles.order("published_at desc").page(params[:page]).per_page(10) # For will_paginate
 

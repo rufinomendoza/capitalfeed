@@ -4,7 +4,7 @@ $musingsGold: #dcc08e;
 $musingsBurgundy: #9a1d0d;
 $musingsGrey: #222222;
 $musingsSkyBlue: #aacbe0;
-$serif: 'Sorts Mill Goudy', "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
+$serif: "Alegreya", "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
 $sansSerif: "Lato:300", Lato, "HelveticaNeue-Light", "Helvetica Neue Light", "Segoe UI Light", "Segoe UI", "Helvetica Neue", Frutiger, "Frutiger Linotype", "Dejavu Sans", Helvetica, Arial, "Lucida Grande", sans-serif;
 $sansSerifWithoutLight: Lato, "Helvetica Neue", "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", Helvetica, Arial, "Lucida Grande", sans-serif;
 
@@ -30,20 +30,22 @@ body{
   }
 }
 
-h3{
-  font-size:25px;
-}
 
 h4{
   color:whitesmoke;
 }
 
-h6{
-  font-size:20px;
-}
+
+h1 { font-size: 36px; }
+h2 { font-size: 30px; }
+h3 { font-size: 28px; }
+h4 { font-size: 26px; }
+h5 { font-size: 24px; }
+h6 { font-size: 22px; }
 
 p{
-  font-family: $sansSerif;
+  font-family: $serif;
+  font-size: 20px;
 }
 
 .table td {
