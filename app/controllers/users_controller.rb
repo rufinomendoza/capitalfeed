@@ -1,17 +1,16 @@
-class AdminsController < ApplicationController
+class UsersController < ApplicationController
 
 before_filter :authenticate_admin!
 
   def index
-    @admins=Admin.page(params[:page]).per_page(50)
     @users=User.page(params[:page]).per_page(50)
   end
 
-  # DELETE /admins/1
-  # DELETE /admins/1.json
+  # DELETE /users/1
+  # DELETE /users/1.json
   def destroy
-    @admin = Admin.find(params[:id])
-    @admin.destroy
+    @user = User.find(params[:id])
+    @user.destroy
 
     respond_to do |format|
       format.html { 

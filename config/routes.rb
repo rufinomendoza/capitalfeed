@@ -6,7 +6,8 @@ Capitalfeed::Application.routes.draw do
 
   get 'tags/:tag', to: 'articles#index', as: :tag
   resources :articles
-  resources :admins
+  resources :admins, only: [:index, :destroy]
+  resources :users
 
   get 'musings' => 'articles#musings'
 
