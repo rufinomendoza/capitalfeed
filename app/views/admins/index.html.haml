@@ -1,0 +1,26 @@
+- if admin_signed_in?
+  %h1 Admins
+  %table
+    %thead
+      %th E-Mail
+      %th God Mode
+      %th Reports Only
+    %tbody
+      - for admin in @admins
+        %tr
+          %td= admin.email
+          %td= admin.god_mode
+          %td= admin.reports_only
+  %br/
+  %h2 Users
+  %table
+    %thead
+      %th E-Mail
+    %tbody
+      - for user in @users
+        %tr
+          %td= user.email
+- else
+  %p This is not the page you’re looking for.
+  /Just in case. If you see this message, you forgot to install before_filter in the controller
+/Add edit delete ability from view later

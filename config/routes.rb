@@ -1,9 +1,12 @@
 Capitalfeed::Application.routes.draw do
 
+  devise_for :admins
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   get 'tags/:tag', to: 'articles#index', as: :tag
   resources :articles
+  resources :admins
 
   get 'musings' => 'articles#musings'
 
