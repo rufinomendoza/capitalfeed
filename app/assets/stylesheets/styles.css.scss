@@ -4,9 +4,10 @@ $musingsGold: #dcc08e;
 $musingsBurgundy: #9a1d0d;
 $musingsGrey: #222222;
 $musingsSkyBlue: #aacbe0;
-$serif: "Alegreya", "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
-$sansSerif: "Lato:300", Lato, "HelveticaNeue-Light", "Helvetica Neue Light", "Segoe UI Light", "Segoe UI", "Helvetica Neue", Frutiger, "Frutiger Linotype", "Dejavu Sans", Helvetica, Arial, "Lucida Grande", sans-serif;
-$sansSerifWithoutLight: Lato, "Helvetica Neue", "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", Helvetica, Arial, "Lucida Grande", sans-serif;
+$serif: "Goudy Old Style", "Sorts Mill Goudy", "Alegreya", "Big Caslon", Garamond, "Times New Roman", serif;
+$sansSerif: "HelveticaNeue-Light", "Helvetica Neue Light", "Segoe UI Light", "Lato:300", "Helvetica Neue", "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", Helvetica, Lato, Arial, "Lucida Grande", sans-serif;
+$sansSerifWithoutLight: "Helvetica Neue", "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", Helvetica, Lato, Arial, "Lucida Grande", sans-serif;
+$artDeco: Futura, "Tw Cen MT", "Gill Sans", "Century Gothic", "Josefin Sans", Arial, sans-serif;
 
 
 @import 'bootstrap';
@@ -17,9 +18,10 @@ $sansSerifWithoutLight: Lato, "Helvetica Neue", "Segoe UI", Frutiger, "Frutiger 
 body{
   padding-top: 160px;
   font-family: $sansSerif;
-  font-size: 18px;
-  color: white;
+  font-size: 20px;
   background: $musingsGrey;
+  color: white;
+  font-weight:300;
   line-height:145%;
   a{
     color: $musingsGold;
@@ -36,17 +38,7 @@ h4{
 }
 
 
-h1 { font-size: 36px; }
-h2 { font-size: 30px; }
-h3 { font-size: 28px; }
-h4 { font-size: 26px; }
-h5 { font-size: 24px; }
-h6 { font-size: 22px; }
-
-p{
-  font-family: $serif;
-  font-size: 20px;
-}
+h1, h2, h3, h4, h5, h6, th { font-family: $artDeco; }
 
 .table td {
   border: none;
@@ -59,16 +51,14 @@ p{
   padding-top: 15px;
   padding-bottom: 10px;
   background: $musingsGrey;
-  font-family: $sansSerifWithoutLight;
-  font-size:24px;
-  text-transform:uppercase;
-  font-weight:bold;
+  font-family: $artDeco;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .navbar-inverse .nav > li > a {
   color: white;
-  text-shadow: rgba(0, 0, 0, 0.8) 2px 2px 2px;
-  text-transform:uppercase;
+  font-variant: small-caps;
 }
 
 
@@ -80,6 +70,7 @@ p{
 .dropdown-menu li > a {
   font-size:17px;
   padding: 2px 10px;
+  text-transform: uppercase;
 }
 
 .dropdown .dropdown-menu .nav-header {
@@ -96,9 +87,9 @@ p{
 /* My pagination */
 
 .musings_pagination {
-  background: $musingsGrey;
   border: none;
-  font-family: $sansSerif;
+  font-family: $artDeco;
+  color: white;
   text-align: center;
   padding: 1em;
   cursor: default;
@@ -106,9 +97,9 @@ p{
   -webkit-border-radius: 1em;
   border-radius: 1em; }
   .musings_pagination a, .musings_pagination span {
-    padding: 0.2em 0.3em; }
+    padding: 0.2em 0.3em; color: white; }
   .musings_pagination .disabled {
-    color: #aaaaaa; }
+    color: #555; }
   .musings_pagination .current {
     font-style: normal;
     font-weight: bold;
@@ -119,13 +110,12 @@ p{
     line-height: 1.5;
     -moz-border-radius: 1em;
     -webkit-border-radius: 1em;
-    border-radius: 1em;
-    text-shadow: rgba(0, 0, 0, 0.8) 2px 2px 2px; }
+    border-radius: 1em; }
   .musings_pagination a {
-    text-decoration: none;
-    color: white; }
+    text-decoration: none; }
     .musings_pagination a:hover, .musings_pagination a:focus {
-      color: $musingsGold; }
+      color: $musingsGold;
+      text-decoration: none; }
 
 
 
