@@ -17,7 +17,7 @@ $artDecoBold: "europa-n7", "europa", Futura, "Tw Cen MT", "Gill Sans", "Century 
 /* General */
 
 body{
-  padding-top: 170px;
+  padding-top: 160px;
   font-family: $artDeco;
   font-size: 20px;
   background: $musingsGrey;
@@ -50,7 +50,6 @@ h1, h2, h3, h4, h5, h6, th { font-family: $artDecoBold; font-weight:700; }
 
 .logo {
   text-transform:uppercase;
-  text-shadow: 3px 3px 3px #555;
   padding-bottom:10px;
   .company {
     color:$musingsGold;
@@ -58,12 +57,14 @@ h1, h2, h3, h4, h5, h6, th { font-family: $artDecoBold; font-weight:700; }
     line-height:100%;
     font-family: $artDecoBold;
     font-weight: 700;
+    text-shadow: 3px 3px 3px #555;
   }
   .tagline {
     font-family: $artDeco;
     font-weight: 400;
     font-size: 100%;
     font-style:italic;
+    text-shadow: 1px 1px 1px #555;
   }
 }
 
@@ -74,7 +75,7 @@ h1, h2, h3, h4, h5, h6, th { font-family: $artDecoBold; font-weight:700; }
   padding-bottom: 10px;
   background: $musingsDarkGrey;
   font-family: $artDeco;
-  font-size: 125%;
+  font-size: 100%;
   font-weight: bold;
 }
 
