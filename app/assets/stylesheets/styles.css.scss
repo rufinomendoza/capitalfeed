@@ -3,6 +3,7 @@ $navbarBackground: white;
 $musingsGold: #dcc08e;
 $musingsBurgundy: #9a1d0d;
 $musingsGrey: #222222;
+$musingsDarkGrey: #1E1E1E;
 $musingsSkyBlue: #aacbe0;
 $serif: "Goudy Old Style", "Sorts Mill Goudy", "Alegreya", "Big Caslon", Garamond, "Times New Roman", serif;
 $sansSerif: "HelveticaNeue-Light", "Helvetica Neue Light", "Segoe UI Light", "Lato:300", "Helvetica Neue", "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", Helvetica, Lato, Arial, "Lucida Grande", sans-serif;
@@ -16,7 +17,7 @@ $artDecoBold: "europa-n7", "europa", Futura, "Tw Cen MT", "Gill Sans", "Century 
 /* General */
 
 body{
-  padding-top: 160px;
+  padding-top: 170px;
   font-family: $artDeco;
   font-size: 20px;
   background: $musingsGrey;
@@ -50,7 +51,7 @@ h1, h2, h3, h4, h5, h6, th { font-family: $artDecoBold; font-weight:700; }
 .logo {
   text-transform:uppercase;
   text-shadow: 3px 3px 3px #555;
-  padding-bottom:20px;
+  padding-bottom:10px;
   .company {
     color:$musingsGold;
     font-size:300%;
@@ -71,7 +72,7 @@ h1, h2, h3, h4, h5, h6, th { font-family: $artDecoBold; font-weight:700; }
 .navbar-inverse .navbar-inner {
   padding-top: 15px;
   padding-bottom: 10px;
-  background: $musingsGrey;
+  background: $musingsDarkGrey;
   font-family: $artDeco;
   font-size: 125%;
   font-weight: bold;
