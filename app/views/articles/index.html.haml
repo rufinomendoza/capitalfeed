@@ -1,0 +1,20 @@
+= render "layouts/ad"
+= will_paginate @articles, class: 'musings_pagination'
+- if @articles
+  - for entry in @articles
+    - unless entry.published_at.nil?
+      %h2= entry.name
+      %p= entry.published_at.strftime("%A, %B #{entry.published_at.day.ordinalize}, %Y, %I:%M:%S %p %Z")
+      %p= sanitize entry.summary
+      %p= link_to "Read more »", entry.url, :target => '_blank'
+      - if Rails.env.development?
+        /Only show in development
+        %p= raw entry.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ')
+        %p= link_to "Edit", edit_article_path(entry), class: 'btn btn-small'
+        %hr/
+        /Only show in development
+      %br/
+- else 
+  %p There are currently no articles in this section.
+= will_paginate @articles, class: 'musings_pagination'
+= render "layouts/ad"

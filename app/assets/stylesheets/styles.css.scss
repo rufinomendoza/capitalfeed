@@ -27,7 +27,7 @@ body{
   background: $musingsGrey;
   color: white;
 
-  line-height:1.2em;
+  line-height:1.3em;
   a{
     color: $musingsGold;
     &:hover{
@@ -55,6 +55,10 @@ h1, h2, h3, h4, h5, h6, th { font-family: $artDecoBold; font-weight:700; }
   padding-top: 15px;
   padding-bottom: 15px;
   background-image: url(http://capitalmusings.com/wp-content/themes/ElegantFusion/images/bg_fusion.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  -moz-background-size: cover; -webkit-background-size: cover; background-size: cover;
+  position: absolute; top: 0; left: 0; width: 100%;
   font-family: $artDecoBold;
   font-weight: 700;
   font-size: 125%;

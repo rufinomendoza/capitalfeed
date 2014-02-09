@@ -4,7 +4,7 @@
 
 - for entry in @articles
   - unless entry.published_at.nil?
-    %h3= entry.name
+    %h2= entry.name
     %p= entry.published_at.strftime("%A, %B #{entry.published_at.day.ordinalize}, %Y, %I:%M:%S %p %Z")
     %p= entry.content.html_safe
     %br/
