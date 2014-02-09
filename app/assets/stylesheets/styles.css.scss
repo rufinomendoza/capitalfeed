@@ -20,11 +20,11 @@ html { -webkit-font-smoothing: antialiased; }
 body{
   padding-top: 170px;
   font-family: $artDeco;
-  font-size: 20px;
-  background: $musingsGrey;
+  font-size: 18px;
+  background: $musingsDarkGrey;
   color: white;
   font-weight:300;
-  line-height:145%;
+  line-height:1.4em;
   a{
     color: $musingsGold;
     &:hover{
@@ -46,28 +46,6 @@ h1, h2, h3, h4, h5, h6, th { font-family: $artDecoBold; font-weight:700; }
   border: none;
 }
 
-
-/* Logo */
-
-.logo {
-  text-transform:uppercase;
-  .company {
-    color:$musingsGold;
-    font-size:300%;
-    line-height:100%;
-    font-family: $artDecoBold;
-    font-weight: 700;
-    text-shadow: 3px 3px 3px #555;
-  }
-  .tagline {
-    font-family: $artDeco;
-    font-weight: 400;
-    font-size: 100%;
-    font-style:italic;
-    text-shadow: 1px 1px 1px #555;
-  }
-}
-
 /* Navigation */
 
 .navbar-inverse .navbar-inner {
@@ -75,7 +53,7 @@ h1, h2, h3, h4, h5, h6, th { font-family: $artDecoBold; font-weight:700; }
   padding-bottom: 5px;
   background: $musingsDarkGrey;
   font-family: $artDeco;
-  font-size: 100%;
+  font-size: 125%;
   font-weight: bold;
 }
 
@@ -99,6 +77,27 @@ h1, h2, h3, h4, h5, h6, th { font-family: $artDecoBold; font-weight:700; }
 .dropdown .dropdown-menu .nav-header {
   padding-left: 10px;
   padding-right: 10px;
+}
+
+/* Logo */
+
+.logo {
+  text-transform:uppercase;
+  .company {
+    color:$musingsGold;
+    font-size:300%;
+    line-height:100%;
+    font-family: $artDecoBold;
+    font-weight: 700;
+    text-shadow: 3px 3px 3px #555;
+  }
+  .tagline {
+    font-family: $artDeco;
+    font-weight: 400;
+    font-size: 100%;
+    font-style:italic;
+    text-shadow: 1px 1px 1px #555;
+  }
 }
 
 /* Simple form */
