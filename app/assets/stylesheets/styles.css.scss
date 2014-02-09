@@ -5,10 +5,12 @@ $musingsBurgundy: #9a1d0d;
 $musingsGrey: #222222;
 $musingsDarkGrey: #1B1B1B;
 $musingsSkyBlue: #aacbe0;
+$spaceCadet: #1D2951;
 $serif: "Goudy Old Style", "Sorts Mill Goudy", "Alegreya", "Big Caslon", Garamond, "Times New Roman", serif;
 $sansSerif: "HelveticaNeue-Light", "Helvetica Neue Light", "Segoe UI Light", "Lato:300", "Helvetica Neue", "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", Helvetica, Lato, Arial, "Lucida Grande", sans-serif;
 $sansSerifWithoutLight: "Helvetica Neue", "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", Helvetica, Lato, Arial, "Lucida Grande", sans-serif;
-$artDeco: "europa-n3", "europa", Futura, "Tw Cen MT", "Gill Sans", "Century Gothic", Arial, sans-serif;
+$artDecoLight: "europa-n3", "europa", Futura, "Tw Cen MT", "Gill Sans", "Century Gothic", Arial, sans-serif;
+$artDeco: "europa", Futura, "Tw Cen MT", "Gill Sans", "Century Gothic", Arial, sans-serif;
 $artDecoBold: "europa-n7", "europa", Futura, "Tw Cen MT", "Gill Sans", "Century Gothic", Arial, sans-serif;
 
 @import 'bootstrap';
@@ -18,13 +20,14 @@ $artDecoBold: "europa-n7", "europa", Futura, "Tw Cen MT", "Gill Sans", "Century 
 html { -webkit-font-smoothing: antialiased; }
 
 body{
-  padding-top: 170px;
-  font-family: $artDeco;
-  font-size: 18px;
-  background: $musingsDarkGrey;
-  color: white;
+  padding-top: 190px;
+  font-family: $artDecoLight;
   font-weight:300;
-  line-height:1.4em;
+  font-size: 20px;
+  background: $musingsGrey;
+  color: white;
+
+  line-height:1.2em;
   a{
     color: $musingsGold;
     &:hover{
@@ -49,12 +52,12 @@ h1, h2, h3, h4, h5, h6, th { font-family: $artDecoBold; font-weight:700; }
 /* Navigation */
 
 .navbar-inverse .navbar-inner {
-  padding-top: 10px;
-  padding-bottom: 5px;
-  background: $musingsDarkGrey;
-  font-family: $artDeco;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-image: url(http://capitalmusings.com/wp-content/themes/ElegantFusion/images/bg_fusion.jpg);
+  font-family: $artDecoBold;
+  font-weight: 700;
   font-size: 125%;
-  font-weight: bold;
 }
 
 .navbar-inverse .nav > li > a {
@@ -66,15 +69,21 @@ h1, h2, h3, h4, h5, h6, th { font-family: $artDecoBold; font-weight:700; }
 .navbar-inverse .nav > li > a:focus,
 .navbar-inverse .nav > li > a:hover, {
   color: $musingsGold;
+  text-shadow: 0 0 15px rgba(255,255,255,0.6);
 }
 
 .dropdown-menu li > a {
-  font-size:17px;
+  font-size: 17px;
   padding: 2px 10px;
   text-transform: uppercase;
+  &:hover {
+    background: $musingsGold;
+    color: black;
+  }
 }
 
 .dropdown .dropdown-menu .nav-header {
+  font-size: 14px;
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -97,6 +106,7 @@ h1, h2, h3, h4, h5, h6, th { font-family: $artDecoBold; font-weight:700; }
     font-size: 100%;
     font-style:italic;
     text-shadow: 1px 1px 1px #555;
+    padding-bottom:5px;
   }
 }
 
@@ -111,6 +121,7 @@ h1, h2, h3, h4, h5, h6, th { font-family: $artDecoBold; font-weight:700; }
 .musings_pagination {
   border: none;
   font-family: $artDeco;
+  font-weight: 400;
   color: white;
   text-align: center;
   padding: 1em;
@@ -123,8 +134,9 @@ h1, h2, h3, h4, h5, h6, th { font-family: $artDecoBold; font-weight:700; }
   .musings_pagination .disabled {
     color: #555; }
   .musings_pagination .current {
+    font-family: $artDecoBold;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 700;
     color: $musingsGold;
     display: inline-block;
     width: 1.4em;
