@@ -15,6 +15,7 @@ $artDecoBold: "europa-n7", "europa", Futura, "Tw Cen MT", "Gill Sans", "Century 
 @import 'bootstrap-responsive';
 
 /* General */
+html { -webkit-font-smoothing: antialiased; }
 
 body{
   padding-top: 170px;
