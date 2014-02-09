@@ -26,7 +26,9 @@
               <li class="divider"></li>
               <li class="nav-header">By Vertical</li>
               <% tag_cloud Article.tag_counts do |tag| %>
-                <li><%= link_to tag.name, tag_path(tag.name) %></li>
+                <% unless tag.name.blank? %>
+                  <li><%= link_to tag.name, tag_path(tag.name) %></li>
+                  <% end %>
               <% end %>
             </ul><!-- /Dropdown Menu -->
           </li>
