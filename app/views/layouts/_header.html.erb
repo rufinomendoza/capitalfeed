@@ -26,9 +26,7 @@
               <li class="divider"></li>
               <li class="nav-header">By Vertical</li>
               <% tag_cloud Article.tag_counts do |tag| %>
-                <% unless tag.name.blank? %>
-                  <li><%= link_to tag.name, tag_path(tag.name) %></li>
-                  <% end %>
+                <li><%= link_to tag.name, tag_path(tag.name) %></li>
               <% end %>
             </ul><!-- /Dropdown Menu -->
           </li>
@@ -50,7 +48,6 @@
               <li><%= link_to 'Main Site',  'http://capitalmusings.com' %></li>
             </ul>
           </li>
-          <li class="divider-vertical"></li>
 
           <!-- Login and Logout -->
             <% if admin_signed_in? %>
