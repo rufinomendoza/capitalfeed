@@ -6,21 +6,17 @@ $musingsGrey: #222222;
 $musingsDarkGrey: #1B1B1B;
 $musingsSkyBlue: #aacbe0;
 $spaceCadet: #1D2951;
-$serif: "Goudy Old Style", "Sorts Mill Goudy", "Alegreya", "Big Caslon", Garamond, "Times New Roman", serif;
-$sansSerif: "HelveticaNeue-Light", "Helvetica Neue Light", "Segoe UI Light", "Lato:300", "Helvetica Neue", "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", Helvetica, Lato, Arial, "Lucida Grande", sans-serif;
-$sansSerifWithoutLight: "Helvetica Neue", "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", Helvetica, Lato, Arial, "Lucida Grande", sans-serif;
-$artDecoLight: "europa-n3", "europa", Futura, "Tw Cen MT", "Gill Sans", "Century Gothic", Arial, sans-serif;
-$artDeco: "europa", Futura, "Tw Cen MT", "Gill Sans", "Century Gothic", Arial, sans-serif;
-$artDecoBold: "europa-n7", "europa", Futura, "Tw Cen MT", "Gill Sans", "Century Gothic", Arial, sans-serif;
 $futura:  "futura-pt", Futura, "Tw Cen MT", "Gill Sans", "Century Gothic", Arial, sans-serif;
-
 $caslon: "adobe-caslon-pro", "Big Caslon", Garamond, "Times New Roman", serif;
-
 
 @import 'bootstrap';
 @import 'bootstrap-responsive';
 
+
+/* ======= */
 /* General */
+/* ======= */
+
 html { -webkit-font-smoothing: antialiased; }
 
 body{
@@ -61,7 +57,10 @@ li {
   font-weight: 300;
 }
 
+
+/* ========== */
 /* Navigation */
+/* ========== */
 
 .navbar-inverse .navbar-inner {
   padding-top: 10px;
@@ -80,7 +79,6 @@ li {
   color: white;
   text-transform: uppercase;
 }
-
 
 .navbar-inverse .nav > li > a:focus,
 .navbar-inverse .nav > li > a:hover, {
@@ -105,7 +103,10 @@ li {
   padding-right: 10px;
 }
 
+
+/* ==== */
 /* Logo */
+/* ==== */
 
 .logo {
   text-transform:uppercase;
@@ -125,7 +126,11 @@ li {
   }
 }
 
+
+/* =========== */
 /* Simple form */
+/* =========== */
+
 .form-actions {
   background: none;
   border: none;
@@ -187,7 +192,9 @@ input[type="color"],
 }
 
 
-/* My pagination */
+/* ========== */
+/* Pagination */
+/* ========== */
 
 .musings_pagination {
   border: none;
@@ -223,13 +230,13 @@ input[type="color"],
       text-decoration: none; }
 
 
-
+/* ====== */
 /* Footer */
+/* ====== */
 
 .footer{
   margin-top: 50px;
 }
-
 
 .footer { background: #2c2c2c url(images/footer-leftbg.png) repeat-y; }
   .footer-wrapper { background: url(images/footer-rightbg.png) repeat-y top right; padding: 20px 7% 0px; }
