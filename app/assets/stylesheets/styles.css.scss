@@ -27,8 +27,8 @@ body{
   font-size: 150%;
   padding-top: 190px;
   font-family: $futura;
-  font-weight:300;
-  line-height:130%;
+  font-weight: 300;
+  line-height: 130%;
   background: $musingsGrey;
   color:white;
   a{
@@ -47,12 +47,12 @@ p{
 
 input {
   font-family: $futura;
-  font-weight:300;
+  font-weight: 300;
 }
 
 h1, h2, h3, h4, h5, h6, th { 
   font-family: $futura;
-  font-size:125%;
+  font-size: 125%;
 }
 
 li {
@@ -82,7 +82,7 @@ li {
 
 .navbar-inverse .nav > li > a {
   color: white;
-  text-transform:uppercase;
+  text-transform: uppercase;
 }
 
 
@@ -93,7 +93,7 @@ li {
 }
 
 .dropdown-menu li > a {
-  font-size:75%;
+  font-size: 75%;
   padding: 5px 10px;
   text-transform: uppercase;
   font-weight: 400;
@@ -114,9 +114,9 @@ li {
 .logo {
   text-transform:uppercase;
   .company {
-    color:$musingsGold;
-    font-size:285%;
-    line-height:100%;
+    color: $musingsGold;
+    font-size: 285%;
+    line-height: 100%;
     font-family: $futura;
     font-weight: 700;
   }
@@ -124,16 +124,17 @@ li {
     font-family: $futura;
     font-weight: 500;
     font-style: italic;
-    padding-bottom:5px;
+    padding-bottom: 5px;
     color: white;
   }
 }
 
 /* Simple form */
 .form-actions {
-  background:none;
-  border:none;
+  background: none;
+  border: none;
 }
+
 
 /* My pagination */
 
