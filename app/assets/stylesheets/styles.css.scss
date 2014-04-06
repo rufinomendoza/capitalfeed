@@ -25,14 +25,13 @@ body{
   font-family: $futura;
   font-weight: 300;
   line-height: 130%;
-  background: $musingsGrey;
-  color:white;
+  background: white;
+  color:black;
   a{
-    color: $musingsGold;
+    color: #1abc9c;
     &:hover{
       text-decoration:none;
-        color: $musingsGold;
-        text-shadow: 0 0 15px rgba(255,255,255,0.6);
+      text-shadow: 0 0 15px rgba(255,255,255,0.6);
     }
   }
 }
@@ -83,7 +82,7 @@ li {
 }
 
 .dropdown-menu li > a {
-  font-size: 75%;
+  font-size: 80%;
   padding: 5px 10px;
   text-transform: uppercase;
   font-weight: 400;
@@ -94,7 +93,8 @@ li {
 }
 
 .dropdown .dropdown-menu .nav-header {
-  font-weight: 700;
+  font-weight: 400;
+  font-size: 70%;
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -195,16 +195,14 @@ input[type="color"],
 .musings_pagination {
   border: none;
   font-family: $futura;
-  font-weight: 500;
   text-align: center;
-  color: white;
   padding: 1em;
   cursor: default;
   -moz-border-radius: 1em;
   -webkit-border-radius: 1em;
   border-radius: 1em; }
   .musings_pagination a, .musings_pagination span {
-    padding: 0.2em 0.3em; color: white; font-weight:400; }
+    padding: 0.2em 0.3em; color: black; font-weight:300; }
   .musings_pagination .disabled {
     color: #555; }
   .musings_pagination .current {
@@ -233,13 +231,3 @@ input[type="color"],
 .footer{
   margin-top: 50px;
 }
-
-.footer { background: #2c2c2c url(images/footer-leftbg.png) repeat-y; }
-  .footer-wrapper { background: url(images/footer-rightbg.png) repeat-y top right; padding: 20px 7% 0px; }
-  #footer .widget { width: 285px; margin: 0px 0px 45px; float: left; color: #d1d1d1; text-shadow: 1px 1px 1px #000; }
-    #footer h3.title {color:#dcc08e; font-size: 30px; text-transform: uppercase; margin: 30px 0px 5px 0px; }
-  #footer .widget ul li { margin-bottom: 11px; }
-    #footer .widget ul a { color:#d1d1d1; text-decoration: none; background: url(images/footer-bullet.png) no-repeat 0 2px; padding-left:20px; }
-    #footer .widget ul a:hover { background: url(images/footer-bullet.png) no-repeat bottom left; color:#fff; }
-  p#copyright { text-align: right; padding-bottom: 40px; color:#686868; text-shadow: 1px 1px 1px #000; font-size: 12px; }
-    p#copyright a { color:#8c8c8c; font-weight: bold; }
