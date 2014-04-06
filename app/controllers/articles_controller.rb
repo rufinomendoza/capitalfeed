@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   def musings
     @articles = Article.where(:category => ["cm"]) # Filter Category
     @articles = @articles.where("published_at <= :time_now", {time_now: Time.now}) # Remove invalid published_at dates
-    @articles = @articles.order("published_at desc").page(params[:page]).per_page(10) # For will_paginate
+    @articles = @articles.order("published_at desc").page(params[:page]).per_page(1) # For will_paginate
 
     respond_to do |format|
       format.html # index.html.erb

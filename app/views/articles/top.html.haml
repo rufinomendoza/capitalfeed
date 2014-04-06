@@ -8,6 +8,7 @@
     %p= sanitize entry.summary
     %p= link_to "Read more »", entry.url, :target => '_blank'
     %br/
+    %br/
 
 = will_paginate @articles, class: 'musings_pagination'
 = render "layouts/ad"
