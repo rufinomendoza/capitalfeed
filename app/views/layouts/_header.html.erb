@@ -5,7 +5,7 @@
         <%- link_to image_tag("http://capitalmusings.com/wp-content/uploads/2011/11/logo1.png"), "http://experimental.capitalmusings.com" %>
         <div class="logo">
           <div class="company">Capital Musings</div>
-          <div class="tagline">The Nexus of Politics, Business, and Technology</div>
+          <div class="tagline">Politics, business, and innovation Wire (Alpha)</div>
         </div>
       </center><!-- Put brand here for now -->
       <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-inverse-collapse">
@@ -15,14 +15,14 @@
       </a>
       <div class="nav-collapse collapse navbar-inverse-collapse">
         <ul class="nav">
-          <li><%= link_to 'Musings',  root_path %></li>
+          <li><%- link_to 'Musings',  root_path %></li><!-- Commented Out -->
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">News <b class="caret"></b></a>
             <ul class="dropdown-menu">  
-              <li class="nav-header">By Urgency</li>
-              <li><% link_to "All", articles_path %></li><!-- Commented Out -->
-              <li><%= link_to 'Top',  top_news_path %></li>
-              <li><%= link_to 'Wires',  wires_path %></li>
+              <li class="nav-header">By Relevance</li>
+              <li><%- link_to "All", articles_path %></li><!-- Commented Out -->
+              <li><%= link_to 'Top News',  top_news_path %></li>
+              <li><%= link_to 'Press Wires',  wires_path %></li>
               <li class="divider"></li>
               <li class="nav-header">By Vertical</li>
               <% tag_cloud Article.tag_counts do |tag| %>
@@ -35,10 +35,6 @@
           <input type="text" class="search-query span2" placeholder="Search">
         </form> -->
         <ul class="nav pull-right">
-          <li>    
-            <%= link_to 'About',  about_path %>
-          </li>
-
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sites <b class="caret"></b></a>
             <ul class="dropdown-menu">

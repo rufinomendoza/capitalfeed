@@ -17,7 +17,7 @@
       <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
     <% end %>
     <%= yield %>
-    <% render "layouts/footer" %><!-- This is commented out -->
+    <%= render "layouts/footer" %><!-- This is commented out -->
   </div>
 <%= render "layouts/analytics" %>
 </body>

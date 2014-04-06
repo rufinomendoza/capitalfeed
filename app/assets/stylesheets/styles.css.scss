@@ -65,11 +65,7 @@ li {
 .navbar-inverse .navbar-inner {
   padding-top: 10px;
   padding-bottom: 5px;
-  background-image: url(http://capitalmusings.com/wp-content/themes/ElegantFusion/images/bg_fusion.jpg);
-  background-repeat: no-repeat;
-  background-position: top center;
-  -moz-background-size: cover; -webkit-background-size: cover; background-size: cover;
-  position: absolute; top: 0; left: 0; width: 100%;
+  background:$musingsDarkGrey;
   font-family: $futura;
   font-weight: 700;
   font-size:110%;
@@ -149,7 +145,7 @@ input {
 input[type="submit"], 
 .form-actions .btn {
   font-size: 110%;
-  font-weight: 400;
+  font-weight: 400 !important;
   line-height: 110%;
   background: $musingsDarkGrey;
   color: white;
