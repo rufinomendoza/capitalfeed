@@ -86,7 +86,7 @@ li {
   font-size: 80%;
   padding: 5px 10px;
   text-transform: uppercase;
-  font-weight: 400;
+  font-weight: 700;
   &:hover {
     background: $musingsGold;
     color: black;
@@ -94,7 +94,7 @@ li {
 }
 
 .dropdown .dropdown-menu .nav-header {
-  font-weight: 400;
+  font-weight: 700;
   font-size: 70%;
   padding-left: 10px;
   padding-right: 10px;
@@ -116,7 +116,7 @@ li {
   }
   .tagline {
     font-family: $futura;
-    font-weight: 500;
+    font-weight: 300;
     font-style: italic;
     padding-bottom: 5px;
     color: white;
@@ -138,7 +138,7 @@ button,
 input {
   font-family: $futura;
   font-size: 110%;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 110%;
   width: 100%;
 }
@@ -146,7 +146,7 @@ input {
 input[type="submit"], 
 .form-actions .btn {
   font-size: 110%;
-  font-weight: 400 !important;
+  font-weight: 300 !important;
   line-height: 110%;
   background: $musingsDarkGrey;
   color: white;
