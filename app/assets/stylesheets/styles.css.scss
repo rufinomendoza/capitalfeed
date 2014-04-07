@@ -181,10 +181,14 @@ input[type="color"],
   font-size: 110%;
   font-weight: 300;
   line-height: 110%;
-  color: white;
   background: transparent;
-  border-style: none none dotted none;
+  border-style: none none solid none;
   vertical-align: middle;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  text-shadow: none;
 }
 
 
