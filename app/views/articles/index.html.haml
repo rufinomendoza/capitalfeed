@@ -1,7 +1,6 @@
 %center
   %h1= "#{'Article'.pluralize(@articles.count)} about #{raw @first_article.tags.map(&:name).map {|t| t }.first}"
 = will_paginate @articles, class: 'musings_pagination'
-= render "layouts/ad"
 - if @articles
   - for entry in @articles
     - unless entry.published_at.nil?
@@ -19,5 +18,5 @@
       %br/
 - else 
   %p There are currently no articles in this section.
-= render "layouts/ad"
 = will_paginate @articles, class: 'musings_pagination'
+= render "layouts/ad"

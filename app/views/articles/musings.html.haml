@@ -1,10 +1,8 @@
 = will_paginate @articles, class: 'musings_pagination'
-
 - for entry in @articles
   - unless entry.published_at.nil?
     %h2= entry.name
     .date= entry.published_at.localtime.strftime("%A, %-d %B %Y, %-I:%M:%S %P %Z")
     %p= entry.content.html_safe
-
 = will_paginate @articles, class: 'musings_pagination'
 = render "layouts/ad"

@@ -1,6 +1,6 @@
-%h1 Top News
+%center 
+  %h1 Top News
 = will_paginate @articles, class: 'musings_pagination'
-= render "layouts/ad"
 - for entry in @articles
   - unless entry.published_at.nil?
     %h2= entry.name
@@ -9,5 +9,5 @@
     .read-more= link_to "Read more »", entry.url, :target => '_blank'
     %br/
     %br/
-= render "layouts/ad"
 = will_paginate @articles, class: 'musings_pagination'
+= render "layouts/ad"

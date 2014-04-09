@@ -1,22 +1,51 @@
-<h1>News Wires</h1>
-<%= will_paginate @articles, class: 'musings_pagination' %>
-<%= render "layouts/ad" %>
 
-<table class='table'>
-  <thead>
-    <th colspan=2>Release Time</th>
-    <th>News</th>
-  </thead>
-  <tbody>
-  <% for entry in @articles %>
-    <tr>
-      <td><%= entry.published_at.strftime("%D") %></td>
-      <td><%= entry.published_at.strftime("%H%MZ") %></td>
-      <td><%= link_to entry.name, entry.url, :target => '_blank' %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
 
-<%= render "layouts/ad" %>
-<%= will_paginate @articles, class: 'musings_pagination' %>
+  <center>
+    <h1>Press Wires</h1>
+  </center>
+  <hr>
+  <div class="row-fluid">
+  <div class="span9">
+  <%= will_paginate @articles, class: 'musings_pagination' %>
+  <table class='table'>
+    <thead>
+      <th colspan=2>Release Time</th>
+      <th>News</th>
+    </thead>
+    <tbody>
+    <% for entry in @articles %>
+      <tr>
+        <td><%= entry.published_at.strftime("%D") %></td>
+        <td><%= entry.published_at.strftime("%H%MZ") %></td>
+        <td><%= link_to entry.name, entry.url, :target => '_blank' %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <%= render "layouts/ad" %>
+  <%= will_paginate @articles, class: 'musings_pagination' %>
+  </div>
+  <div class="span3">
+    <br/>
+    <br/>
+    <h5>About</h5>
+    <hr>
+    <p class="futura-light">
+      <small>
+        This subdomain is where we will be housing all of our prototypes. Our original site can be found by going to <%= link_to "Capital Musings", "http://www.capitalmusings.com" %>.
+      </small>
+    </p>
+    <br/>
+    <h5>Sponsor</h5>
+    <hr>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Medium Rectangle -->
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:300px;height:250px"
+         data-ad-client="ca-pub-6270646168060989"
+         data-ad-slot="6693448647"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+</div>
