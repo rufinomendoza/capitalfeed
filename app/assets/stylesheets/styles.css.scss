@@ -20,8 +20,9 @@ $caslon: "adobe-caslon-pro", "Big Caslon", Garamond, "Times New Roman", serif;
 
 html { -webkit-font-smoothing: antialiased; }
 
+
 body{
-  font-size: 150%;
+  font-size: 125%;
   padding-top: 100px;
   font-family: $caslon;
   line-height: 130%;
@@ -58,6 +59,18 @@ li {
   font-weight: 300;
 }
 
+
+
+.futura-light {
+  font-family: $futura;
+  font-weight: 300;
+}
+
+
+/* ======= */
+/* One-Off */
+/* ======= */
+
 .date {
   font-family: $futura;
   font-weight: 500;
@@ -65,11 +78,6 @@ li {
   text-transform: uppercase;
   padding-bottom: 10px;
   color: $musingsLightGrey;
-}
-
-.futura-light {
-  font-family: $futura;
-  font-weight: 300;
 }
 
 .read-more {
@@ -84,6 +92,20 @@ li {
   font-weight: 500;
   color: $musingsLightGrey;
 }
+
+
+/* ====== */
+/* Layout */
+/* ====== */
+
+.container {
+  width: 98%;
+}
+
+.span2 {
+  min-width: 170px;
+}
+
 
 /* ========== */
 /* Navigation */
