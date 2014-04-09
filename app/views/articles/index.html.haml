@@ -1,12 +1,14 @@
-= render "layouts/ad"
+%center
+  %h1= "#{'Article'.pluralize(@articles.count)} about #{raw @first_article.tags.map(&:name).map {|t| t }.first}"
 = will_paginate @articles, class: 'musings_pagination'
+= render "layouts/ad"
 - if @articles
   - for entry in @articles
     - unless entry.published_at.nil?
       %h2= entry.name
-      %p= entry.published_at.strftime("%A, %B #{entry.published_at.day.ordinalize}, %Y, %I:%M:%S %p %Z")
+      .date= entry.published_at.localtime.strftime("%A, %-d %B %Y, %-I:%M:%S %P %Z")
       %p= sanitize entry.summary
-      %p= link_to "Read more »", entry.url, :target => '_blank'
+      .read-more= link_to "Read more »", entry.url, :target => '_blank'
       - if Rails.env.development?
         /Only show in development
         %p= raw entry.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ')
@@ -17,5 +19,5 @@
       %br/
 - else 
   %p There are currently no articles in this section.
-= will_paginate @articles, class: 'musings_pagination'
 = render "layouts/ad"
+= will_paginate @articles, class: 'musings_pagination'

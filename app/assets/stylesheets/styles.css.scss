@@ -2,7 +2,8 @@ $navbarBackgroundHighlight: white;
 $navbarBackground: white;
 $musingsGold: #dcc08e;
 $musingsBurgundy: #9a1d0d;
-$musingsGrey: #222222;
+$musingsLightGrey: #777;
+$musingsGrey: #222;
 $musingsDarkGrey: #1B1B1B;
 $musingsSkyBlue: #aacbe0;
 $spaceCadet: #1D2951;
@@ -21,9 +22,8 @@ html { -webkit-font-smoothing: antialiased; }
 
 body{
   font-size: 150%;
-  padding-top: 190px;
-  font-family: $futura;
-  font-weight: 300;
+  padding-top: 80px;
+  font-family: $caslon;
   line-height: 130%;
   background: white;
   color:black;
@@ -39,12 +39,13 @@ body{
 
 p{
   text-align:justify;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
-
 
 h1, h2, h3, h4, h5, h6, th { 
   font-family: $futura;
-  font-size: 125%;
+  text-transform: uppercase;
 }
 
 li {
@@ -57,18 +58,39 @@ li {
   font-weight: 300;
 }
 
+.date {
+  font-family: $futura;
+  font-weight: 500;
+  font-size: 80%;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+  color: $musingsLightGrey;
+}
+
+.read-more {
+  font-family: $futura;
+  font-weight: 300;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.sponsor {
+  font-family: $futura;
+  font-weight: 500;
+  color: $musingsLightGrey;
+}
 
 /* ========== */
 /* Navigation */
 /* ========== */
 
 .navbar-inverse .navbar-inner {
-  padding-top: 10px;
+  padding-top: 5px;
   padding-bottom: 5px;
-  background:$musingsDarkGrey;
+  background: $musingsDarkGrey;
   font-family: $futura;
   font-weight: 500;
-  font-size:110%;
+  font-size: 110%;
 }
 
 .navbar-inverse .nav > li > a {
@@ -105,21 +127,14 @@ li {
 /* Logo */
 /* ==== */
 
-.logo {
-  text-transform:uppercase;
-  .company {
-    color: $musingsGold;
-    font-size: 285%;
-    line-height: 100%;
-    font-family: $futura;
-    font-weight: 700;
-  }
-  .tagline {
-    font-family: $futura;
-    font-weight: 500;
-    padding-bottom: 5px;
-    color: white;
-  }
+.navbar-inverse .navbar-inner .company {
+  color: $musingsGold;
+  font-weight: 700;
+}
+
+.navbar-inverse .navbar-inner .tagline {
+  font-weight: 300;
+  text-transform: none;
 }
 
 
@@ -144,8 +159,9 @@ input {
 
 input[type="submit"], 
 .form-actions .btn {
+  font-family: $futura;
   font-size: 110%;
-  font-weight: 300 !important;
+  font-weight: 300;
   line-height: 110%;
   background: $musingsDarkGrey;
   color: white;

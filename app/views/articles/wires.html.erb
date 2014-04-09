@@ -1,5 +1,6 @@
-<%= render "layouts/ad" %>
+<h1>News Wires</h1>
 <%= will_paginate @articles, class: 'musings_pagination' %>
+<%= render "layouts/ad" %>
 
 <table class='table'>
   <thead>
@@ -17,5 +18,5 @@
   </tbody>
 </table>
 
-<%= will_paginate @articles, class: 'musings_pagination' %>
 <%= render "layouts/ad" %>
+<%= will_paginate @articles, class: 'musings_pagination' %>

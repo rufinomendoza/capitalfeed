@@ -8,6 +8,8 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <%= tag :meta, name: "viewport", content: "width=device-width, initial-scale=1.0" %>
+  <script type="text/javascript" src="//use.typekit.net/ymn4gmp.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
   <div class="container">
@@ -19,7 +21,6 @@
     <%= render "layouts/footer" %><!-- This is commented out -->
   </div>
 <%= render "layouts/analytics" %>
-<script type="text/javascript" src="//use.typekit.net/ymn4gmp.js"></script>
-<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
 </body>
 </html>
