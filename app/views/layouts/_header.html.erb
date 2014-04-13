@@ -8,18 +8,18 @@
       </a>
       <div class="nav-collapse collapse navbar-inverse-collapse">
         <ul class="nav">
-          <li><%= link_to 'Capital Musings',  root_path, class: "company" %></li>
-          <li><%= link_to 'Experimental Wire',  root_path, class: "tagline" %></li>
+          <li><%= link_to 'Capital Musings', 'http://capitalmusings.com', class: "company" %></li>
+          <li><%= link_to 'Experimental Wire', root_path, class: "tagline" %></li>
         </ul>
         <ul class="nav pull-right">
-          <li><%- link_to 'Musings',  root_path %></li><!-- Commented Out -->
+          <li><%- link_to 'Musings', root_path %></li><!-- Commented Out -->
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">News<!-- <b class="caret"></b> --></a>
             <ul class="dropdown-menu">  
               <li class="nav-header">By Relevance</li>
               <li><%- link_to "All", articles_path %></li><!-- Commented Out -->
-              <li><%= link_to 'Top News',  top_news_path %></li>
-              <li><%= link_to 'Press Wires',  wires_path %></li>
+              <li><%= link_to 'Top News', top_news_path %></li>
+              <li><%= link_to 'Press Wires', wires_path %></li>
               <li class="divider"></li>
               <li class="nav-header">By Vertical</li>
               <% tag_cloud Article.tag_counts do |tag| %>
@@ -31,9 +31,9 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sites<!-- <b class="caret"></b> --></a>
             <ul class="dropdown-menu">
               <li>    
-                <%= link_to 'Experimental',  root_path %>
+                <%= link_to 'Experimental', root_path %>
               </li>
-              <li><%= link_to 'Main Site',  'http://capitalmusings.com' %></li>
+              <li><%= link_to 'Main Site', 'http://capitalmusings.com' %></li>
             </ul>
           </li>
 
