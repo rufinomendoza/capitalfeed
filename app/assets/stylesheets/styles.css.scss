@@ -23,7 +23,6 @@ html { -webkit-font-smoothing: antialiased; }
 
 body{
   font-size: 125%;
-  padding-top: 100px;
   font-family: $caslon;
   line-height: 130%;
   background: white;
@@ -102,6 +101,96 @@ li {
   max-width: 96%;
 }
 
+
+/* =============== */
+/* Leading Picture */
+/* =============== */
+
+.section {
+  padding: 10% 0;
+  position: relative;
+}
+
+.section.no-padding { padding: 0; }
+
+.section.bg-dark-light { background: #262626; }
+
+.section-inner {
+  width: 1040px;
+  max-width: 86%;
+  margin: 0 auto;
+}
+
+.wrapper {  margin-top: 50px; }
+.header-cover { overflow-y: hidden; }
+
+.header {
+  background: no-repeat center;
+  background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+}
+
+.header-inner { position: relative; z-index: 2; text-align: center; }
+
+.blog-logo { display: inline-block; }
+
+.blog-logo a,
+.blog-logo img { display: block; }
+
+.blog-logo img {
+  max-height: 250px;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.blog-info {
+  display: inline-block;
+  padding: 30px;
+  background: #1d1d1d;
+}
+
+.blog-title { 
+  width: 100%; 
+  text-align: center; 
+  font-family: $futura;
+  font-weight: 700;
+  font-size: 36px;
+}
+
+.blog-title a {
+  color: $musingsGold;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: 700;
+  font-size: 1.75em;
+}
+
+.blog-title a:hover {
+  color: $musingsGold;
+  text-shadow: 0 0 15px rgba(255,255,255,0.6);
+}
+
+.blog-description:before {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 2px;
+  background: rgba(255,255,255,0.1);
+  margin: 20px auto;
+}
+
+.blog-description {
+  font-family: $futura;
+  text-align: center;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+  font-weight: 500;
+  font-size: 24px;
+}
+
+
 /* ========== */
 /* Navigation */
 /* ========== */
@@ -113,6 +202,7 @@ li {
   font-family: $futura;
   font-weight: 500;
   font-size: 110%;
+  width: 100%;
 }
 
 .navbar-inverse .nav > li > a {
@@ -144,6 +234,11 @@ li {
   padding-right: 10px;
 }
 
+.navbar-fixed-top, 
+.navbar-fixed-bottom {
+  position: relative;
+}
+/* Make the navbars move */
 
 /* ==== */
 /* Logo */
@@ -155,8 +250,7 @@ li {
 }
 
 .navbar-inverse .navbar-inner .tagline {
-  font-weight: 300;
-  text-transform: none;
+  font-weight: 700;
 }
 
 
