@@ -105,15 +105,6 @@ li {
 }
 
 
-/* ====== */
-/* Layout */
-/* ====== */
-
-.container {
-  max-width: 96%;
-}
-
-
 /* =============== */
 /* Leading Picture */
 /* =============== */
@@ -263,6 +254,7 @@ html, body {
   height: auto !important;
   height: 100%;
   margin: 50px auto -155px; /* the bottom margin is the negative value of the footer's height */
+  max-width: 96%;
 }
 footer, .push {
   height: 155px; /* '.push' must be the same height as 'footer' */
