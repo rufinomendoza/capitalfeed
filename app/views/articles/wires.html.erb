@@ -27,6 +27,9 @@
     </p>
     <br/>
     <h5>Sponsors</h5>
+    <% if mobile_device? %>
+      <center>
+    <% end %>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- Wide Skyscraper -->
     <ins class="adsbygoogle"
@@ -36,5 +39,8 @@
     <script>
     (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
+    <% if mobile_device? %>
+      </center>
+    <% end %>
   </div>
 </div>
