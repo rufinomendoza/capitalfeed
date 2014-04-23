@@ -86,11 +86,12 @@ $caslon: "adobe-caslon-pro", serif;
     margin-left:10px;
   }
 
-  iframe {
-    max-width:100%;
-    height:auto;
+  @media (max-device-width: 767px) {
+    iframe {
+      max-width:100%;
+      height:auto;
+    }
   }
-
 
   /* ======= */
   /* One-Off */
