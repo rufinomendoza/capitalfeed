@@ -72,15 +72,18 @@ $caslon: "adobe-caslon-pro", serif;
 
   /* Typography for phones */
   @media (max-device-width: 767px) {
-  body {font-size: 1.1em;line-height: 1.063em;}
-  h1, h2, h3, h4, h5, h6, th {line-height: 1.063em;}
+  body {font-size: 1.125em;line-height: 1.375em;}
+  h1, h2, h3, h4, h5, h6, th, li {line-height: 1.375em;}
   h1 {font-size:1.5em;}
   h2 {font-size:1.4em;}
   h3 {font-size:1.35em;}
   h4 {font-size:1.3em;}
   h5 {font-size:1.079em;}
   h6 {font-size:0.975em;}
-  li {line-height:1.063em;}
+  }
+
+  .wrapper li {
+    margin-left:10px;
   }
 
 
@@ -273,8 +276,6 @@ $caslon: "adobe-caslon-pro", serif;
       background: black;
     }
   }
-
-  /* Make the navbars move */
 
   /* ==== */
   /* Logo */
