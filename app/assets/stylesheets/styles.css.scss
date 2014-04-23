@@ -14,382 +14,390 @@ $caslon: "adobe-caslon-pro", serif;
 @import 'bootstrap-responsive';
 
 
-/* ======= */
-/* General */
-/* ======= */
+  /* ======= */
+  /* General */
+  /* ======= */
 
-html { -webkit-font-smoothing: antialiased; }
+  html { -webkit-font-smoothing: antialiased; }
 
-
-body{
-  font-size: 1.3em;
-  font-family: $caslon;
-  line-height: 2.063em;
-  background: white;
-  color:black;
-  a{
-    color: $musingsBurgundy;
-    &:hover{
-      text-decoration:none;
+  body{
+    font-family: $caslon;
+    a{
       color: $musingsBurgundy;
-      text-shadow: 0 0 15px rgba(255,255,255,0.6);
+      &:hover{
+        text-decoration:none;
+        color: $musingsBurgundy;
+        text-shadow: 0 0 15px rgba(255,255,255,0.6);
+      }
     }
   }
-}
 
-p{
-  text-align:justify;
-}
-
-h1, h2, h3, h4, h5, h6, th { 
-  font-family: $futura;
-  text-transform: uppercase;
-  line-height: 2.063em;
-}
-
-h1 { font-size: 2.6em; }
-h2 { font-size: 1.95em; }
-h3 { font-size: 1.521em; }
-h4 { font-size: 1.3em; }
-h5 { font-size: 1.079em; }
-h6 { font-size: 0.975em; }
-
-li {
-  line-height:130%;
-}
-
-.table td {
-  border: none;
-  font-family: $futura;
-  font-weight: 300;
-}
-
-
-
-.futura-light {
-  font-family: $futura;
-  font-weight: 300;
-}
-
-.futura-medium {
-  font-family: $futura;
-  font-weight: 500;
-}
-
-
-
-/* ======= */
-/* One-Off */
-/* ======= */
-
-.date {
-  font-family: $futura;
-  font-weight: 500;
-  text-transform: uppercase;
-  color: $musingsLightGrey;
-}
-
-.read-more {
-  font-family: $futura;
-  font-weight: 500;
-  text-align: right;
-  text-transform: uppercase;
-}
-
-.sponsor {
-  font-family: $futura;
-  font-weight: 500;
-  color: $musingsLightGrey;
-}
-
-
-/* =============== */
-/* Leading Picture */
-/* =============== */
-
-.section {
-  padding: 10% 0;
-  position: relative;
-}
-
-.section.no-padding { padding: 0; }
-
-.section.bg-dark-light { background: #262626; }
-
-.section-inner {
-  width: 1040px;
-  max-width: 86%;
-  margin: 0 auto;
-}
-
-.header-cover { overflow-y: hidden; }
-
-.header {
-  background: no-repeat center;
-  background-size: cover;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-}
-
-.header-inner { position: relative; z-index: 2; text-align: center; }
-
-.blog-logo { display: inline-block; }
-
-.blog-logo a,
-.blog-logo img { display: block; }
-
-.blog-logo img {
-  max-height: 250px;
-  width: auto;
-  max-width: 100%;
-  height: auto;
-}
-
-.blog-info {
-  display: inline-block;
-  padding: 30px;
-  background: #1d1d1d;
-}
-
-.blog-title { 
-  width: 100%; 
-  text-align: center; 
-  font-family: $futura;
-  font-weight: 700;
-  font-size: 36px;
-}
-
-.blog-title a {
-  color: $musingsGold;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  font-weight: 700;
-  font-size: 1.75em;
-}
-
-.blog-title a:hover {
-  color: $musingsGold;
-  text-shadow: 0 0 15px rgba(255,255,255,0.6);
-}
-
-.blog-description:before {
-  content: "";
-  display: block;
-  width: 100px;
-  height: 2px;
-  background: rgba(255,255,255,0.1);
-  margin: 20px auto;
-}
-
-.blog-description {
-  font-family: $futura;
-  text-align: center;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.9);
-  font-weight: 500;
-  font-size: 24px;
-}
-
-
-/* ========== */
-/* Navigation */
-/* ========== */
-
-.navbar-inverse .navbar-inner {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  background: $musingsDarkGrey;
-  font-family: $futura;
-  font-weight: 500;
-  font-size: 110%;
-  width: 100%;
-}
-
-.navbar-inverse .nav > li > a {
-  color: white;
-  text-transform: uppercase;
-}
-
-.navbar-inverse .nav > li > a:focus,
-.navbar-inverse .nav > li > a:hover, {
-  color: $musingsGold;
-  text-shadow: 0 0 15px rgba(255,255,255,0.6);
-}
-
-.dropdown-menu li > a {
-  font-size: 80%;
-  padding: 5px 10px;
-  text-transform: uppercase;
-  font-weight: 500;
-  &:hover {
-    background: $musingsGold;
-    color: black;
+  p{
+    text-align:justify;
   }
-}
 
-.dropdown .dropdown-menu .nav-header {
-  font-weight: 700;
-  font-size: 70%;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.navbar-fixed-top {
-  position: relative;
-}
-
-
-.navbar-fixed-bottom {
-  position: relative;
-}
-
-
-html, body {
-  height: 100%;
-}
-.wrapper {
-  min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  margin: 50px auto -155px; /* the bottom margin is the negative value of the footer's height */
-  max-width: 96%;
-}
-footer, .push {
-  height: 155px; /* '.push' must be the same height as 'footer' */
-
-}
-
-footer {
-  background: $musingsDarkGrey;
-}
-
-
-/* Make the navbars move */
-
-/* ==== */
-/* Logo */
-/* ==== */
-
-.navbar-inverse .navbar-inner .company {
-  color: $musingsGold;
-  font-weight: 700;
-}
-
-.navbar-inverse .navbar-inner .tagline {
-  font-weight: 700;
-}
-
-
-/* =========== */
-/* Simple form */
-/* =========== */
-
-.form-actions {
-  background: none;
-  border: none;
-}
-
-label,
-button,
-input {
-  font-family: $futura;
-  font-size: 110%;
-  font-weight: 300;
-  line-height: 110%;
-  width: 100%;
-}
-
-input[type="submit"], 
-.form-actions .btn {
-  font-family: $futura;
-  font-size: 110%;
-  font-weight: 300;
-  line-height: 110%;
-  background: $musingsDarkGrey;
-  color: white;
-  border: none;
-  border-radius: 0;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  text-shadow: none;
-}
-
-select,
-textarea,
-input[type="text"],
-input[type="password"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="date"],
-input[type="month"],
-input[type="time"],
-input[type="week"],
-input[type="number"],
-input[type="email"],
-input[type="url"],
-input[type="search"],
-input[type="tel"],
-input[type="color"],
-.uneditable-input {
-  display: inline-block;
-  height: auto;
-  padding: 4px 6px;
-  margin-bottom: 10px;
-  font-size: 110%;
-  font-weight: 300;
-  line-height: 110%;
-  background: transparent;
-  border-style: none none solid none;
-  vertical-align: middle;
-  border-radius: 0;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  text-shadow: none;
-}
-
-
-/* ========== */
-/* Pagination */
-/* ========== */
-
-.musings_pagination {
-  border: none;
-  font-family: $futura;
-  text-align: center;
-  padding: 1em;
-  cursor: default;
-  -moz-border-radius: 1em;
-  -webkit-border-radius: 1em;
-  border-radius: 1em; }
-  .musings_pagination a, .musings_pagination span {
-    padding: 0.2em 0.3em; color: black; font-weight:500; }
-  .musings_pagination .disabled {
-    color: #555; }
-  .musings_pagination .current {
+  h1, h2, h3, h4, h5, h6, th { 
     font-family: $futura;
-    font-style: normal;
+    text-transform: uppercase;
+  }
+
+
+  .table td {
+    border: none;
+    font-family: $futura;
+    font-weight: 400;
+  }
+
+  .futura-book {
+    font-family: $futura;
+    font-weight: 400;
+  }
+
+  .futura-heavy {
+    font-family: $futura;
     font-weight: 700;
-    color: $musingsGold;
+  }
+
+  /* Increase typography for high resolution screens */
+  @media only screen and (min-device-width: 768px) {
+  body {font-size: 1.3em;line-height: 2.063em;}
+  h1, h2, h3, h4, h5, h6, th {line-height: 2.063em;}
+  h1 {font-size:2.6em;}
+  h2 {font-size:1.95em;}
+  h3 {font-size:1.521em;}
+  h4 {font-size:1.3em;}
+  h5 {font-size:1.079em;}
+  h6 {font-size:0.975em;}
+  li {line-height:130%;}
+  }
+
+
+  /* ======= */
+  /* One-Off */
+  /* ======= */
+
+  .date {
+    font-family: $futura;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: $musingsLightGrey;
+  }
+
+  .read-more {
+    font-family: $futura;
+    font-weight: 400;
+    text-align: right;
+    text-transform: uppercase;
+  }
+
+  .sponsor {
+    font-family: $futura;
+    font-weight: 400;
+    color: $musingsLightGrey;
+  }
+
+
+  /* =============== */
+  /* Leading Picture */
+  /* =============== */
+
+  @media only screen and (min-device-width: 768px) {
+    .header.section{background-image:url(http://capitalmusings.com/wp-content/uploads/2014/04/cropped-1280px-NYC_Skyline_Contrast_5919373122.jpg);}
+    .section-inner{width:1040px;}
+    .blog-info{padding:30px;}
+    .section{padding: 10% 0;}
+    }
+
+  .section {
+    position: relative;
+  }
+
+
+  .section.no-padding { padding: 0; }
+  .section.bg-black { background: black; }
+
+  .section-inner {
+    max-width: 86%;
+    margin: 0 auto;
+  }
+
+  .header-cover { overflow-y: hidden; }
+
+  .header {
+    background: no-repeat center;
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+  }
+
+  .header-inner { position: relative; z-index: 2; text-align: center; }
+
+  .blog-logo { display: inline-block; }
+
+  .blog-logo a,
+  .blog-logo img { display: block; }
+
+  .blog-logo img {
+    max-height: 250px;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .blog-info {
     display: inline-block;
-    width: 1.4em;
-    height: 1.4em;
-    line-height: 1.5;
+    background: black;
+  }
+
+  .blog-title { 
+    width: 100%; 
+    text-align: center; 
+    font-family: $futura;
+    font-weight: 700;
+    font-size: 1.75em;
+  }
+
+  .blog-title a {
+    color: $musingsGold;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 700;
+    font-size: 1.75em;
+  }
+
+  .blog-title a:hover {
+    color: $musingsGold;
+    text-shadow: 0 0 15px rgba(255,255,255,0.6);
+  }
+
+  .blog-description:before {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 2px;
+    background: rgba(255,255,255,0.1);
+    margin: 20px auto;
+  }
+
+  .blog-description {
+    font-family: $futura;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+    font-weight: 700;
+    font-size: 24pt;
+  }
+  
+
+  /* ========== */
+  /* Navigation */
+  /* ========== */
+
+  .navbar-inverse .navbar-inner {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background: black;
+    font-family: $futura;
+    font-weight: 700;
+    width: 100%;
+  }
+
+  .navbar-inverse .nav > li > a {
+    color: white;
+    text-transform: uppercase;
+  }
+
+  .navbar-inverse .nav > li > a:focus,
+  .navbar-inverse .nav > li > a:hover, {
+    color: $musingsGold;
+    text-shadow: 0 0 15px rgba(255,255,255,0.6);
+  }
+
+  .dropdown-menu li > a {
+    padding: 5px 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+    &:hover {
+      background: $musingsGold;
+      color: black;
+    }
+  }
+
+  .dropdown .dropdown-menu .nav-header {
+    font-weight: 700;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .navbar-fixed-bottom {
+    position: relative;
+  }
+
+  html, body {
+    height: 100%;
+  }
+  .wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 50px auto -155px; /* the bottom margin is the negative value of the footer's height */    
+  }
+
+  @media only screen and (min-device-width: 768px) {
+    .wrapper {max-width: 96%;}
+  }
+
+  footer, .push {
+    height: 155px; /* '.push' must be the same height as 'footer' */
+
+  }
+
+  footer {
+    background: black;
+  }
+
+
+  /* Make the navbars move */
+
+  /* ==== */
+  /* Logo */
+  /* ==== */
+
+  .navbar-inverse .navbar-inner .company {
+    color: $musingsGold;
+    font-weight: 700;
+  }
+
+  .navbar-inverse .navbar-inner .tagline {
+    font-weight: 700;
+  }
+
+
+  /* =========== */
+  /* Simple form */
+  /* =========== */
+
+  .form-actions {
+    background: none;
+    border: none;
+  }
+
+  label,
+  button,
+  input {
+    font-family: $futura;
+    font-weight: 400;
+    width: 100%;
+  }
+
+  input[type="submit"], 
+  .form-actions .btn {
+    font-family: $futura;
+    font-weight: 400;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    text-shadow: none;
+  }
+
+  select,
+  textarea,
+  input[type="text"],
+  input[type="password"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="date"],
+  input[type="month"],
+  input[type="time"],
+  input[type="week"],
+  input[type="number"],
+  input[type="email"],
+  input[type="url"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="color"],
+  .uneditable-input {
+    display: inline-block;
+    height: auto;
+    padding: 4px 6px;
+    margin-bottom: 10px;
+    font-weight: 400;
+    background: transparent;
+    border-style: none none solid none;
+    vertical-align: middle;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    text-shadow: none;
+  }
+
+
+  /* ========== */
+  /* Pagination */
+  /* ========== */
+
+  .musings_pagination {
+    border: none;
+    font-family: $futura;
+    text-align: center;
+    padding: 1em;
+    cursor: default;
     -moz-border-radius: 1em;
     -webkit-border-radius: 1em;
     border-radius: 1em; }
-  .musings_pagination a {
-    text-decoration: none; }
-    .musings_pagination a:hover, .musings_pagination a:focus {
+    .musings_pagination a, .musings_pagination span {
+      padding: 0.2em 0.3em; color: black; font-weight:400; }
+    .musings_pagination .disabled {
+      color: #555; }
+    .musings_pagination .current {
+      font-family: $futura;
+      font-style: normal;
+      font-weight: 700;
       color: $musingsGold;
+      display: inline-block;
+      width: 1.4em;
+      height: 1.4em;
+      line-height: 1.5;
+      -moz-border-radius: 1em;
+      -webkit-border-radius: 1em;
+      border-radius: 1em; }
+    .musings_pagination a {
       text-decoration: none; }
+      .musings_pagination a:hover, .musings_pagination a:focus {
+        color: $musingsGold;
+        text-decoration: none; }
 
 
-/* ====== */
-/* Footer */
-/* ====== */
+  /* ====== */
+  /* Footer */
+  /* ====== */
 
-.footer{
-  margin-top: 50px;
-}
+  footer{
+    margin-top: 50px;
+  }
+
+  /* @media (max-width: 767px) {
+    body {padding: 0;}
+    .navbar-fixed-top,
+    .navbar-fixed-bottom,
+    .navbar-static-top {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  } */
+
+  @media (max-width: 767px) {
+    footer, .header-cover.section.bg-black.no-padding {
+    margin-left: -20px;
+    margin-right: -20px;
+    }
+    .navbar-fixed-bottom {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
