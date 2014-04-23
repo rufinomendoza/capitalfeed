@@ -11,7 +11,7 @@ Capitalfeed::Application.routes.draw do
 
   get 'musings' => 'articles#musings'
 
-  get 'top_news' => 'articles#top'
+  get 'top_news' => 'articles#musings'
   get 'wires' => 'articles#wires'
 
   root :to => 'articles#top'
