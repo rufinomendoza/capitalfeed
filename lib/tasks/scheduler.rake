@@ -158,6 +158,12 @@ desc "Mail article briefing"
     end
 end
 
+desc "Wipe CM stories"
+  task :wipe_cm => :environment do
+    puts "Deleting old stories"
+    @cm_articles = Article.where("category = ?", "cm")
+    @cm_articles.each { |article| article.destroy }
+end
 
 desc "Update CM while deleting older articles"
   task :update_cm => :environment do
@@ -172,3 +178,4 @@ desc "Update CM while deleting older articles"
     end
     puts "\n\n"
 end
+
