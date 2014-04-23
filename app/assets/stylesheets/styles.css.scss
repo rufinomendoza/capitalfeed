@@ -59,7 +59,7 @@ $caslon: "adobe-caslon-pro", serif;
   }
 
   /* Increase typography for high resolution screens */
-  @media only screen and (min-device-width: 768px) {
+  @media (min-device-width: 768px) {
   body {font-size: 1.3em;line-height: 2.063em;}
   h1, h2, h3, h4, h5, h6, th {line-height: 2.063em;}
   h1 {font-size:2.6em;}
@@ -68,7 +68,20 @@ $caslon: "adobe-caslon-pro", serif;
   h4 {font-size:1.3em;}
   h5 {font-size:1.079em;}
   h6 {font-size:0.975em;}
-  li {line-height:130%;}
+  li {line-height:2.063em;}
+  }
+
+  /* Typography for phones */
+  @media (max-device-width: 767px) {
+  body {font-size: 1.1em;line-height: 1.063em;}
+  h1, h2, h3, h4, h5, h6, th {line-height: 1.063em;}
+  h1 {font-size:1.5em;}
+  h2 {font-size:1.4em;}
+  h3 {font-size:1.35em;}
+  h4 {font-size:1.3em;}
+  h5 {font-size:1.079em;}
+  h6 {font-size:0.975em;}
+  li {line-height:1.063em;}
   }
 
 
@@ -81,6 +94,7 @@ $caslon: "adobe-caslon-pro", serif;
     font-weight: 400;
     text-transform: uppercase;
     color: $musingsLightGrey;
+    padding-bottom:10px;
   }
 
   .read-more {
@@ -102,16 +116,15 @@ $caslon: "adobe-caslon-pro", serif;
   /* =============== */
 
   @media only screen and (min-device-width: 768px) {
-    .header.section{background-image:url(http://capitalmusings.com/wp-content/uploads/2014/04/cropped-1280px-NYC_Skyline_Contrast_5919373122.jpg);}
+    .header.section{background-image:url('skyline.jpg');}
     .section-inner{width:1040px;}
     .blog-info{padding:30px;}
     .section{padding: 10% 0;}
-    }
+  }
 
   .section {
     position: relative;
   }
-
 
   .section.no-padding { padding: 0; }
   .section.bg-black { background: black; }
@@ -163,6 +176,7 @@ $caslon: "adobe-caslon-pro", serif;
     letter-spacing: 4px;
     font-weight: 700;
     font-size: 1.75em;
+    line-height: 1em;
   }
 
   .blog-title a:hover {
@@ -185,7 +199,7 @@ $caslon: "adobe-caslon-pro", serif;
     text-transform: uppercase;
     color: rgba(255,255,255,0.9);
     font-weight: 700;
-    font-size: 24pt;
+    font-size: 1em;
   }
   
 
@@ -200,6 +214,7 @@ $caslon: "adobe-caslon-pro", serif;
     font-family: $futura;
     font-weight: 700;
     width: 100%;
+
   }
 
   .navbar-inverse .nav > li > a {
@@ -229,33 +244,36 @@ $caslon: "adobe-caslon-pro", serif;
     padding-right: 10px;
   }
 
-  .navbar-fixed-bottom {
+  .navbar-fixed-bottom,
+  .navbar-fixed-top {
     position: relative;
   }
 
-  html, body {
-    height: 100%;
-  }
-  .wrapper {
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-    margin: 50px auto -155px; /* the bottom margin is the negative value of the footer's height */    
-  }
+  @media (min-width:768px) {
+    html, body {
+      height: 100%;
+    }
+    .wrapper {
+      min-height: 100%;
+      height: auto !important;
+      height: 100%;
+      margin: 50px auto -155px; /* the bottom margin is the negative value of the footer's height */    
+    }
 
-  @media only screen and (min-device-width: 768px) {
-    .wrapper {max-width: 96%;}
+    @media only screen and (min-device-width: 768px) {
+      .wrapper {max-width: 96%;}
+    }
+
+
+    footer, .push {
+      height: 155px; /* '.push' must be the same height as 'footer' */
+
+    }
+
+    footer {
+      background: black;
+    }
   }
-
-  footer, .push {
-    height: 155px; /* '.push' must be the same height as 'footer' */
-
-  }
-
-  footer {
-    background: black;
-  }
-
 
   /* Make the navbars move */
 
@@ -376,28 +394,18 @@ $caslon: "adobe-caslon-pro", serif;
   /* ====== */
   /* Footer */
   /* ====== */
-
-  footer{
-    margin-top: 50px;
+  @media (min-width:768px) {
+    footer{
+      margin-top: 50px;
+    }
   }
 
-  /* @media (max-width: 767px) {
-    body {padding: 0;}
-    .navbar-fixed-top,
-    .navbar-fixed-bottom,
-    .navbar-static-top {
-      margin-left: 0;
-      margin-right: 0;
-    }
-  } */
-
   @media (max-width: 767px) {
-    footer, .header-cover.section.bg-black.no-padding {
+    .header-cover.section.bg-black.no-padding {
     margin-left: -20px;
-    margin-right: -20px;
+    margin-right: -30px;
     }
-    .navbar-fixed-bottom {
-      margin-left: 0;
-      margin-right: 0;
+    .btn.btn.navbar {
+      border:none;
     }
   }

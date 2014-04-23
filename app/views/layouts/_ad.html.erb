@@ -1,17 +1,30 @@
 <center><h6 class="sponsor">A note from our sponsor</h6></center>
 <% if Rails.env.production? %>
   <center>
-    <script type="text/javascript"><!--
-    google_ad_client = "ca-pub-6270646168060989";
-    /* Top Leaderboard */
-    google_ad_slot = "2541377845";
-    google_ad_width = 728;
-    google_ad_height = 90;
-    //-->
-    </script>
-    <script type="text/javascript"
-    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-    </script>
+    <% if mobile_device? %>
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- Mobile Leaderboard -->
+      <ins class="adsbygoogle"
+           style="display:inline-block;width:320px;height:50px"
+           data-ad-client="ca-pub-6270646168060989"
+           data-ad-slot="7718439440"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    <% else %>
+      <script type="text/javascript"><!--
+      google_ad_client = "ca-pub-6270646168060989";
+      /* Top Leaderboard */
+      google_ad_slot = "2541377845";
+      google_ad_width = 728;
+      google_ad_height = 90;
+      //-->
+      </script>
+      <script type="text/javascript"
+      src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+      </script>
+    <% end %>
   </center>
 <% end %>
 <br/>
+

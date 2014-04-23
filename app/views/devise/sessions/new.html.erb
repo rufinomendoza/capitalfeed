@@ -12,6 +12,8 @@
   <div class="form-actions">
     <%= link_to "Sign up", new_user_registration_path, class: "btn" if devise_mapping.registerable?  %>
     <%= link_to "Forgot password?", new_user_password_path, class: "btn" if devise_mapping.recoverable? %>
+  </div>
+  <div class="form-actions">
     <%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2), class: "btn" if devise_mapping.omniauthable? %>
   </div>
 <% end %>
