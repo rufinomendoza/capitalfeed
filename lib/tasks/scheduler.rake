@@ -157,3 +157,18 @@ desc "Mail article briefing"
       UserMailer.mail_news(user).deliver
     end
 end
+
+
+desc "Update CM while deleting older articles"
+  task :update_cm => :environment do
+    puts "Deleting old stories"
+    @cm_articles = Article.where("category = ?", "cm")
+    @cm_articles.each { |article| article.destroy }
+    puts "Updating feeds from Capital Musings"
+    cm_feeds = ['http://capitalmusings.com/feed']
+    cm_feeds.each do |feed|
+      puts feed
+      Article.update_from_feed(feed, 'cm')
+    end
+    puts "\n\n"
+end
