@@ -120,9 +120,14 @@ $caslon: "adobe-caslon-pro", serif;
   @media only screen and (min-device-width: 768px) {
     .header.section{background-image:url('skyline.jpg');}
     .section-inner{width:1040px;}
+    .blog-title, .blog-title a{font-size: 1.75em;}
     .blog-info{padding:30px;}
     .section{padding: 10% 0;}
   }
+
+  @media only screen and (max-device-width: 767px) {
+    .blog-title, .blog-title a{font-size: 1.5em;}
+    }
 
   .section {
     position: relative;
@@ -169,7 +174,7 @@ $caslon: "adobe-caslon-pro", serif;
     text-align: center; 
     font-family: $futura;
     font-weight: 700;
-    font-size: 1.75em;
+
   }
 
   .blog-title a {
@@ -177,7 +182,6 @@ $caslon: "adobe-caslon-pro", serif;
     text-transform: uppercase;
     letter-spacing: 4px;
     font-weight: 700;
-    font-size: 1.75em;
     line-height: 1em;
   }
 
