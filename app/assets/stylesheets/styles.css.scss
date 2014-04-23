@@ -41,7 +41,6 @@ $caslon: "adobe-caslon-pro", serif;
     text-transform: uppercase;
   }
 
-
   .table td {
     border: none;
     font-family: $futura;
@@ -295,6 +294,30 @@ $caslon: "adobe-caslon-pro", serif;
   /* Simple form */
   /* =========== */
 
+
+  label, button, input, input[type="submit"],
+  select,
+  textarea,
+  input[type="text"],
+  input[type="password"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="date"],
+  input[type="month"],
+  input[type="time"],
+  input[type="week"],
+  input[type="number"],
+  input[type="email"],
+  input[type="url"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="color"],
+  .uneditable-input,
+  .form-actions .btn {
+    font-size:1.1em;
+    line-height:1.2em;
+  }
+
   .form-actions {
     background: none;
     border: none;
@@ -305,7 +328,10 @@ $caslon: "adobe-caslon-pro", serif;
   input {
     font-family: $futura;
     font-weight: 400;
-    width: 100%;
+  }
+
+  input {
+    width:100%;
   }
 
   input[type="submit"], 
