@@ -71,7 +71,7 @@ $caslon: "adobe-caslon-pro", serif;
 
   /* Typography for phones */
   @media (max-device-width: 767px) {
-  body {font-size: 1.125em;line-height: 1.375em; font-family: $futura;, font-weight: 400;}
+  body {font-size: 1.125em;line-height: 1.375em; font-family: $futura; font-weight: 400;}
   h1, h2, h3, h4, h5, h6, th, li, .date {line-height: 1.375em;}
   h1 {font-size:1.5em;}
   h2 {font-size:1.4em;}
