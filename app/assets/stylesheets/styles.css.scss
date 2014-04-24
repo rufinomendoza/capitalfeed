@@ -21,7 +21,6 @@ $caslon: "adobe-caslon-pro", serif;
   html { -webkit-font-smoothing: antialiased; }
 
   body{
-    font-family: $caslon;
     a{
       color: $musingsBurgundy;
       &:hover{
@@ -59,8 +58,8 @@ $caslon: "adobe-caslon-pro", serif;
 
   /* Increase typography for high resolution screens */
   @media (min-device-width: 768px) {
-  body {font-size: 1.3em;line-height: 2.063em;}
-  h1, h2, h3, h4, h5, h6, th {line-height: 2.063em;}
+  body {font-size: 1.3em;line-height: 2.063em; font-family: $caslon;}
+  h1, h2, h3, h4, h5, h6, th, .date {line-height: 2.063em;}
   h1 {font-size:2.6em;}
   h2 {font-size:1.95em;}
   h3 {font-size:1.521em;}
@@ -72,8 +71,8 @@ $caslon: "adobe-caslon-pro", serif;
 
   /* Typography for phones */
   @media (max-device-width: 767px) {
-  body {font-size: 1.125em;line-height: 1.375em;}
-  h1, h2, h3, h4, h5, h6, th, li {line-height: 1.375em;}
+  body {font-size: 1.125em;line-height: 1.375em; font-family: $futura;, font-weight: 400;}
+  h1, h2, h3, h4, h5, h6, th, li, .date {line-height: 1.375em;}
   h1 {font-size:1.5em;}
   h2 {font-size:1.4em;}
   h3 {font-size:1.35em;}
@@ -102,7 +101,6 @@ $caslon: "adobe-caslon-pro", serif;
     font-weight: 400;
     text-transform: uppercase;
     color: $musingsLightGrey;
-    padding-bottom:10px;
   }
 
   .read-more {
