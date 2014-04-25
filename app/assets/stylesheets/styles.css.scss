@@ -1,12 +1,7 @@
-$navbarBackgroundHighlight: white;
-$navbarBackground: white;
 $musingsGold: #dcc08e;
 $musingsBurgundy: #9a1d0d;
 $musingsLightGrey: #777;
-$musingsGrey: #222;
 $musingsDarkGrey: #1B1B1B;
-$musingsSkyBlue: #aacbe0;
-$spaceCadet: #1D2951;
 $futura:  "futura-pt", sans-serif;
 $caslon: "adobe-caslon-pro", serif;
 
@@ -14,9 +9,9 @@ $caslon: "adobe-caslon-pro", serif;
 @import 'bootstrap-responsive';
 
 
-  /* ======= */
-  /* General */
-  /* ======= */
+/* ------------------------------------------------------------------------- */
+/*  General
+/* ------------------------------------------------------------------------- */
 
   html { -webkit-font-smoothing: antialiased; }
 
@@ -31,14 +26,14 @@ $caslon: "adobe-caslon-pro", serif;
     }
   }
 
-  p{
-    text-align:justify;
-  }
+  p { text-align:justify; }
 
   h1, h2, h3, h4, h5, h6, th { 
     font-family: $futura;
     text-transform: uppercase;
   }
+
+  hr { border-color: #ddd; }
 
   .table td {
     border: none;
@@ -56,45 +51,53 @@ $caslon: "adobe-caslon-pro", serif;
     font-weight: 700;
   }
 
+
+/* ------------------------------------------------------------------------- */
+/*  Typography
+/* ------------------------------------------------------------------------- */
+
+
   /* Increase typography for high resolution screens */
   @media (min-device-width: 768px) {
-  body {font-size: 1.3em;line-height: 2.063em; font-family: $caslon;}
-  h1, h2, h3, h4, h5, h6, th, .date {line-height: 2.063em;}
-  h1 {font-size:2.6em;}
-  h2 {font-size:1.95em;}
-  h3 {font-size:1.521em;}
-  h4 {font-size:1.3em;}
-  h5 {font-size:1.079em;}
-  h6 {font-size:0.975em;}
-  li {line-height:2.063em;}
+    body {
+      font-size: 1.3em;
+      line-height: 2.063em;
+      font-family: $caslon;
+    }
+    h1, h2, h3, h4, h5, h6, th, .date {line-height: 2.063em;}
+    h1 {font-size:2.6em;}
+    h2 {font-size:1.95em;}
+    h3 {font-size:1.521em;}
+    h4 {font-size:1.3em;}
+    h5 {font-size:1.079em;}
+    h6 {font-size:0.975em;}
+    li {line-height:2.063em;}
+    hr { margin-top: 2.063em; margin-bottom: 2.063em;  }
   }
 
   /* Typography for phones */
   @media (max-device-width: 767px) {
-  body {font-size: 1.125em;line-height: 1.375em; font-family: $futura; font-weight: 400;}
-  h1, h2, h3, h4, h5, h6, th, li, .date {line-height: 1.375em;}
-  h1 {font-size:1.5em;}
-  h2 {font-size:1.4em;}
-  h3 {font-size:1.35em;}
-  h4 {font-size:1.3em;}
-  h5 {font-size:1.079em;}
-  h6 {font-size:0.975em;}
-  }
-
-  .wrapper li {
-    margin-left:10px;
-  }
-
-  @media (max-device-width: 767px) {
-    iframe {
-      max-width:100%;
-      height:auto;
+    body {
+      font-size: 1.125em;
+      line-height: 1.375em;
+      font-family: $futura;
+      font-weight: 400;
     }
+    h1, h2, h3, h4, h5, h6, th, li, .date {line-height: 1.375em;}
+    h1 {font-size:1.5em;}
+    h2 {font-size:1.4em;}
+    h3 {font-size:1.35em;}
+    h4 {font-size:1.3em;}
+    h5 {font-size:1.079em;}
+    h6 {font-size:0.975em;}
+    li {line-height:1.375em;}
+    hr { margin-top: 1.375em; margin-bottom: 1.375em;  }
   }
 
-  /* ======= */
-  /* One-Off */
-  /* ======= */
+
+/* ------------------------------------------------------------------------- */
+/*  One-Off Typography
+/* ------------------------------------------------------------------------- */
 
   .date {
     font-family: $futura;
@@ -116,10 +119,48 @@ $caslon: "adobe-caslon-pro", serif;
     color: $musingsLightGrey;
   }
 
+/* ------------------------------------------------------------------------- */
+/*  General Layout
+/* ------------------------------------------------------------------------- */
 
-  /* =============== */
-  /* Leading Picture */
-  /* =============== */
+  .wrapper li { margin-left:10px; }
+
+  @media (max-device-width: 767px) {
+    iframe {
+      max-width:100%;
+      height:auto;
+    }
+    .header-cover.section.bg-black.no-padding {
+    margin-left: -20px;
+    margin-right: -30px;
+    }
+    .btn.btn.navbar {
+      border:none;
+    }
+  }
+
+  @media (min-device-width:768px) {
+    html, body { height: 100%; }
+    
+    .wrapper {
+      min-height: 100%;
+      max-width: 96%;
+      height: auto !important;
+      height: 100%;
+      margin: 50px auto -155px; /* the bottom margin is the negative value of the footer's height */    
+    }
+
+    footer, .push {
+      height: 155px; /* '.push' must be the same height as 'footer' */
+    }
+
+    footer {margin-top: 50px; background: black;}
+  }
+
+
+/* ------------------------------------------------------------------------- */
+/*  Header Layout
+/* ------------------------------------------------------------------------- */
 
   @media only screen and (min-device-width: 768px) {
     .header.section{background-image:url('skyline.jpg');}
@@ -133,10 +174,7 @@ $caslon: "adobe-caslon-pro", serif;
     .blog-title, .blog-title a{font-size: 1.5em;}
     }
 
-  .section {
-    position: relative;
-  }
-
+  .section { position: relative; }
   .section.no-padding { padding: 0; }
   .section.bg-black { background: black; }
 
@@ -156,10 +194,14 @@ $caslon: "adobe-caslon-pro", serif;
 
   .header-inner { position: relative; z-index: 2; text-align: center; }
 
+
+/* ------------------------------------------------------------------------- */
+/*  Header Logo Styling
+/* ------------------------------------------------------------------------- */
+
   .blog-logo { display: inline-block; }
 
-  .blog-logo a,
-  .blog-logo img { display: block; }
+  .blog-logo a, .blog-logo img { display: block; }
 
   .blog-logo img {
     max-height: 250px;
@@ -213,9 +255,9 @@ $caslon: "adobe-caslon-pro", serif;
   }
   
 
-  /* ========== */
-  /* Navigation */
-  /* ========== */
+/* ------------------------------------------------------------------------- */
+/*  Navigation
+/* ------------------------------------------------------------------------- */
 
   .navbar-inverse .navbar-inner {
     padding-top: 5px;
@@ -259,36 +301,6 @@ $caslon: "adobe-caslon-pro", serif;
     position: relative;
   }
 
-  @media (min-width:768px) {
-    html, body {
-      height: 100%;
-    }
-    .wrapper {
-      min-height: 100%;
-      height: auto !important;
-      height: 100%;
-      margin: 50px auto -155px; /* the bottom margin is the negative value of the footer's height */    
-    }
-
-    @media only screen and (min-device-width: 768px) {
-      .wrapper {max-width: 96%;}
-    }
-
-
-    footer, .push {
-      height: 155px; /* '.push' must be the same height as 'footer' */
-
-    }
-
-    footer {
-      background: black;
-    }
-  }
-
-  /* ==== */
-  /* Logo */
-  /* ==== */
-
   .navbar-inverse .navbar-inner .company {
     color: $musingsGold;
     font-weight: 700;
@@ -299,11 +311,9 @@ $caslon: "adobe-caslon-pro", serif;
   }
 
 
-  /* =========== */
-  /* Simple form */
-  /* =========== */
-
-
+/* ------------------------------------------------------------------------- */
+/*  Forms
+/* ------------------------------------------------------------------------- */
   label, button, input, input[type="submit"],
   select,
   textarea,
@@ -339,9 +349,7 @@ $caslon: "adobe-caslon-pro", serif;
     font-weight: 400;
   }
 
-  input {
-    width:100%;
-  }
+  input { width:100%; }
 
   input[type="submit"], 
   .form-actions .btn {
@@ -390,9 +398,9 @@ $caslon: "adobe-caslon-pro", serif;
   }
 
 
-  /* ========== */
-  /* Pagination */
-  /* ========== */
+/* ------------------------------------------------------------------------- */
+/*  Pagination
+/* ------------------------------------------------------------------------- */
 
   .musings_pagination {
     border: none;
@@ -411,7 +419,7 @@ $caslon: "adobe-caslon-pro", serif;
       font-family: $futura;
       font-style: normal;
       font-weight: 700;
-      color: $musingsGold;
+      background: #ccc;
       display: inline-block;
       width: 1.4em;
       height: 1.4em;
@@ -424,23 +432,3 @@ $caslon: "adobe-caslon-pro", serif;
       .musings_pagination a:hover, .musings_pagination a:focus {
         color: $musingsGold;
         text-decoration: none; }
-
-
-  /* ====== */
-  /* Footer */
-  /* ====== */
-  @media (min-width:768px) {
-    footer{
-      margin-top: 50px;
-    }
-  }
-
-  @media (max-width: 767px) {
-    .header-cover.section.bg-black.no-padding {
-    margin-left: -20px;
-    margin-right: -30px;
-    }
-    .btn.btn.navbar {
-      border:none;
-    }
-  }
