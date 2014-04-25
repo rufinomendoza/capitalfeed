@@ -16,10 +16,10 @@
         %p= raw entry.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ')
         %p= link_to "Edit", edit_article_path(entry), class: 'btn btn-small'
         /Only show as admin
-        -if entry.content.nil?
-          .read-more= link_to "Read more »", entry.url, :target => '_blank'
-        -else
-          .read-more= link_to "Read more »", entry
+      -if entry.content.nil?
+        .read-more= link_to "Read more »", entry.url, :target => '_blank'
+      -else
+        .read-more= link_to "Read more »", entry
       %br/
 - else 
   %p There are currently no articles in this section.
