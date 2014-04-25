@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
   # Categories are stored in downcase in the database
 
+before_filter :authenticate_admin!, only: :edit
+
   def musings
     @articles = Article.where(:category => ["cm"]) # Filter Category
     @articles = @articles.where("published_at <= :time_now", {time_now: Time.now}) # Remove invalid published_at dates

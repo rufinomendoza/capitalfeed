@@ -17,9 +17,9 @@
         %p= link_to "Edit", edit_article_path(entry), class: 'btn btn-small'
         /Only show as admin
       -if entry.content.nil?
-        .read-more= link_to "Read more »", entry.url, :target => '_blank'
+        .read-more.pull-right= link_to "Read more »", entry.url, :target => '_blank'
       -else
-        .read-more= link_to "Read more »", entry
+        .read-more.pull-right= link_to "Read more »", entry
       %br/
 - else 
   %p There are currently no articles in this section.
