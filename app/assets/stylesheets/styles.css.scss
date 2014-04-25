@@ -41,7 +41,7 @@ $caslon: "adobe-caslon-pro", serif;
     font-weight: 400;
   }
 
-  .futura-book {
+  .futura-book, {
     font-family: $futura;
     font-weight: 400;
   }
@@ -49,6 +49,22 @@ $caslon: "adobe-caslon-pro", serif;
   .futura-heavy {
     font-family: $futura;
     font-weight: 700;
+  }
+
+
+/* ------------------------------------------------------------------------- */
+/*  Error Messages
+/* ------------------------------------------------------------------------- */
+
+  .alert {
+    font-family: $futura;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .help-inline {
+    font-family: $futura;
+    font-weight: 400;
   }
 
 
@@ -337,7 +353,8 @@ $caslon: "adobe-caslon-pro", serif;
   button,
   input {
     font-family: $futura;
-    font-weight: 400;
+    font-weight: inherit;
+    line-height: inherit;
   }
 
   input { width:100%; }
@@ -386,6 +403,32 @@ $caslon: "adobe-caslon-pro", serif;
     -moz-box-shadow: none;
     box-shadow: none;
     text-shadow: none;
+  }
+
+  textarea {
+    font-family: monospace;
+    width: 100%;
+    border-style: solid;
+  }
+
+  .btn {
+    font-family: $futura;
+    font-weight: 400;
+    font-size: 1.1em;
+    line-height: 1.2em;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    text-shadow: none;
+      &:hover {
+        background: black;
+        color: $musingsGold;
+        text-shadow: 0 0 15px rgba(255,255,255,0.6);
+      }
   }
 
 

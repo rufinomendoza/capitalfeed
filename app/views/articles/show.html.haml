@@ -1,0 +1,3 @@
+%h1= @article.name
+%p= @article.content.html_safe
+.read-more= link_to "Original Article »", @article.url, :target => '_blank'
