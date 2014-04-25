@@ -87,6 +87,7 @@ $caslon: "adobe-caslon-pro", serif;
     h4 {font-size:1.3em;}
     h5 {font-size:1.079em;}
     h6 {font-size:0.975em;}
+    .sponsor {font-size:0.65em;}
     li {line-height:2.063em;}
     hr { margin-top: 2.063em; margin-bottom: 2.063em;  }
   }
@@ -106,6 +107,7 @@ $caslon: "adobe-caslon-pro", serif;
     h4 {font-size:1.3em;}
     h5 {font-size:1.079em;}
     h6 {font-size:0.975em;}
+    .sponsor {font-size:0.5em;}
     li {line-height:1.375em;}
     hr { margin-top: 1.375em; margin-bottom: 1.375em;  }
   }
@@ -179,18 +181,18 @@ $caslon: "adobe-caslon-pro", serif;
 /* ------------------------------------------------------------------------- */
 
   @media only screen and (min-device-width: 768px) {
-    .header.section{background-image:url('skyline.jpg');}
     .section-inner{width:1040px;}
     .blog-title, .blog-title a{font-size: 1.75em;}
-    .blog-info{padding:30px;}
-    .section{padding: 10% 0;}
+    .blog-info {padding:30px;}
   }
 
   @media only screen and (max-device-width: 767px) {
     .blog-title, .blog-title a{font-size: 1.5em;}
     }
-
+    
+  .header.section{background-image:url('skyline.jpg');}
   .section { position: relative; }
+  .section{padding: 10% 0;}
   .section.no-padding { padding: 0; }
   .section.bg-black { background: black; }
 
