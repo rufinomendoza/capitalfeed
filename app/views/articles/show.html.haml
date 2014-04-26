@@ -1,10 +1,11 @@
 %h1= @article.name
-%p= @article.content.html_safe
+-if @article.content
+  %p= @article.content.html_safe
+-else
+  %p= @article.summary
 .read-more= link_to "Original Article »", @article.url, :target => '_blank'
 %br
 - if admin_signed_in?
-  %p= link_to "Edit", edit_article_path(@article), class: 'btn btn-small'
-%h6 Back to:
-= link_to 'Musings', root_path, class: "btn btn-small"
-= link_to 'Top News', top_news_path, class: "btn btn-small"
-= link_to 'Wires', wires_path, class: "btn btn-small"
+  %p
+    = link_to "Edit", edit_article_path(@article), class: 'btn btn-small'
+    = link_to 'Back', :back, class: "btn btn-small"

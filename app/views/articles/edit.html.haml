@@ -35,8 +35,6 @@
   %p
     = f.submit
   %br
-%p= link_to "Summary", article_path(@article), class: 'btn btn-small'
-%h6 Back to:
-= link_to 'Musings', root_path, class: "btn btn-small"
-= link_to 'Top News', top_news_path, class: "btn btn-small"
-= link_to 'Wires', wires_path, class: "btn btn-small"
+%p
+  = link_to "View", article_path(@article), class: 'btn btn-small'
+  = link_to 'Back', :back, class: "btn btn-small"
