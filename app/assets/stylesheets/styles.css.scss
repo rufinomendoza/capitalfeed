@@ -189,7 +189,7 @@ $caslon: "adobe-caslon-pro", serif;
   @media only screen and (max-device-width: 767px) {
     .blog-title, .blog-title a{font-size: 1.5em;}
     }
-    
+
   .header.section{background-image:url('skyline.jpg');}
   .section { position: relative; }
   .section{padding: 10% 0;}
@@ -438,7 +438,7 @@ $caslon: "adobe-caslon-pro", serif;
 /*  Pagination
 /* ------------------------------------------------------------------------- */
 
-  .musings_pagination {
+  .pagination {
     border: none;
     font-family: $futura;
     text-align: center;
@@ -446,12 +446,10 @@ $caslon: "adobe-caslon-pro", serif;
     cursor: default;
     -moz-border-radius: 1em;
     -webkit-border-radius: 1em;
-    border-radius: 1em; }
-    .musings_pagination a, .musings_pagination span {
-      padding: 0.2em 0.3em; color: black; font-weight:400; }
-    .musings_pagination .disabled {
-      color: #555; }
-    .musings_pagination .current {
+    border-radius: 1em; 
+    a, span { padding: 0.2em 0.3em; color: black; font-weight:400; }
+    .disabled { color: #555; }
+    .current {
       font-family: $futura;
       font-style: normal;
       font-weight: 700;
@@ -462,9 +460,13 @@ $caslon: "adobe-caslon-pro", serif;
       line-height: 1.5;
       -moz-border-radius: 1em;
       -webkit-border-radius: 1em;
-      border-radius: 1em; }
-    .musings_pagination a {
-      text-decoration: none; }
-      .musings_pagination a:hover, .musings_pagination a:focus {
-        color: $musingsGold;
-        text-decoration: none; }
+      border-radius: 1em;
+    }
+    a {
+    text-decoration: none;
+      &:hover, &:focus {
+      color: $musingsGold;
+      text-decoration: none;
+      }
+    }
+  }

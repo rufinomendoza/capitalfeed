@@ -1,0 +1,17 @@
+%h2= article.name
+.date= article.published_at.localtime.strftime("%A, %-d %B %Y, %-I:%M:%S %P %Z")
+%p= sanitize article.summary
+- if admin_signed_in?
+  /Only show as admin
+  %h5 Admin
+  %h6 Categories
+  %p= article.category
+  %h6 Tags
+  %p= raw article.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ')
+  %p= link_to "Edit", edit_article_path(article), class: 'btn btn-small'
+  /Only show as admin
+-if article.content.nil?
+  .read-more.pull-right= link_to "Read more »", article.url, :target => '_blank'
+-else
+  .read-more.pull-right= link_to "Read more »", article
+%br/

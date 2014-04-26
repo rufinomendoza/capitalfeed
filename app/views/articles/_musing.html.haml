@@ -1,0 +1,12 @@
+%h2= musing.name
+.date= musing.published_at.localtime.strftime("%A, %-d %B %Y, %-I:%M:%S %P %Z")
+%p= musing.content.html_safe
+- if admin_signed_in?
+  /Only show as admin
+  %h6 Categories
+  %p= musing.category
+  %h6 Tags
+  %p= raw musing.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ')
+  %p= link_to "Edit", edit_article_path(musing), class: 'btn btn-small'
+  /Only show as admin
+%br/
