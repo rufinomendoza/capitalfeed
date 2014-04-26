@@ -1,0 +1,16 @@
+%h2= top_partial.name
+.date= top_partial.published_at.localtime.strftime("%A, %-d %B %Y, %-I:%M:%S %P %Z")
+%p= sanitize top_partial.summary
+- if admin_signed_in?
+  /Only show as admin
+  %h6 Categories
+  %p= top_partial.category
+  %h6 Tags
+  %p= raw top_partial.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ')
+  %p= link_to "Edit", edit_top_partial_path(top_partial), class: 'btn btn-small'
+  /Only show as admin
+-if top_partial.content.nil?
+  .read-more.pull-right= link_to "Read more »", top_partial.url, :target => '_blank'
+-else
+  .read-more.pull-right= link_to "Read more »", top_partial
+%br/

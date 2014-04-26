@@ -1,23 +1,6 @@
 %center 
   %h1 Top News
-= will_paginate @articles, class: 'musings_pagination'
-- for entry in @articles
-  - unless entry.published_at.nil?
-    %h2= entry.name
-    .date= entry.published_at.localtime.strftime("%A, %-d %B %Y, %-I:%M:%S %P %Z")
-    %p= sanitize entry.summary
-    - if admin_signed_in?
-      /Only show as admin
-      %h6 Categories
-      %p= entry.category
-      %h6 Tags
-      %p= raw entry.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ')
-      %p= link_to "Edit", edit_article_path(entry), class: 'btn btn-small'
-      /Only show as admin
-    -if entry.content.nil?
-      .read-more.pull-right= link_to "Read more »", entry.url, :target => '_blank'
-    -else
-      .read-more.pull-right= link_to "Read more »", entry
-    %br/
-= will_paginate @articles, class: 'musings_pagination'
 = render "layouts/ad"
+#top_news
+  = render partial: "top_partial", collection: @articles || "There are currently no articles in this section."
+= will_paginate @articles

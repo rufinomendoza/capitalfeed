@@ -1,4 +1,4 @@
-$('#articles').append('<%= j render(@articles) %>');
+$('#top_news').append('<%= j render(partial: "top_partial", collection: @articles) %>');
 <% if @articles.next_page %>
   $('.pagination').replaceWith('<%= j will_paginate(@articles) %>');
 <% else %>
