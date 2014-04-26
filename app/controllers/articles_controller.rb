@@ -10,7 +10,7 @@ before_filter :authenticate_admin!, only: :edit
     if mobile_device?
       @articles = @articles.per_page(1) # For will_paginate
     else
-      @articles = @articles.per_page(10)
+      @articles = @articles.per_page(1)
     end
 
     respond_to do |format|
