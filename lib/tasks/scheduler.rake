@@ -152,8 +152,9 @@ end
 
 desc "Mail article briefing"
   task :mail_news => :environment do
-    @users = User.all
+    @users = User.where("subscribed_to_daily_briefing = ?", true)
     @users.each do |user|
+      puts user.email
       UserMailer.mail_news(user).deliver
     end
 end
