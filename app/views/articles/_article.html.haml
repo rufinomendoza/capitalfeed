@@ -1,6 +1,6 @@
-%h2= article.name
+%h2= sanitize article.name.html_safe
 .date= article.published_at.localtime.strftime("%A, %-d %B %Y, %-I:%M:%S %P %Z")
-%p= sanitize article.summary
+%p= sanitize article.summary.html_safe
 - if admin_signed_in?
   /Only show as admin
   %h5 Admin

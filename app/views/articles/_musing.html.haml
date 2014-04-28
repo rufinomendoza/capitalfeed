@@ -1,4 +1,4 @@
-%h2= musing.name
+%h2= sanitize musing.name.html_safe
 .date= musing.published_at.localtime.strftime("%A, %-d %B %Y, %-I:%M:%S %P %Z")
 %p= musing.content.html_safe
 - if admin_signed_in?

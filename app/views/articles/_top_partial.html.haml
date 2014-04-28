@@ -1,6 +1,6 @@
-%h2= top_partial.name
+%h2= sanitize top_partial.name.html_safe
 .date= top_partial.published_at.localtime.strftime("%A, %-d %B %Y, %-I:%M:%S %P %Z")
-%p= sanitize top_partial.summary
+%p= sanitize top_partial.summary.html_safe
 - if admin_signed_in?
   /Only show as admin
   %h6 Categories
