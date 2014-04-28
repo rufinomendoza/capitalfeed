@@ -26,21 +26,6 @@ desc "This task is called by the Heroku scheduler add-on"
   end
 
   task :update_feed => :environment do
-
-    puts "Cleaning garbage and old stories"
-    @articles = Article.all
-    @articles.each do |article|
-      if article.category.nil? || article.published_at.nil?
-          article.destroy
-      end
-      unless article.published_at.nil?
-        if article.category != "cm" && article.published_at > 3.days.ago
-          article.destroy
-        end
-      end
-    end
-    puts "\n\n"
-
     top_feeds = [
       'http://www.economist.com/feeds/print-sections/69/leaders.xml',
       'http://www.economist.com/rss/special_reports_rss.xml',
@@ -75,8 +60,6 @@ desc "This task is called by the Heroku scheduler add-on"
       'http://www.economist.com/rss/indicators_rss.xml'
     ]
 
-
-
     puts "Updating feeds for top stories"
     top_feeds.each do |feed|
       puts feed
@@ -90,7 +73,6 @@ desc "This task is called by the Heroku scheduler add-on"
       Article.update_from_feed(feed, 'wire')
     end
     puts "\n\n"
-
 
     cm_feeds = [
       'http://capitalmusings.com/feed'
@@ -146,8 +128,22 @@ desc "This task is called by the Heroku scheduler add-on"
       puts feed
       Article.update_from_feed(feed, 'top', 'Business')
     end
-
     puts "Done."
+
+    puts "Cleaning garbage and old stories"
+    @articles = Article.all
+    @articles.each do |article|
+      if article.category.nil? || article.published_at.nil?
+          article.destroy
+      end
+      unless article.published_at.nil?
+        if article.category != "cm" && article.published_at > 7.days.ago
+          article.destroy
+        end
+      end
+    end
+    puts "\n\n"
+
 end
 
 desc "Mail article briefing"
