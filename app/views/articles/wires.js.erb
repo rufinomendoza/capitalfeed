@@ -1,0 +1,7 @@
+$('#wires').append('<%= j render(partial: "wire", collection: @articles) %>');
+<% if @articles.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate(@articles) %>');
+<% else %>
+  $('.pagination').remove();
+<% end %>
+<% sleep 0.5 %>

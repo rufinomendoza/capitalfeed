@@ -35,7 +35,7 @@ $caslon: "adobe-caslon-pro", serif;
 
   hr { border-color: #ddd; }
 
-  .table td {
+  .table td, .wires .table td {
     border: none;
     font-family: $futura;
     font-weight: 400;
@@ -470,5 +470,24 @@ $caslon: "adobe-caslon-pro", serif;
       color: $musingsGold;
       text-decoration: none;
       }
+    }
+  }
+
+
+
+/* ------------------------------------------------------------------------- */
+/*  Wires
+/* ------------------------------------------------------------------------- */
+  #wires p {
+  font-family: monospace, serif;
+  text-align: left;
+  @media (min-device-width: 768px) {
+    line-height: 1.3em;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    }
+  @media (max-device-width: 767px) {
+    line-height: 1.125em;
     }
   }
