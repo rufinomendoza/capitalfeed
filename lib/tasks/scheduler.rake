@@ -104,7 +104,7 @@ desc "This task is called by the Heroku scheduler add-on"
     # Tech
     puts "Top Tech"
     top_tech = [
-      'http://bhorowitz.com/feed/',
+      'http://bhorowitz.com/blog.rss',
       'http://www.economist.com/rss/science_and_technology_rss.xml',
       'http://edge.org/feed',
       'http://feeds.wired.com/wiredinsights'
