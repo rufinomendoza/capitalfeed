@@ -1,6 +1,11 @@
 %center 
   %h1 Top News
 = render "layouts/ad"
-#top_news
-  = render partial: "top_partial", collection: @articles || "There are currently no articles in this section."
-= will_paginate @articles
+- unless @articles.blank?
+  #top_news
+    = render partial: "top_partial", collection: @articles
+  = will_paginate @articles
+- else
+  %center
+    %p
+      .futura-book There are currently no articles in this section.

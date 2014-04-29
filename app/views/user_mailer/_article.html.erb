@@ -1,0 +1,5 @@
+<p>
+  <strong><%= article.name %></strong><br/>
+  <%= sanitize article.summary %>
+  (<%= link_to URI.parse(article.url).host.sub(/www./, '') || "", article.url, target: "_blank" %>)
+</p>

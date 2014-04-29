@@ -1,6 +1,11 @@
 %center
   %h1 Press Wires
 = render "layouts/ad"
-#wires
-  = render partial: "wire", collection: @articles
-= will_paginate @articles
+-unless @articles.blank?
+  #wires
+    = render partial: "wire", collection: @articles
+  = will_paginate @articles
+- else
+  %center
+    %p
+      .futura-book There are currently no articles in this section.

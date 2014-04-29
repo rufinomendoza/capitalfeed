@@ -1,9 +1,14 @@
-%center
-  %h1
-    = raw @first_article.tags.map(&:name).map {|t| t }.first
-    = 'Article'.pluralize(@articles.count)
 = render "layouts/ad"
-#articles
-  = render @articles || "There are currently no articles in this section."
-%br
-= will_paginate @articles
+- unless @articles.blank?
+  %center
+    %h1
+      = raw @first_article.tags.map(&:name).map {|t| t }.first
+      = 'Article'.pluralize(@articles.count)
+  #articles
+    = render @articles
+  %br
+  = will_paginate @articles
+- else
+  %center
+    %p
+      .futura-book There are currently no articles.

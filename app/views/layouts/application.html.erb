@@ -18,14 +18,14 @@
     <% end %>
     <%= yield %>
   </div>
-    <%= render "layouts/footer" %><!-- This is commented out -->
-<%= render "layouts/analytics" %>
-<% if mobile_device? %>
-  <script type="text/javascript" src="//use.typekit.net/ncx1utp.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-<% else %>
-  <script type="text/javascript" src="//use.typekit.net/ymn4gmp.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-<% end %>
+  <% render "layouts/footer" %>
+  <%= render "layouts/analytics" %>
+  <% if mobile_device? %>
+    <script type="text/javascript" src="//use.typekit.net/ncx1utp.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <% else %>
+    <script type="text/javascript" src="//use.typekit.net/ymn4gmp.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <% end %>
 </body>
 </html>

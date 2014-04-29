@@ -1,4 +1,9 @@
 = render "layouts/ad"
-#articles
-  = render partial: "musing", collection: @articles || "There are currently no articles in this section."
-= will_paginate @articles
+-unless @articles.blank?
+  #articles
+    = render partial: "musing", collection: @articles
+  = will_paginate @articles
+- else
+  %center
+    %p
+      .futura-book There are currently no articles in this section.
