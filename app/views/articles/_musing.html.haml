@@ -1,6 +1,6 @@
-%h2= sanitize musing.name.html_safe
+%h2= (sanitize musing.name).html_safe if sanitize musing.name
 .date= musing.published_at.localtime.strftime("%A, %-d %B %Y, %-I:%M:%S %P %Z")
-%p= musing.content.html_safe
+%p= musing.content.html_safe if musing.content
 - if admin_signed_in?
   /Only show as admin
   %h6 Categories

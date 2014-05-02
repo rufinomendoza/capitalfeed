@@ -1,9 +1,9 @@
 -if mobile_device?
   %p
-    %strong= wire.published_at.localtime.strftime("%m/%d %H:%M %Z")
-  %p= link_to sanitize(wire.name).html_safe, wire.url, :target => '_blank'
+    %strong= wire.published_at.localtime.strftime("%m/%d %H:%M %Z") 
+    %p= link_to (sanitize wire.name).html_safe, wire.url, :target => '_blank' if sanitize wire.name
   %br
 -else
   %p
     %strong= wire.published_at.localtime.strftime("%m/%d %H:%M %Z")
-    = link_to sanitize(wire.name).html_safe, wire.url, :target => '_blank'
+    = link_to (sanitize wire.name).html_safe, wire.url, :target => '_blank' if sanitize wire.name
