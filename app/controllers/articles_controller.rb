@@ -48,12 +48,20 @@ before_filter :authenticate_admin!, only: :edit
     if params[:tag]
       @articles = Article.tagged_with(params[:tag]) # Select Articles that are tagged
       @articles = @articles.where("published_at <= :time_now", {time_now: Time.now}) # Remove invalid published_at dates
-      @articles = @articles.order("published_at desc").page(params[:page]).per_page(5) # For will_paginate
+      if admin_signed_in?
+        @articles = @articles.order("published_at desc").page(params[:page]).per_page(50)
+      else
+        @articles = @articles.order("published_at desc").page(params[:page]).per_page(5) # For will_paginate
+      end
       @first_article = @articles.first
 
     else
       @articles = Article.where("published_at <= :time_now", {time_now: Time.now}) # Remove invalid published_at dates
-      @articles = @articles.order("published_at desc").page(params[:page]).per_page(5) # For will_paginate
+      if admin_signed_in?
+        @articles = @articles.order("published_at desc").page(params[:page]).per_page(50)
+      else
+        @articles = @articles.order("published_at desc").page(params[:page]).per_page(5) # For will_paginate
+      end
       @first_article = @articles.first
     end
     respond_to do |format|
@@ -108,6 +116,7 @@ before_filter :authenticate_admin!, only: :edit
   # DELETE /articles/1
   # DELETE /articles/1.json
   def destroy
+    @article = Article.find(params[:id])
     @article.destroy
     respond_to do |format|
       format.html { redirect_to articles_url }

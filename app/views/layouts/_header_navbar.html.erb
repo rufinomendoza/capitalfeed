@@ -13,7 +13,7 @@
         <ul class="nav pull-right">
           <li><%= link_to 'Musings', root_path %></li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">News<!-- <b class="caret"></b> --></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">News <b class="caret"></b></a>
             <ul class="dropdown-menu">  
               <li class="nav-header">By Relevance</li>
               <li><%- link_to "All", articles_path %></li><!-- Commented Out -->
@@ -27,7 +27,7 @@
             </ul><!-- /Dropdown Menu -->
           </li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sites<!-- <b class="caret"></b> --></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sites <b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li>    
                 <%= link_to 'Experimental', root_path %>
@@ -38,8 +38,14 @@
 
           <!-- Login and Logout -->
             <% if admin_signed_in? %>
-              <li><%= link_to "Logout", destroy_admin_session_path, method: :delete %></li>
-              <li><%= link_to "Admin", admins_path %></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
+                <ul class="dropdown-menu"> 
+                  <li><%= link_to "Article Index", articles_path %></li>
+                  <li><%= link_to "User Panel", admins_path %></li>
+                  <li class="divider"></li>
+                  <li><%= link_to "Logout", destroy_admin_session_path, method: :delete %></li>
+              </ul>
             <% else %>
               <% if user_signed_in? %>
                 <li><%= link_to "Profile", edit_user_registration_path %></li>

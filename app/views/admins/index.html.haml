@@ -1,6 +1,6 @@
 - if admin_signed_in?
   %h1 Admins
-  = will_paginate @admins, class: 'musings_pagination'
+  = will_paginate @admins, class: 'musings-pagination'
   %table
     %thead
       %th E-Mail
@@ -30,10 +30,10 @@
           %td= admin.updated_at
           - if current_admin.god_mode?
             %td= link_to 'Delete', admin, method: :delete, data: { confirm: 'Are you sure?' }
-  = will_paginate @admins, class: 'musings_pagination'
+  = will_paginate @admins, class: 'musings-pagination'
   %br/
   %h2 Users
-  = will_paginate @users, class: 'musings_pagination'
+  = will_paginate @users, class: 'musings-pagination'
   %table
     %thead
       %th E-Mail
@@ -59,7 +59,7 @@
           %td= user.updated_at
           - if current_admin.god_mode?
             %td= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }
-  = will_paginate @users, class: 'musings_pagination'
+  = will_paginate @users, class: 'musings-pagination'
 - else
   %p This is not the page you’re looking for.
   /Just in case. If you see this message, you forgot to install before_filter in the controller

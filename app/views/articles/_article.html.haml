@@ -1,17 +1,23 @@
-%h2= (sanitize article.name).html_safe if sanitize article.name
-.date= article.published_at.localtime.strftime("%A, %-d %B %Y, %-I:%M:%S %P %Z")
-%p= (sanitize article.summary).html_safe if sanitize article.summary
 - if admin_signed_in?
-  /Only show as admin
-  %h5 Admin
-  %h6 Categories
-  %p= article.category
-  %h6 Tags
-  %p= raw article.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ')
-  %p= link_to "Edit", edit_article_path(article), class: 'btn btn-small'
-  /Only show as admin
--if article.content.nil?
-  .read-more.pull-right= link_to "Read more »", article.url, :target => '_blank'
+  %tr
+    %td.no-wrap= article.published_at.localtime.strftime("%-m-%-d-%y")
+    %td= link_to ("#{(sanitize article.name).html_safe if sanitize article.name}"), article_path(article)
+    %td= link_to Article.simplify_url(article.url), article.url, target: "_blank"
+    %td= article.category
+    %td= raw article.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ')
+    %td= link_to "Edit", edit_article_path(article), class: 'btn btn-small'
+    %td= link_to "Delete", article_path(article), class: 'btn btn-small', method: :delete, data: { confirm: 'Are you certain you want to delete this?' }
 -else
-  .read-more.pull-right= link_to "Read more »", article
-%br/
+  %h2= (sanitize article.name).html_safe if sanitize article.name
+  .date
+    %p
+      Originally published at
+      = link_to Article.simplify_url(article.url), article.url, target: "_blank"
+      on
+      = Article.simplify_date(article.published_at)
+  %p= (sanitize article.summary).html_safe if sanitize article.summary
+  -if article.content.blank?
+    .read-more.pull-right= link_to "Read more »", article.url, :target => '_blank'
+  -else
+    .read-more.pull-right= link_to "Read more »", article
+  %br/

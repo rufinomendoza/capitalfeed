@@ -1,5 +1,10 @@
 %h2= (sanitize top_partial.name).html_safe if sanitize top_partial.name
-.date= top_partial.published_at.localtime.strftime("%A, %-d %B %Y, %-I:%M:%S %P %Z")
+.date
+  %p
+    Originally published at
+    = link_to Article.simplify_url(top_partial.url), top_partial.url, target: "_blank"
+    on
+    = Article.simplify_date(top_partial.published_at)
 %p= (sanitize top_partial.summary).html_safe if sanitize top_partial.summary
 - if admin_signed_in?
   /Only show as admin
@@ -9,7 +14,7 @@
   %p= raw top_partial.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ')
   %p= link_to "Edit", edit_article_path(top_partial), class: 'btn btn-small'
   /Only show as admin
--if top_partial.content.nil?
+-if top_partial.content.blank?
   .read-more.pull-right= link_to "Read more »", top_partial.url, :target => '_blank'
 -else
   .read-more.pull-right= link_to "Read more »", top_partial

@@ -26,7 +26,7 @@
   %br
   %h6
     = f.label :category
-    = f.text_field :category
+    = f.select :category, [['CM','cm'], ['Wire','wire'], ['Top','top']]
   %br
   %h6
     = f.label :tag_list, "Tags (separated by commas)"

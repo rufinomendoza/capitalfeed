@@ -1,9 +1,17 @@
 %h1= @article.name
--if @article.content
-  %p= @article.content.html_safe
+.date
+  %p
+    Originally published at
+    = link_to Article.simplify_url(@article.url), @article.url, target: "_blank"
+    on
+    = @article.published_at.localtime.strftime("%A, %-d %B %Y, %-I:%M:%S %P %Z")
+-if @article.content.present?
+  %p= (sanitize @article.content).html_safe
+-elsif @article.summary.present?
+  %p= (sanitize @article.summary).html_safe
 -else
-  %p= @article.summary
-.read-more= link_to "Original Article »", @article.url, :target => '_blank'
+  %p Syndication does not include the article information. You can visit the full article below.
+.read-more.pull-right= link_to "Original Article »", @article.url, :target => '_blank'
 %br
 - if admin_signed_in?
   %p

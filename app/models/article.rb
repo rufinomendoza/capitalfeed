@@ -28,6 +28,9 @@ class Article < ActiveRecord::Base
     end
   end
 
+
+
+
   def self.update_from_feed(feed_url, category = 'uncategorized', tag = '')
     doc = retrieve(feed_url)
   # The differing levels of indentation would break this method.
@@ -79,6 +82,16 @@ class Article < ActiveRecord::Base
     def self.retrieve(feed_url)
       xml_content = feed_url.to_s
       doc = Crack::XML.parse(open(xml_content))['rss']['channel']['item']
+    end
+
+    def self.simplify_url(link)
+      link = link.delete("|")
+      link = URI.parse(link).host
+      link = link.sub(/www./, '').sub(/feedproxy./, '').sub(/feeds./, '') || ""
+    end
+
+    def self.simplify_date(date)
+      date.localtime.strftime("%A, %-d %B %Y, %-I:%M:%S %P %Z") 
     end
 
 

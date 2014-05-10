@@ -1,13 +1,6 @@
-$musingsGold: #dcc08e;
-$musingsBurgundy: #9a1d0d;
-$musingsLightGrey: #777;
-$musingsDarkGrey: #1B1B1B;
-$futura:  "futura-pt", sans-serif;
-$caslon: "adobe-caslon-pro", serif;
-
 @import 'bootstrap';
 @import 'bootstrap-responsive';
-
+@import 'variables';
 
 /* ------------------------------------------------------------------------- */
 /*  General
@@ -38,17 +31,21 @@ $caslon: "adobe-caslon-pro", serif;
   .table td, .wires .table td {
     border: none;
     font-family: $futura;
-    font-weight: 400;
+    font-weight: $book;
+  }
+
+  .table th {
+    border: none;
   }
 
   .futura-book, {
     font-family: $futura;
-    font-weight: 400;
+    font-weight: $book;
   }
 
   .futura-heavy {
     font-family: $futura;
-    font-weight: 700;
+    font-weight: $heavy;
   }
 
 
@@ -58,13 +55,13 @@ $caslon: "adobe-caslon-pro", serif;
 
   .alert {
     font-family: $futura;
-    font-weight: 700;
+    font-weight: $heavy;
     text-transform: uppercase;
   }
 
   .help-inline {
     font-family: $futura;
-    font-weight: 400;
+    font-weight: $book;
   }
 
 
@@ -99,7 +96,7 @@ $caslon: "adobe-caslon-pro", serif;
       font-size: 1.125em;
       line-height: 1.375em;
       font-family: $futura;
-      font-weight: 400;
+      font-weight: $book;
     }
     h1, h2, h3, h4, h5, h6, th, li, .date {line-height: 1.375em;}
     h1 {font-size:1.5em;}
@@ -121,21 +118,21 @@ $caslon: "adobe-caslon-pro", serif;
 
   .date {
     font-family: $futura;
-    font-weight: 400;
+    font-weight: $book;
     text-transform: uppercase;
     color: $musingsLightGrey;
   }
 
   .read-more {
     font-family: $futura;
-    font-weight: 400;
+    font-weight: $book;
     text-transform: uppercase;
   }
 
 
   .sponsor {
     font-family: $futura;
-    font-weight: 400;
+    font-weight: $book;
     color: $musingsLightGrey;
   }
 
@@ -172,6 +169,9 @@ $caslon: "adobe-caslon-pro", serif;
     margin-right: -30px;
   }
 
+  .no-wrap {
+    white-space: nowrap;
+  }
 
 /* ------------------------------------------------------------------------- */
 /*  Header Layout
@@ -234,7 +234,7 @@ $caslon: "adobe-caslon-pro", serif;
     width: 100%; 
     text-align: center; 
     font-family: $futura;
-    font-weight: 700;
+    font-weight: $heavy;
 
   }
 
@@ -242,7 +242,7 @@ $caslon: "adobe-caslon-pro", serif;
     color: $musingsGold;
     text-transform: uppercase;
     letter-spacing: 4px;
-    font-weight: 700;
+    font-weight: $heavy;
     line-height: 1em;
   }
 
@@ -265,7 +265,7 @@ $caslon: "adobe-caslon-pro", serif;
     text-align: center;
     text-transform: uppercase;
     color: rgba(255,255,255,0.9);
-    font-weight: 700;
+    font-weight: $heavy;
     font-size: 1em;
   }
   
@@ -279,7 +279,7 @@ $caslon: "adobe-caslon-pro", serif;
     padding-bottom: 5px;
     background: black;
     font-family: $futura;
-    font-weight: 700;
+    font-weight: $heavy;
     width: 100%;
 
   }
@@ -298,7 +298,7 @@ $caslon: "adobe-caslon-pro", serif;
   .dropdown-menu li > a {
     padding: 5px 10px;
     text-transform: uppercase;
-    font-weight: 400;
+    font-weight: $book;
     &:hover {
       background: $musingsGold;
       color: black;
@@ -306,7 +306,7 @@ $caslon: "adobe-caslon-pro", serif;
   }
 
   .dropdown .dropdown-menu .nav-header {
-    font-weight: 700;
+    font-weight: $heavy;
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -316,6 +316,10 @@ $caslon: "adobe-caslon-pro", serif;
     position: relative;
   }
 
+  .dropdown .caret {
+    vertical-align: middle;
+    margin: 0px !important;
+  }
 
 /* ------------------------------------------------------------------------- */
 /*  Forms
@@ -361,7 +365,7 @@ $caslon: "adobe-caslon-pro", serif;
   input[type="submit"], 
   .form-actions .btn {
     font-family: $futura;
-    font-weight: 400;
+    font-weight: $book;
     background: black;
     color: white;
     border: none;
@@ -393,7 +397,7 @@ $caslon: "adobe-caslon-pro", serif;
     height: auto;
     padding: 4px 6px;
     margin-bottom: 10px;
-    font-weight: 400;
+    font-weight: $book;
     background: transparent;
     border-style: none none solid none;
     vertical-align: middle;
@@ -412,7 +416,7 @@ $caslon: "adobe-caslon-pro", serif;
 
   .btn {
     font-family: $futura;
-    font-weight: 400;
+    font-weight: $book;
     font-size: 1.1em;
     line-height: 1.2em;
     background: black;
@@ -435,7 +439,7 @@ $caslon: "adobe-caslon-pro", serif;
 /*  Pagination
 /* ------------------------------------------------------------------------- */
 
-  .pagination, .musings_pagination {
+  .pagination, .musings-pagination {
     border: none;
     font-family: $futura;
     text-align: center;
@@ -444,13 +448,13 @@ $caslon: "adobe-caslon-pro", serif;
     -moz-border-radius: 1em;
     -webkit-border-radius: 1em;
     border-radius: 1em; 
-    a, span { padding: 0.2em 0.3em; color: black; font-weight:400; }
+    a, span { padding: 0.2em 0.3em; color: black; font-weight:$book; }
     .disabled { color: #555; }
     .current {
       font-family: $futura;
       font-style: normal;
-      font-weight: 700;
-      background: #ccc;
+      font-weight: $heavy;
+      background: $musingsGold;
       display: inline-block;
       width: 1.4em;
       height: 1.4em;
@@ -462,8 +466,9 @@ $caslon: "adobe-caslon-pro", serif;
     a {
     text-decoration: none;
       &:hover, &:focus {
-      color: $musingsGold;
+      color: black;
       text-decoration: none;
+      font-weight: $heavy;
       }
     }
   }

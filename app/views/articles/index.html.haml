@@ -4,10 +4,27 @@
     %h1
       = raw @first_article.tags.map(&:name).map {|t| t }.first
       = 'Article'.pluralize(@articles.count)
+  -if admin_signed_in?
+    = will_paginate @articles, class: "musings-pagination"
   #articles
-    = render @articles
-  %br
-  = will_paginate @articles
+    -if admin_signed_in?
+      %table.table.table-hover
+        %tr
+          %th Date
+          %th Title
+          %th Source
+          %th Categories
+          %th Tags
+          %th{colspan: "2"} Actions
+        = render @articles  
+    -else
+      = render @articles
+      %br
+  -if admin_signed_in?
+    = will_paginate @articles, class: "musings-pagination"
+    /Endless scroll disabled for admins
+  -else
+    = will_paginate @articles
 - else
   %center
     %p
