@@ -6,7 +6,7 @@
 /*  General
 /* ------------------------------------------------------------------------- */
 
-  html { -webkit-font-smoothing: antialiased; }
+  html { -webkit-font-smoothing: subpixel-antialiased; }
 
   body{
     a{
@@ -266,7 +266,7 @@
     text-align: center;
     text-transform: uppercase;
     color: rgba(255,255,255,0.9);
-    font-weight: $heavy;
+    font-weight: $book;
     font-size: 1em;
   }
   
@@ -280,7 +280,7 @@
     padding-bottom: 0px;
     background: black;
     font-family: $futura;
-    font-weight: $heavy;
+    font-weight: $book;
     width: 100%;
 
   }
