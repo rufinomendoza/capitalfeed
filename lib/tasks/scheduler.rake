@@ -149,6 +149,7 @@ end
 
 desc "Update CM while deleting older articles"
   task :update_cm => :environment do
+    cm_feeds = ['http://capitalmusings.com/feed']
     puts "Updating feeds from Capital Musings"
     download_and_save cm_feeds, 'cm'
 end
