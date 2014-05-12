@@ -26,6 +26,25 @@ desc "This task is called by the Heroku scheduler add-on"
   end
 
   task :update_feed => :environment do
+    def clean_old_stories
+      puts "Cleaning garbage and old stories"
+      @articles = Article.all
+      @articles.each do |article|
+        if article.category.nil? || article.published_at.nil?
+            article.destroy
+        end
+        if article.published_at.nil?
+          article.destroy
+        else
+          if article.category != "cm" && article.published_at < 7.days.ago
+            article.destroy
+          end
+        end
+      end
+      puts "Done cleaning garbage and old stories"
+      puts "\n\n"
+    end
+
     top_feeds = [
       'http://www.economist.com/feeds/print-sections/69/leaders.xml',
       'http://www.economist.com/rss/special_reports_rss.xml',
@@ -60,10 +79,13 @@ desc "This task is called by the Heroku scheduler add-on"
       'http://www.economist.com/rss/indicators_rss.xml'
     ]
 
+    clean_old_stories
+
     puts "Updating feeds for top stories"
     top_feeds.each do |feed|
       puts feed
       Article.update_from_feed(feed, 'top')
+      puts "\n"
     end
     puts "\n\n"
 
@@ -71,6 +93,7 @@ desc "This task is called by the Heroku scheduler add-on"
     wire_feeds.each do |feed|
       puts feed
       Article.update_from_feed(feed, 'wire')
+      puts "\n"
     end
     puts "\n\n"
 
@@ -84,6 +107,7 @@ desc "This task is called by the Heroku scheduler add-on"
     cm_feeds.each do |feed|
       puts feed
       Article.update_from_feed(feed, 'cm')
+      puts "\n"
     end
     puts "\n\n"
 
@@ -99,6 +123,7 @@ desc "This task is called by the Heroku scheduler add-on"
     top_foreign_policy.each do |feed|
       puts feed
       Article.update_from_feed(feed, 'top', 'Politics')
+      puts "\n"
     end
 
     # Tech
@@ -113,6 +138,7 @@ desc "This task is called by the Heroku scheduler add-on"
     top_tech.each do |feed|
       puts feed
       Article.update_from_feed(feed, 'top', 'Technology')
+      puts "\n"
     end
 
     # Business
@@ -127,25 +153,12 @@ desc "This task is called by the Heroku scheduler add-on"
     top_business.each do |feed|
       puts feed
       Article.update_from_feed(feed, 'top', 'Business')
+      puts "\n"
     end
     puts "Done."
-
-    puts "Cleaning garbage and old stories"
-    @articles = Article.all
-    @articles.each do |article|
-      if article.category.nil? || article.published_at.nil?
-          article.destroy
-      end
-      if article.published_at.nil?
-        article.destroy
-      else
-        if article.category != "cm" && article.published_at < 7.days.ago
-          article.destroy
-        end
-      end
-    end
-    puts "\n\n"
-
+    puts "\n"
+    
+    clean_old_stories
 end
 
 desc "Mail article briefing"

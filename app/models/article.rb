@@ -5,8 +5,6 @@ class Article < ActiveRecord::Base
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
 
-
-
   require 'open-uri'
 
   def self.tagged_with(name)
@@ -28,46 +26,21 @@ class Article < ActiveRecord::Base
     end
   end
 
-
-
-
   def self.update_from_feed(feed_url, category = 'uncategorized', tag = '')
     doc = retrieve(feed_url)
 
     if doc.blank?
     # No articles 
       puts "No updates at this time"
-    end
-    
-    if doc.present? && doc.class == Hash
+    elsif doc.present? && doc.class == Hash
     # One article
       doc = [doc]
-    elsif doc.present?
+      process(doc, category, tag)
+    else
     # Multple articles
-      doc.each do |item|
-        unless exists? :guid => item['guid']
-          if item['link'].length < 256 and item['pubDate'].present? and DateTime.parse(item['pubDate']) > 7.days.ago
-            create!(
-              :guid => item['guid'],
-              :name => item['title'],
-              :summary => item['description'],
-              :url => item['link'],
-              :published_at => item['pubDate'],
-              :content => item['content:encoded'],
-              :category => category.downcase
-            )
-            Tagging.create!(
-              :tag_id => Tag.where(name: tag.strip.titleize).first_or_create!.id.to_i,
-              :article_id => Article.last.id.to_i
-            )
-            puts item.name
-          end
-        end
-      end
+      process(doc, category, tag)
     end
   end
-
-
 
   private
 
@@ -86,5 +59,26 @@ class Article < ActiveRecord::Base
       date.localtime.strftime("%A, %-d %B %Y, %-I:%M:%S %P %Z") 
     end
 
-
+    def self.process(doc, category, tag)
+      doc.each do |item|
+        unless exists? :guid => item['guid']
+          if item['link'].length < 256 && category == 'cm' || item['pubDate'].present? && DateTime.parse(item['pubDate']) > 7.days.ago
+            create!(
+              :guid => item['guid'],
+              :name => item['title'],
+              :summary => item['description'],
+              :url => item['link'],
+              :published_at => item['pubDate'],
+              :content => item['content:encoded'],
+              :category => category.downcase
+            )
+            Tagging.create!(
+              :tag_id => Tag.where(name: tag.strip.titleize).first_or_create!.id.to_i,
+              :article_id => Article.last.id.to_i
+            )
+            puts "'#{item['title']}' saved"
+          end
+        end
+      end
+    end
 end
