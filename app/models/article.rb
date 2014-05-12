@@ -37,12 +37,12 @@ class Article < ActiveRecord::Base
     if doc.blank?
     # No articles 
       puts "No updates at this time"
-    elsif doc.class == Hash
+    end
+    
+    if doc.present? && doc.class == Hash
     # One article
       doc = [doc]
-    end
-
-    if doc.present?
+    elsif doc.present?
     # Multple articles
       doc.each do |item|
         unless exists? :guid => item['guid']
