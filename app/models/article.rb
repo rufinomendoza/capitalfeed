@@ -33,49 +33,39 @@ class Article < ActiveRecord::Base
 
   def self.update_from_feed(feed_url, category = 'uncategorized', tag = '')
     doc = retrieve(feed_url)
-  # The differing levels of indentation would break this method.
-  # Therefore, inserted some flow control.
-  # If it's an array, need to call the each method to go through each parameter.
-  # But if it's a hash, you need to run through the parameters directly.
-    if doc.class == Array
+
+    if doc.blank?
+    # No articles 
+      puts "No updates at this time"
+    elsif doc.present? && doc.class == Hash
+    # One article
+      doc = [doc]
+    elsif doc.present?
+    # Multple articles
       doc.each do |item|
         unless exists? :guid => item['guid']
-        create!(
-          :guid => item['guid'],
-          :name => item['title'],
-          :summary => item['description'],
-          :url => item['link'],
-          :published_at => item['pubDate'],
-          :content => item['content:encoded'],
-          :category => category.downcase
-        )
-        Tagging.create!(
-          :tag_id => Tag.where(name: tag.strip.titleize).first_or_create!.id.to_i,
-          :article_id => Article.last.id.to_i
-        )
+          if item['link'].length < 256 and item['pubDate'].present? and DateTime.parse(item['pubDate']) > 7.days.ago
+            create!(
+              :guid => item['guid'],
+              :name => item['title'],
+              :summary => item['description'],
+              :url => item['link'],
+              :published_at => item['pubDate'],
+              :content => item['content:encoded'],
+              :category => category.downcase
+            )
+            Tagging.create!(
+              :tag_id => Tag.where(name: tag.strip.titleize).first_or_create!.id.to_i,
+              :article_id => Article.last.id.to_i
+            )
+            puts item.name
+          end
         end
       end
-    elsif doc.class == Hash
-      unless exists? :guid => doc['guid']
-      create!(
-        :guid => doc['guid'],
-        :name => doc['title'],
-        :summary => doc['description'],
-        :url => doc['link'],
-        :published_at => doc['pubDate'],
-        :content => doc['content:encoded'],
-        :category => category.downcase
-      )
-      Tagging.create!(
-        :tag_id => Tag.where(name: tag.strip.titleize).first_or_create!.id.to_i,
-        :article_id => Article.last.id.to_i
-      )
-      end
-    else
     end
-
-
   end
+
+
 
   private
 
