@@ -36,7 +36,7 @@ class Article < ActiveRecord::Base
     # One article
       doc = [doc]
       process(doc, category, tag)
-    else
+    elsif doc.present?
     # Multple articles
       process(doc, category, tag)
     end
@@ -46,7 +46,12 @@ class Article < ActiveRecord::Base
 
     def self.retrieve(feed_url)
       xml_content = feed_url.to_s
-      doc = Crack::XML.parse(open(xml_content))['rss']['channel']['item']
+      doc = Crack::XML.parse(open(xml_content))
+      if doc.present? && doc['rss'].present? && doc['rss']['channel'].present? && doc['rss']['channel']['item'].present?
+        doc = doc['rss']['channel']['item']
+      elsif doc.present? && doc['rdf:RDF'].present? && doc['rdf:RDF']['item'].present?
+        doc = doc['rdf:RDF']['item']
+      end
     end
 
     def self.simplify_url(link)
@@ -61,22 +66,63 @@ class Article < ActiveRecord::Base
 
     def self.process(doc, category, tag)
       doc.each do |item|
-        unless exists? :guid => item['guid']
-          if item['link'].length < 256 && category == 'cm' || item['pubDate'].present? && DateTime.parse(item['pubDate']) > 7.days.ago
-            create!(
-              :guid => item['guid'],
-              :name => item['title'],
-              :summary => item['description'],
-              :url => item['link'],
-              :published_at => item['pubDate'],
-              :content => item['content:encoded'],
-              :category => category.downcase
-            )
-            Tagging.create!(
-              :tag_id => Tag.where(name: tag.strip.titleize).first_or_create!.id.to_i,
-              :article_id => Article.last.id.to_i
-            )
-            puts "'#{item['title']}' saved"
+        if item['link'].length < 256
+          # KForce date
+          if URI.parse(item['link'].delete("|")).host == "www.kforcegov.com" 
+            if item['pubDate'].present? && DateTime.strptime(item['pubDate'].to_s, "%m/%d/%Y %I:%M:%S %p") > 7.days.ago
+              unless exists? :guid => item['guid']
+                create!(
+                  :guid => item['guid'],
+                  :name => item['title'],
+                  :summary => item['description'],
+                  :url => item['link'],
+                  :published_at => DateTime.strptime(item['pubDate'], "%m/%d/%Y %I:%M:%S %p"), # This is the different variable
+                  :content => item['content:encoded'],
+                  :category => category.downcase
+                )
+                Tagging.create!(
+                  :tag_id => Tag.where(name: tag.strip.titleize).first_or_create!.id.to_i,
+                  :article_id => Article.last.id.to_i
+                )
+                puts "'#{item['title']}' saved"
+              end
+            end
+          # Regular structure
+          elsif category == 'cm' || item['pubDate'].present? && DateTime.parse(item['pubDate']) > 7.days.ago
+            unless exists? :guid => item['guid']
+              create!(
+                :guid => item['guid'],
+                :name => item['title'],
+                :summary => item['description'],
+                :url => item['link'],
+                :published_at => item['pubDate'],
+                :content => item['content:encoded'],
+                :category => category.downcase
+              )
+              Tagging.create!(
+                :tag_id => Tag.where(name: tag.strip.titleize).first_or_create!.id.to_i,
+                :article_id => Article.last.id.to_i
+              )
+              puts "'#{item['title']}' saved"
+            end
+          # Nature's RSS structure
+          elsif item['guid'].blank? && item['dc:date'].present? && DateTime.parse(item['dc:date']) > 7.days.ago
+            unless exists? :guid => item['link']
+              create!(
+                :guid => item['link'], # This is the different variable
+                :name => item['title'],
+                :summary => item['description'],
+                :url => item['link'],
+                :published_at => item['dc:date'],
+                :content => item['content:encoded'],
+                :category => category.downcase
+              )
+              Tagging.create!(
+                :tag_id => Tag.where(name: tag.strip.titleize).first_or_create!.id.to_i,
+                :article_id => Article.last.id.to_i
+              )
+              puts "'#{item['title']}' saved"
+            end
           end
         end
       end

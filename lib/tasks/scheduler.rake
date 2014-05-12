@@ -1,3 +1,32 @@
+def clean_old_stories
+  puts "Cleaning garbage and old stories"
+  @articles = Article.all
+  @articles.each do |article|
+    if article.category.nil? || article.published_at.nil?
+        article.destroy
+    end
+    if article.published_at.nil?
+      article.destroy
+    else
+      if article.category != "cm" && article.published_at < 7.days.ago
+        article.destroy
+      end
+    end
+  end
+  puts "Done cleansing."
+  puts "\n\n"
+end
+
+def download_and_save(source, category = 'uncategorized', tag = '')
+source.each do |feed|
+    puts feed
+    Article.update_from_feed(feed, category, tag)
+    puts "\n"
+  end
+  puts "\n\n"
+end
+
+
 desc "This task is called by the Heroku scheduler add-on"
 
   desc "This is for cleaning the article DB"
@@ -26,24 +55,8 @@ desc "This task is called by the Heroku scheduler add-on"
   end
 
   task :update_feed => :environment do
-    def clean_old_stories
-      puts "Cleaning garbage and old stories"
-      @articles = Article.all
-      @articles.each do |article|
-        if article.category.nil? || article.published_at.nil?
-            article.destroy
-        end
-        if article.published_at.nil?
-          article.destroy
-        else
-          if article.category != "cm" && article.published_at < 7.days.ago
-            article.destroy
-          end
-        end
-      end
-      puts "Done cleaning garbage and old stories"
-      puts "\n\n"
-    end
+
+    # VARIABLES
 
     top_feeds = [
       'http://www.economist.com/feeds/print-sections/69/leaders.xml',
@@ -62,7 +75,7 @@ desc "This task is called by the Heroku scheduler add-on"
       'http://feeds.businesswire.com/BW/Hedge_Fund_News-rss',
       'http://feeds.businesswire.com/BW/IPO_News-rss',
       'http://feeds.businesswire.com/BW/Investment_Opinion_News-rss',
-      # 'http://www.prnewswire.com/rss/news-for-investors-from-PR-Newswire-news.rss',
+      'http://www.prnewswire.com/rss/news-for-investors-from-PR-Newswire-news.rss',
       'http://www.prnewswire.com/rss/auto-transportation/automotive-news.rss',
       'http://feeds.feedburner.com/TheAtlantic?format=xml',
       'http://feeds.feedburner.com/TheAtlanticWire?format=xml',
@@ -79,70 +92,23 @@ desc "This task is called by the Heroku scheduler add-on"
       'http://www.economist.com/rss/indicators_rss.xml'
     ]
 
-    clean_old_stories
+    cm_feeds = ['http://capitalmusings.com/feed']
 
-    puts "Updating feeds for top stories"
-    top_feeds.each do |feed|
-      puts feed
-      Article.update_from_feed(feed, 'top')
-      puts "\n"
-    end
-    puts "\n\n"
-
-    puts "Updating feeds from wires"
-    wire_feeds.each do |feed|
-      puts feed
-      Article.update_from_feed(feed, 'wire')
-      puts "\n"
-    end
-    puts "\n\n"
-
-    cm_feeds = [
-      'http://capitalmusings.com/feed'
-    ]
-
-    puts "Updating feeds from Capital Musings"
-    # @cm_articles = Article.where("category = ?", "cm")
-    # @cm_articles.each { |article| article.destroy }
-    cm_feeds.each do |feed|
-      puts feed
-      Article.update_from_feed(feed, 'cm')
-      puts "\n"
-    end
-    puts "\n\n"
-
-    # TOP NEWS
-    # Foreign Policy Tag Test
-    puts "Top FP"
     top_foreign_policy = [
       'http://www.kforcegov.com/NightWatch/rss.ashx',
       'http://www.foreignpolicy.com/node/feed',
       'http://www.economist.com/rss/international_rss.xml', 
       'http://www.foreignaffairs.com/rss.xml'
     ]
-    top_foreign_policy.each do |feed|
-      puts feed
-      Article.update_from_feed(feed, 'top', 'Politics')
-      puts "\n"
-    end
 
-    # Tech
-    puts "Top Tech"
     top_tech = [
       'http://bhorowitz.com/blog.rss',
       'http://www.economist.com/rss/science_and_technology_rss.xml',
       'http://edge.org/feed',
-      'http://feeds.wired.com/wiredinsights'
-      # 'http://feeds.nature.com/nature/rss/current'
+      'http://feeds.wired.com/wiredinsights',
+      'http://feeds.nature.com/nature/rss/current'
     ]
-    top_tech.each do |feed|
-      puts feed
-      Article.update_from_feed(feed, 'top', 'Technology')
-      puts "\n"
-    end
 
-    # Business
-    puts "Top Business"
     top_business = [
       'http://www.economist.com/rss/finance_and_economics_rss.xml',
       'http://www.ft.com/rss/lex',
@@ -150,24 +116,28 @@ desc "This task is called by the Heroku scheduler add-on"
       'http://www.mckinsey.com/Insights/rss.aspx',
       'http://www.businessweek.com/feeds/homepage.rss'
     ]
-    top_business.each do |feed|
-      puts feed
-      Article.update_from_feed(feed, 'top', 'Business')
-      puts "\n"
-    end
-    puts "Done."
-    puts "\n"
-    
-    clean_old_stories
-end
 
-desc "Mail article briefing"
-  task :mail_news => :environment do
-    @users = User.where("subscribed_to_daily_briefing = ?", true)
-    @users.each do |user|
-      puts user.email
-      UserMailer.mail_news(user).deliver
-    end
+    # Commands Begin Here
+    # Clean first in case feed has been throwing errors
+    clean_old_stories
+
+    puts "Updating feeds for top stories"
+    download_and_save top_feeds, 'top'
+    puts "Updating feeds from wires"
+    download_and_save wire_feeds, 'wire'
+    puts "Updating feeds from Capital Musings"
+    download_and_save cm_feeds, 'cm'
+    puts "Top Foreign Policy"
+    download_and_save top_foreign_policy, 'top', 'Politics'
+    puts "Top Tech"
+    download_and_save top_tech, 'top', 'Technology'
+    puts "Top Business"
+    download_and_save top_business, 'top', 'Business'
+    puts "Done updating."
+    puts "\n"
+
+    # Final clean check
+    clean_old_stories
 end
 
 desc "Wipe CM stories"
@@ -179,15 +149,15 @@ end
 
 desc "Update CM while deleting older articles"
   task :update_cm => :environment do
-    # puts "Deleting old stories"
-    # @cm_articles = Article.where("category = ?", "cm")
-    # @cm_articles.each { |article| article.destroy }
     puts "Updating feeds from Capital Musings"
-    cm_feeds = ['http://capitalmusings.com/feed']
-    cm_feeds.each do |feed|
-      puts feed
-      Article.update_from_feed(feed, 'cm')
-    end
-    puts "\n\n"
+    download_and_save cm_feeds, 'cm'
 end
 
+desc "Mail article briefing"
+  task :mail_news => :environment do
+    @users = User.where("subscribed_to_daily_briefing = ?", true)
+    @users.each do |user|
+      puts user.email
+      UserMailer.mail_news(user).deliver
+    end
+end
