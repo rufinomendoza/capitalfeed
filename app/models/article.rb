@@ -40,7 +40,9 @@ class Article < ActiveRecord::Base
     elsif doc.present? && doc.class == Hash
     # One article
       doc = [doc]
-    elsif doc.present?
+    end
+    
+    if doc.present?
     # Multple articles
       doc.each do |item|
         unless exists? :guid => item['guid']
