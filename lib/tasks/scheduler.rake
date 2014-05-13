@@ -30,7 +30,7 @@ end
 desc "This task is called by the Heroku scheduler add-on"
 
   desc "This is for cleaning the article DB"
-    task :clean_database => :environment do
+    task :clean_article_database => :environment do
       puts "Completely cleaning database"
       @articles = Article.all
       @articles.each { |article| article.destroy }
