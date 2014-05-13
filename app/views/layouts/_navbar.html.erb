@@ -1,4 +1,4 @@
-<div class="navbar navbar-fixed-top navbar-inverse sticky">
+<div class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
       <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-inverse-collapse.headbar">
@@ -29,34 +29,31 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sites <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li>    
-                <%= link_to 'Experimental', root_path %>
-              </li>
+              <li><%= link_to 'Experimental', root_path %></li>
               <li><%= link_to 'Main Site', 'http://capitalmusings.com' %></li>
             </ul>
           </li>
-
-          <!-- Login and Logout -->
-            <% if admin_signed_in? %>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
-                <ul class="dropdown-menu"> 
-                  <li><%= link_to "Article Index", articles_path %></li>
-                  <li><%= link_to "User Panel", admins_path %></li>
-                  <li class="divider"></li>
-                  <li><%= link_to "Logout", destroy_admin_session_path, method: :delete %></li>
+        <!-- Login and Logout -->
+          <% if admin_signed_in? %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
+              <ul class="dropdown-menu"> 
+                <li><%= link_to "Article Index", articles_path %></li>
+                <li><%= link_to "User Panel", admins_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Logout", destroy_admin_session_path, method: :delete %></li>
               </ul>
+            </li>
+          <% else %>
+            <% if user_signed_in? %>
+              <li><%= link_to "Profile", edit_user_registration_path %></li>
+              <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
             <% else %>
-              <% if user_signed_in? %>
-                <li><%= link_to "Profile", edit_user_registration_path %></li>
-                <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-              <% else %>
-                <li><%= link_to "Login", new_user_session_path %></li>
-              <% end %>
-            <% end %><!-- /Login and Logout -->
-
+              <li><%= link_to "Login", new_user_session_path %></li>
+            <% end %>
+          <% end %><!-- /Login and Logout -->
         </ul>
       </div><!-- /.nav-collapse -->
     </div>
   </div><!-- /navbar-inner -->
-</div><!-- /navbar -->
+</div>
