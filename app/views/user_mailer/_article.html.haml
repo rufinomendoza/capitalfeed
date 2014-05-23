@@ -1,0 +1,7 @@
+%p
+  %strong
+    = (sanitize article.name).html_safe if sanitize article.name
+  %br
+  = (sanitize article.summary).html_safe if sanitize article.summary
+  = surround '(', ')' do
+    = link_to Article.simplify_url(article.url), article.url, target: "_blank"

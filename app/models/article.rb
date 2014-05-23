@@ -57,7 +57,7 @@ class Article < ActiveRecord::Base
     def self.simplify_url(link)
       link = link.delete("|")
       link = URI.parse(link).host
-      link = link.sub(/www./, '').sub(/feedproxy./, '').sub(/feeds./, '') || ""
+      link = link.sub(/www./, '').sub(/feedproxy./, '').sub(/feeds./, '').sub(/complex./, '').sub(/blog./, '').sub(/thecable./, '').sub(/southasia./, '') || ""
     end
 
     def self.simplify_date(date)
