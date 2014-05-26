@@ -149,6 +149,9 @@ end
 
 desc "Update CM while deleting older articles"
   task :update_cm => :environment do
+    puts "Deleting old CM stories"
+    @cm_articles = Article.where("category = ?", "cm")
+    @cm_articles.each { |article| article.destroy }
     cm_feeds = ['http://capitalmusings.com/feed']
     puts "Updating feeds from Capital Musings"
     download_and_save cm_feeds, 'cm'
