@@ -77,13 +77,14 @@
       line-height: 2.063em;
       font-family: $caslon;
     }
-    h1, h2, h3, h4, h5, h6, th, .date {line-height: 2.063em;}
+    h1, h2, h3, h4, h5, h6, th, li, .date {line-height: 2.063em;}
     h1 {font-size:2.6em;}
     h2 {font-size:1.95em;}
     h3 {font-size:1.521em;}
     h4 {font-size:1.3em;}
     h5 {font-size:1.079em;}
-    h6 {font-size:0.975em;}
+    h6, blockquote p, .wp-caption-text {font-size:0.975em;}
+    blockquote h6, blockquote p { line-height: 1.521em; }
     .sponsor {font-size:0.65em;}
     li {line-height:2.063em;}
     hr { margin-top: 2.063em; margin-bottom: 2.063em;  }
@@ -106,13 +107,59 @@
     h3 {font-size:1.35em;}
     h4 {font-size:1.3em;}
     h5 {font-size:1.079em;}
-    h6 {font-size:0.975em;}
+    h6, blockquote p, .wp-caption-text {font-size:0.975em;}
+    blockquote h6, blockquote p { line-height: 1.35em; }
     .sponsor {font-size:0.5em;}
-    li {line-height:1.375em;}
     hr { margin-top: 1.375em; margin-bottom: 1.375em; }
     .indented p { text-indent: 1em; }
     .indented { text-indent: 1em; margin-bottom: 0 0 1.375em; }
   }
+
+/* ------------------------------------------------------------------------- */
+/*  Block Quotes and Asides
+/* ------------------------------------------------------------------------- */
+blockquote:before, 
+blockquote:after { content:""; }
+
+blockquote {
+  border: 0;
+  padding: 1em;
+  background: #EEE;
+  font-family: $futura;
+  font-weight: $book;
+}
+
+@media (min-device-width: 768px) {
+  .aside blockquote {
+    width: 40%;
+    margin: 1em;
+    float: right;
+  }
+}
+
+blockquote p {
+  color: #666;
+}
+
+/* ------------------------------------------------------------------------- */
+/*  Wordpress Style Imports
+/* ------------------------------------------------------------------------- */
+.wp-caption-text {
+  line-height: 170%;
+  padding-top: 0.5em;
+  margin-bottom: 1.1em;
+  color: #888;
+  text-align: center;
+  font-family: $futura;
+  font-weight: $book;
+}
+
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
 
 
 /* ------------------------------------------------------------------------- */
