@@ -242,12 +242,12 @@ blockquote p {
   @media only screen and (min-device-width: 768px) {
     .section-inner { width: 1040px; }
     .blog-title, .blog-title a { font-size: 1.75em; }
-    .blog-info { padding: 1.3em; }
+    .blog-info, .splash-info { padding: 1.3em; }
   }
 
   @media only screen and (max-device-width: 767px) {
     .blog-title, .blog-title a{ font-size: 1.5em; }
-    .blog-info { padding: 1.125em; }
+    .blog-info, .splash-info { padding: 1.125em; }
     }
 
   .header.section{background-image:url('skyline.jpg');}
@@ -291,7 +291,16 @@ blockquote p {
 
   .blog-info {
     display: inline-block;
-    background: black;
+    background: $musingsDarkGrey;
+  }
+
+  .splash-info {
+    display: inline-block;
+    background: $musingsDarkGrey;
+  }
+
+  .splash-info .btn, .splash-info .btn:hover {
+    background: transparent;
   }
 
   .blog-title { 
@@ -340,7 +349,7 @@ blockquote p {
   .navbar-inverse .navbar-inner {
     padding-top: 0px;
     padding-bottom: 0px;
-    background: black;
+    background: $musingsDarkGrey;
     font-family: $futura;
     font-weight: $book;
   }

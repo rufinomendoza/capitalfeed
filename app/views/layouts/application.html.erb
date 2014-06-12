@@ -6,18 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <style><%= yield :stylesheets %></style>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <%= tag :meta, name: "viewport", content: "width=device-width, initial-scale=1.0" %>
 </head>
 <body>
-  <%= render "layouts/header" %>
-  <div class="container wrapper">
-    <% flash.each do |name, msg| %>
-      <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
-    <% end %>
-    <%= yield %>
-  </div>
+  <div id="dry_header"><%= render "layouts/header" %></div>
+    <div class="container wrapper">
+      <% flash.each do |name, msg| %>
+        <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
+      <% end %>
+    </div>
+    <%= content_for?(:content) ? yield(:content) : yield %>
   <%= render "layouts/analytics" %>
   <% if mobile_device? %>
     <script type="text/javascript" src="//use.typekit.net/ncx1utp.js"></script>

@@ -17,6 +17,7 @@ group :production do
   gem 'pg'
 end
 
+gem 'backstretch-rails'
 gem 'crack'
 gem 'simple-rss'
 gem 'whenever', require: false

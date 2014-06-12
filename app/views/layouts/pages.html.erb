@@ -1,0 +1,8 @@
+<% content_for :stylesheets do %>
+  #dry_header {display: none}
+<% end %>
+
+<% content_for :content do %>
+  <%= content_for?(:pages_content) ? yield(:pages_content) : yield %>
+<% end %>
+<%= render template: "layouts/application" %>

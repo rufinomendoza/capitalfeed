@@ -1,0 +1,6 @@
+<% content_for :content do %>
+  <div class="container wrapper">
+    <%= content_for?(:articles_content) ? yield(:articles_content) : yield %>
+  </div>
+<% end %>
+<%= render template: "layouts/application" %>
