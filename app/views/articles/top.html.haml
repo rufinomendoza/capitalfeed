@@ -1,6 +1,6 @@
+= render "layouts/ad"
 %center 
   %h1 Top News
-= render "layouts/ad"
 - unless @articles.blank?
   #top_news
     = render partial: "top_partial", collection: @articles

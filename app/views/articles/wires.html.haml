@@ -1,6 +1,6 @@
+= render "layouts/ad"
 %center
   %h1 Press Wires
-= render "layouts/ad"
 -unless @articles.blank?
   #wires
     = render partial: "wire", collection: @articles
