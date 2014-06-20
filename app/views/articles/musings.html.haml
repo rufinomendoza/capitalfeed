@@ -1,7 +1,9 @@
+= render "layouts/ad"
+= will_paginate @articles, class: "musings-pagination"
 -unless @articles.blank?
   #articles
     = render partial: "musing", collection: @articles
-  = will_paginate @articles
+  = will_paginate @articles, class: "musings-pagination"
 - else
   %center
     %p
