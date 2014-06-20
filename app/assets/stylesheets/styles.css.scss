@@ -250,7 +250,7 @@ blockquote p {
     .blog-info, .splash-info { padding: 1.125em; }
     }
 
-  .header.section{background-image:url('skyline.jpg');}
+  .header.section{background-image:url('capitol-cropped.jpg');}
   .section { position: relative; }
   .section{ padding: 10% 0;}
   .section.no-padding { padding: 0; }
@@ -339,6 +339,14 @@ blockquote p {
     color: rgba(255,255,255,0.9);
     font-weight: $book;
     font-size: 1em;
+  }
+
+  .blog-description a {
+    color: white;
+  }
+
+  .blog-description a:hover {
+    color: $musingsGold;
   }
   
 
