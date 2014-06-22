@@ -556,13 +556,13 @@ blockquote p {
 /*  Wires
 /* ------------------------------------------------------------------------- */
   #wires p {
-  font-family: monospace, serif;
   text-align: left;
   @media (min-device-width: 768px) {
     line-height: 1.3em;
     white-space: nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
+    font-family: monospace, serif;
     }
   @media (max-device-width: 767px) {
     line-height: 1.125em;
