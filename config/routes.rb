@@ -17,6 +17,7 @@ Capitalfeed::Application.routes.draw do
   get 'splash' => 'pages#splash'
   root :to => 'pages#splash'
   get 'about' => 'pages#about'
+  get 'subscribe' => 'pages#subscribe'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

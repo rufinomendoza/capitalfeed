@@ -4,17 +4,15 @@
     <h1 class="blog-title">
       <%= link_to "CM Wire", musings_path %>
     </h1>
-    <h3 class="blog-description">Politics, Business, and Innovation<br>
-     A Capital Musings Prototype</h3>
+    <h3 class="blog-description">A Capital Musings Prototype</h3>
+    <%= link_to "Enter", musings_path, class: "btn small" %>    
     <h3 class="blog-description">Interested in alpha testing our daily briefing?</h3>
     <%= link_to "Sign up", new_user_registration_path, class: "btn" %>
-    <h3 class="blog-description">Proceed to the prototype site</h3>
-    <%= link_to "Enter", musings_path, class: "btn small" %>
+    <h3 class="blog-description">Return to the old site</h3>
+    <%= link_to "Archive", "http://www.capitalmusings.com", class: "btn small" %></h3>
   </div>
 </div>
-
 </center>
-
 
 <!--include jquery & backstretch-->
 <script type="text/javascript">

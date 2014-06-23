@@ -7,7 +7,7 @@ $(window).scroll(function(e){
     var thisdist = $(this).scrollTop();
     var headerheight = $(".header").outerHeight();
     $('.blog-info').css({
-      'opacity' : (1 - thisdist/headerheight)
+      'opacity' : (1)
     }); 
   } else {
     $('.header').css({'bottom' : 'auto'});  
