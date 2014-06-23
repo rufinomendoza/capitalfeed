@@ -21,6 +21,7 @@
       <% end %>
     </div>
     <%= content_for?(:content) ? yield(:content) : yield %>
+  <%= render "layouts/about" %>  
   <%= render "layouts/analytics" %>
   <% if mobile_device? %>
     <script type="text/javascript" src="//use.typekit.net/ncx1utp.js"></script>
