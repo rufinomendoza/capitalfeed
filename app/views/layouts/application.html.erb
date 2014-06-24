@@ -2,16 +2,14 @@
 <html>
 <head>
   <title>Capital Musings</title>
-
+  <%= render "layouts/fonts" %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <style><%= yield :stylesheets %></style>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <%= tag :meta, name: "viewport", content: "width=device-width, initial-scale=1.0" %>
-  <%= favicon_link_tag "favicon.png" %>
-  <link rel="image_src" href="/assets/image.png">
+  <%= render "layouts/icons" %>
 </head>
 <body>
   <div id="dry_header"><%= render "layouts/header" %></div>
@@ -23,12 +21,5 @@
     <%= content_for?(:content) ? yield(:content) : yield %>
   <%= render "layouts/about" %>  
   <%= render "layouts/analytics" %>
-  <% if mobile_device? %>
-    <script type="text/javascript" src="//use.typekit.net/ncx1utp.js"></script>
-    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-  <% else %>
-    <script type="text/javascript" src="//use.typekit.net/ymn4gmp.js"></script>
-    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-  <% end %>
 </body>
 </html>
