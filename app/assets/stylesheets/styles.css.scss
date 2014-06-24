@@ -254,7 +254,7 @@ blockquote p {
   .section { position: relative; }
   .section{ padding: 10% 0;}
   .section.no-padding { padding: 0; }
-  .section.bg { background: #ccc; }
+  .section.bg { background: $musingsLightGrey; }
 
   .section-inner {
     max-width: 86%;
