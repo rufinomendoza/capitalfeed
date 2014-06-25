@@ -4,10 +4,4 @@ class PagesController < ApplicationController
       redirect_to musings_url
     end
   end
-
-  def about
-  end
-
-  def subscribe
-  end
 end

@@ -1,0 +1,17 @@
+%h1 Subscribe
+%h4 Monthly Musings
+%p{class: "futura-book"} For our established product—the monthly briefing—you can sign up below:
+= render "pages/mailchimp"
+%p{class: "futura-book"}
+  Note: You can also update your profile by entering your address in the box above and clicking “subscribe”. If your address is in our database, you will see a link that allows you to manage your subscription. If not, you will subscribed to the monthly briefing.
+%br
+%br
+
+%h4 Want the bleeding edge?
+%p{class: "futura-book"}
+  If you want to participate in the testing of new products, please sign up below. The first product we are developing is a copy of the same daily news briefing we use ourselves.
+= render "form_for_new"
+%p{class: "futura-book"}
+  = succeed "." do
+    Already a member? Manage your subscription
+    = link_to "here", edit_user_registration_path

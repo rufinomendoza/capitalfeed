@@ -473,7 +473,8 @@ blockquote p {
   input[type="search"],
   input[type="tel"],
   input[type="color"],
-  .uneditable-input {
+  .uneditable-input,
+   {
     display: inline-block;
     height: auto;
     padding: 4px 6px;
