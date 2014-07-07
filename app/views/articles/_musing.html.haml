@@ -1,17 +1,21 @@
-%h2= (sanitize musing.name).html_safe if sanitize musing.name
-.date
-  %p
-    Originally published at
-    = link_to Article.simplify_url(musing.url), musing.url, target: "_blank"
-    on
-    = Article.simplify_date(musing.published_at)
-%p= musing.content.html_safe if musing.content
-- if admin_signed_in?
-  /Only show as admin
-  %h6 Categories
-  %p= musing.category
-  %h6 Tags
-  %p= raw musing.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ')
-  %p= link_to "Edit", edit_article_path(musing), class: 'btn btn-small'
-  /Only show as admin
-%br/
+%br
+.musings
+  .row
+    .span1
+      %h5.light-grey.futura-book.pull-right
+        = Article.short_date(musing.published_at)
+    .span11
+      %h5.dark-grey= (sanitize musing.name).html_safe if sanitize musing.name
+      %p= musing.summary.html_safe if musing.summary
+      -if musing.content.blank?
+        .read-more.pull-right= link_to "Read more »", musing.url, :target => '_blank'
+      -else
+        .read-more.pull-right= link_to "Read more »", musing
+      - if admin_signed_in?
+        /Only show as admin
+        %h6 Categories
+        %p= musing.category
+        %h6 Tags
+        %p= raw musing.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ')
+        %p= link_to "Edit", edit_article_path(musing), class: 'btn btn-small'
+        /Only show as admin

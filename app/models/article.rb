@@ -42,6 +42,20 @@ class Article < ActiveRecord::Base
     end
   end
 
+  def next
+    self.class.find(
+      :first, 
+      :conditions => ["category = ? AND published_at > ?", "cm", self.published_at],
+      :order => 'published_at')
+  end
+
+  def prev
+    self.class.find(
+      :first, 
+      :conditions => ["category = ? AND published_at < ?", "cm", self.published_at],
+      :order => 'published_at desc')
+  end
+
   private
 
     def self.retrieve(feed_url)
@@ -63,6 +77,10 @@ class Article < ActiveRecord::Base
     def self.simplify_date(date)
       date.localtime.strftime("%A, %-d %B %Y, %-I:%M:%S %P %Z") 
     end
+
+    def self.short_date(date)
+      date.localtime.strftime("%-m/%-d/%y") 
+    end      
 
     def self.process(doc, category, tag)
       doc.each do |item|

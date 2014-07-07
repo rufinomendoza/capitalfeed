@@ -183,7 +183,6 @@ blockquote p {
     text-transform: uppercase;
   }
 
-
   .sponsor {
     font-family: $futura;
     font-weight: $book;
@@ -579,4 +578,12 @@ blockquote p {
 /* ------------------------------------------------------------------------- */
   #about_modal {
     font-family: $futura;
+  }
+
+  .light-grey {
+    color: $musingsLightGrey;
+  }
+
+  .dark-grey {
+    color: $musingsDarkGrey;
   }

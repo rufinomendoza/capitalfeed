@@ -8,9 +8,9 @@ before_filter :authenticate_admin!, only: :edit
     @articles = @articles.where("published_at <= :time_now", {time_now: Time.now}) # Remove invalid published_at dates
     @articles = @articles.order("published_at desc").page(params[:page])
     if mobile_device?
-      @articles = @articles.per_page(1) # For will_paginate
+      @articles = @articles.per_page(5) # For will_paginate
     else
-      @articles = @articles.per_page(1)
+      @articles = @articles.per_page(5)
     end
 
     respond_to do |format|
@@ -127,7 +127,5 @@ before_filter :authenticate_admin!, only: :edit
   def show
     @article = Article.find(params[:id])
   end
-
-
 
 end

@@ -56,6 +56,8 @@ GEM
       multi_json (~> 1.0)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
+    hallo_rails (0.3.0)
+      rails (>= 3.1.0)
     haml (4.0.5)
       tilt
     hashie (2.0.5)
@@ -162,6 +164,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   crack
   devise
+  hallo_rails
   haml
   jquery-rails
   omniauth-google-oauth2

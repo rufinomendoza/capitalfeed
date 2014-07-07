@@ -1,3 +1,11 @@
+%br
+- render 'secondary_navbar'
+%p
+  = link_to '« Prev', article_url(@article.prev), class: 'read-more' if @article.prev
+  = link_to 'Next » ', article_url(@article.next), class: 'read-more pull-right' if @article.next
+
+= render 'layouts/ad'
+
 %h1= @article.name
 .date
   %p
@@ -17,3 +25,5 @@
   %p
     = link_to "Edit", edit_article_path(@article), class: 'btn btn-small'
     = link_to 'Back', :back, class: "btn btn-small"
+
+= render 'layouts/ad'
